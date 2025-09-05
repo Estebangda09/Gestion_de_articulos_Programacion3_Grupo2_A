@@ -239,7 +239,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Texta Black", 14.75F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(488, 79);
+            this.label8.Location = new System.Drawing.Point(536, 79);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(185, 28);
             this.label8.TabIndex = 13;
@@ -313,6 +313,7 @@
             this.MaximumSize = new System.Drawing.Size(961, 623);
             this.MinimumSize = new System.Drawing.Size(807, 585);
             this.Name = "frmArticulo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Articulo";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVistaPrevia)).EndInit();
             this.ResumeLayout(false);

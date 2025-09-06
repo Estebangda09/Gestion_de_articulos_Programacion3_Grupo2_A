@@ -8,11 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dominio; 
+using negocio;
 
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
+        private List<Articulo> listaArticulos;
         public Form1()
         {
             InitializeComponent();
@@ -22,10 +25,20 @@ namespace WindowsFormsApp1
         private void Form1_Load(object sender, EventArgs e)
         {
            
-            ArchivoDatos dato = new ArchivoDatos();
-            dgvArchivos.DataSource = dato.listar();
-        }
-        
+            ArchivoNegocio dato = new ArchivoNegocio();
+            listaArticulos = dato.Listar();
+            dgvArchivos.DataSource = listaArticulos;
+           
+            dgvArchivos.Columns["ImagenUrl"].Visible = false;
+            //cargarImagen(dgvArchivos.CurrentRow.Cells["ImagenUrl"].Value.ToString());
+            //pbxArticulo.Load(listaArticulos[0].ImagenUrl);
 
+
+        }
+
+        private void pbxArticulo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

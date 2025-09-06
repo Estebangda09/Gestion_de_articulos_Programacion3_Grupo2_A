@@ -4,13 +4,14 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using dominio;
 
-namespace WindowsFormsApp1
+namespace negocio
+
 {
-    public class ArchivoDatos
+    public class ArchivoNegocio
     {
-        public List<Articulo> listar()
+        public List<Articulo> Listar()
         {
 
             List<Articulo> lista = new List<Articulo>();
@@ -21,8 +22,10 @@ namespace WindowsFormsApp1
             try
             {
                 conexion.ConnectionString = "Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;";
+                //
+                //
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "select Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio FROM ARTICULOS";
+                comando.CommandText = "select Codigo, Nombre, Descripcion, Precio, ImagenUrl FROM ARTICULOS A, IMAGENES I WHERE A.Id = I.IdArticulo";
                 comando.Connection = conexion;
                 conexion.Open();
 
@@ -34,9 +37,10 @@ namespace WindowsFormsApp1
                     aux.Codigo = (string)lector["Codigo"];
                     aux.Nombre = (string)lector["Nombre"];
                     aux.Descricpcion = (string)lector["Descripcion"];
-                    //aux.IdMarca = (int)lector["IdMarca"];
-                    //aux.IdCategoria = (int)lector["IdCategoria"];
                     aux.Precio = (decimal)lector["Precio"];
+                    aux.ImagenUrl = new Imagen();
+                    aux.ImagenUrl.ImagenUrl = (string)lector["ImagenUrl"];
+                    
 
 
                     lista.Add(aux);

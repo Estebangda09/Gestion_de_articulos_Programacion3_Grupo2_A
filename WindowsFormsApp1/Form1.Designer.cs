@@ -33,6 +33,7 @@ namespace WindowsFormsApp1
         {
             this.dgvArchivos = new System.Windows.Forms.DataGridView();
             this.pbxArticulo = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArchivos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +47,6 @@ namespace WindowsFormsApp1
             this.dgvArchivos.Name = "dgvArchivos";
             this.dgvArchivos.Size = new System.Drawing.Size(516, 288);
             this.dgvArchivos.TabIndex = 0;
-            //this.dgvArchivos.SelectionChanged += new System.EventHandler(this.dgvArchivos_SelectionChanged);
             // 
             // pbxArticulo
             // 
@@ -59,12 +59,23 @@ namespace WindowsFormsApp1
             this.pbxArticulo.TabStop = false;
             this.pbxArticulo.Click += new System.EventHandler(this.pbxArticulo_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(133, 386);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Atras";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(864, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pbxArticulo);
             this.Controls.Add(this.dgvArchivos);
             this.Name = "Form1";
@@ -82,6 +93,7 @@ namespace WindowsFormsApp1
 
         private System.Windows.Forms.DataGridView dgvArchivos;
         private PictureBox pbxArticulo;
+        private Button button1;
     }
 }
 

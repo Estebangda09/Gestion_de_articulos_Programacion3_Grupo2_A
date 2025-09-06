@@ -24,12 +24,13 @@ namespace WindowsFormsApp1
         
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+            
+            
             ArchivoNegocio dato = new ArchivoNegocio();
             listaArticulos = dato.Listar();
             dgvArchivos.DataSource = listaArticulos;
            
-            dgvArchivos.Columns["ImagenUrl"].Visible = false;
+           /// dgvArchivos.Columns["ImagenUrl"].Visible = false;
             //cargarImagen(dgvArchivos.CurrentRow.Cells["ImagenUrl"].Value.ToString());
             //pbxArticulo.Load(listaArticulos[0].ImagenUrl);
 
@@ -39,6 +40,13 @@ namespace WindowsFormsApp1
         private void pbxArticulo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmMenu frmMenu = new FrmMenu();
+            this.Close();
+            frmMenu.ShowDialog();
         }
     }
 }

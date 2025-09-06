@@ -82,7 +82,9 @@ namespace WindowsFormsApp1
 
         private void buttonCancelarArticulo_Click(object sender, EventArgs e)
         {
-
+            FrmMenu frmMenu = new FrmMenu();
+            this.Close();
+            frmMenu.ShowDialog();
         }
 
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)

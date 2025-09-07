@@ -72,7 +72,7 @@
             this.label2.Size = new System.Drawing.Size(94, 25);
             this.label2.TabIndex = 15;
             this.label2.Text = "Nombre:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+         
             // 
             // label3
             // 
@@ -120,9 +120,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textCodigo.Location = new System.Drawing.Point(162, 87);
             this.textCodigo.Name = "textCodigo";
-            this.textCodigo.Size = new System.Drawing.Size(269, 20);
+            this.textCodigo.Size = new System.Drawing.Size(324, 20);
             this.textCodigo.TabIndex = 1;
-            this.textCodigo.TextChanged += new System.EventHandler(this.textCodigo_TextChanged);
+         
             // 
             // textNombre
             // 
@@ -130,9 +130,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textNombre.Location = new System.Drawing.Point(162, 139);
             this.textNombre.Name = "textNombre";
-            this.textNombre.Size = new System.Drawing.Size(269, 20);
+            this.textNombre.Size = new System.Drawing.Size(324, 20);
             this.textNombre.TabIndex = 2;
-            this.textNombre.TextChanged += new System.EventHandler(this.textNombre_TextChanged);
+           
             // 
             // textDescripcion
             // 
@@ -141,9 +141,9 @@
             this.textDescripcion.Location = new System.Drawing.Point(162, 191);
             this.textDescripcion.Multiline = true;
             this.textDescripcion.Name = "textDescripcion";
-            this.textDescripcion.Size = new System.Drawing.Size(269, 20);
+            this.textDescripcion.Size = new System.Drawing.Size(324, 20);
             this.textDescripcion.TabIndex = 3;
-            this.textDescripcion.TextChanged += new System.EventHandler(this.textDescripcion_TextChanged);
+      
             // 
             // textPrecio
             // 
@@ -151,10 +151,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textPrecio.Location = new System.Drawing.Point(162, 344);
             this.textPrecio.Name = "textPrecio";
-            this.textPrecio.Size = new System.Drawing.Size(271, 20);
+            this.textPrecio.Size = new System.Drawing.Size(326, 20);
             this.textPrecio.TabIndex = 6;
-            this.textPrecio.TextChanged += new System.EventHandler(this.textPrecio_TextChanged);
-            this.textPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
+         
+
             // 
             // comboMarca
             // 
@@ -164,9 +164,9 @@
             this.comboMarca.FormattingEnabled = true;
             this.comboMarca.Location = new System.Drawing.Point(162, 242);
             this.comboMarca.Name = "comboMarca";
-            this.comboMarca.Size = new System.Drawing.Size(269, 21);
+            this.comboMarca.Size = new System.Drawing.Size(324, 21);
             this.comboMarca.TabIndex = 4;
-            this.comboMarca.SelectedIndexChanged += new System.EventHandler(this.comboMarca_SelectedIndexChanged);
+         
             // 
             // comboCategoria
             // 
@@ -175,9 +175,9 @@
             this.comboCategoria.FormattingEnabled = true;
             this.comboCategoria.Location = new System.Drawing.Point(162, 291);
             this.comboCategoria.Name = "comboCategoria";
-            this.comboCategoria.Size = new System.Drawing.Size(269, 21);
+            this.comboCategoria.Size = new System.Drawing.Size(324, 21);
             this.comboCategoria.TabIndex = 5;
-            this.comboCategoria.SelectedIndexChanged += new System.EventHandler(this.comboCategoria_SelectedIndexChanged);
+         
             // 
             // listImagenArticulo
             // 
@@ -187,7 +187,7 @@
             this.listImagenArticulo.FormattingEnabled = true;
             this.listImagenArticulo.Location = new System.Drawing.Point(162, 385);
             this.listImagenArticulo.Name = "listImagenArticulo";
-            this.listImagenArticulo.Size = new System.Drawing.Size(271, 95);
+            this.listImagenArticulo.Size = new System.Drawing.Size(326, 95);
             this.listImagenArticulo.TabIndex = 7;
             this.listImagenArticulo.SelectedIndexChanged += new System.EventHandler(this.listImagenArticulo_SelectedIndexChanged);
             // 
@@ -210,7 +210,7 @@
             this.buttonEliminarIMG.TabIndex = 9;
             this.buttonEliminarIMG.Text = "Eliminar";
             this.buttonEliminarIMG.UseVisualStyleBackColor = true;
-            this.buttonEliminarIMG.Click += new System.EventHandler(this.buttonEliminarIMG_Click);
+       
             // 
             // label7
             // 
@@ -221,47 +221,47 @@
             this.label7.Size = new System.Drawing.Size(83, 25);
             this.label7.TabIndex = 0;
             this.label7.Text = "Imagen";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            
             // 
             // pictureBoxVistaPrevia
             // 
             this.pictureBoxVistaPrevia.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBoxVistaPrevia.Location = new System.Drawing.Point(493, 111);
+            this.pictureBoxVistaPrevia.Location = new System.Drawing.Point(520, 111);
             this.pictureBoxVistaPrevia.Name = "pictureBoxVistaPrevia";
             this.pictureBoxVistaPrevia.Size = new System.Drawing.Size(276, 206);
             this.pictureBoxVistaPrevia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxVistaPrevia.TabIndex = 16;
             this.pictureBoxVistaPrevia.TabStop = false;
-            this.pictureBoxVistaPrevia.Click += new System.EventHandler(this.pictureBoxVistaPrevia_Click);
+           
             // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.75F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(536, 79);
+            this.label8.Location = new System.Drawing.Point(563, 79);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(220, 25);
             this.label8.TabIndex = 13;
             this.label8.Text = "Vista Previa Producto";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            
             // 
             // buttonGuardar
             // 
             this.buttonGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.buttonGuardar.Location = new System.Drawing.Point(489, 456);
+            this.buttonGuardar.Location = new System.Drawing.Point(544, 456);
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.Size = new System.Drawing.Size(110, 53);
             this.buttonGuardar.TabIndex = 10;
             this.buttonGuardar.Text = "Guardar";
             this.buttonGuardar.UseVisualStyleBackColor = false;
-            this.buttonGuardar.Click += new System.EventHandler(this.button1_Click);
+            this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
             // 
             // buttonLimpiar
             // 
             this.buttonLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLimpiar.Location = new System.Drawing.Point(612, 456);
+            this.buttonLimpiar.Location = new System.Drawing.Point(667, 456);
             this.buttonLimpiar.Name = "buttonLimpiar";
             this.buttonLimpiar.Size = new System.Drawing.Size(109, 53);
             this.buttonLimpiar.TabIndex = 11;
@@ -273,7 +273,7 @@
             // 
             this.buttonCancelarArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancelarArticulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.buttonCancelarArticulo.Location = new System.Drawing.Point(737, 456);
+            this.buttonCancelarArticulo.Location = new System.Drawing.Point(792, 456);
             this.buttonCancelarArticulo.Name = "buttonCancelarArticulo";
             this.buttonCancelarArticulo.Size = new System.Drawing.Size(109, 53);
             this.buttonCancelarArticulo.TabIndex = 12;
@@ -287,7 +287,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.GrayText;
-            this.ClientSize = new System.Drawing.Size(870, 584);
+            this.ClientSize = new System.Drawing.Size(925, 584);
             this.Controls.Add(this.buttonCancelarArticulo);
             this.Controls.Add(this.buttonLimpiar);
             this.Controls.Add(this.buttonGuardar);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using dominio;
@@ -59,6 +60,37 @@ namespace negocio
                 throw ex;
             }
 
+
+           
+
+        }
+        public void Agregar (Articulo articulo)
+        {
+
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+
+                datos.SetearConsulta(
+       "INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio) " +
+       "VALUES (" + articulo.Codigo + ", '" + articulo.Nombre + "', '" + articulo.Descricpcion + "', " + articulo.Precio + ")"
+                   );
+
+                datos.EjecutarAccion();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            finally
+            {
+                datos.CerrarConexion();
+
+            }
         }
      }   
     

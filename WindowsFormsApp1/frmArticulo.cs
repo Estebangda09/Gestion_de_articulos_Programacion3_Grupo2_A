@@ -1,4 +1,6 @@
-﻿using System;
+﻿using dominio;
+using negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,15 +19,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void listImagenArticulo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -39,25 +33,7 @@ namespace WindowsFormsApp1
 
         }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textCodigo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboMarca_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+   
 
         private void buttonLimpiar_Click(object sender, EventArgs e)
         {
@@ -87,10 +63,7 @@ namespace WindowsFormsApp1
             frmMenu.ShowDialog();
         }
 
-        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
+        
 
         private void buttonAgregarIMG_Click(object sender, EventArgs e)
         {
@@ -109,34 +82,43 @@ namespace WindowsFormsApp1
 
         }
 
-        private void buttonEliminarIMG_Click(object sender, EventArgs e)
+      
+
+        private void buttonGuardar_Click(object sender, EventArgs e)
         {
+            Articulo articulo = new Articulo();
+            ArchivoNegocio archivoNegocio = new ArchivoNegocio();
 
-        }
 
-        private void textNombre_TextChanged(object sender, EventArgs e)
-        {
+            try
+            {
 
-        }
+               articulo.Codigo= textCodigo.Text;
+                articulo.Nombre = textNombre.Text;
+                articulo.Descricpcion = textDescripcion.Text;
 
-        private void textDescripcion_TextChanged(object sender, EventArgs e)
-        {
+                decimal precio;
+                if (decimal.TryParse(textPrecio.Text, out precio))
+                {
+                    articulo.Precio = precio;  
+                }
+                else
+                {
+                    MessageBox.Show("El precio ingresado no es válido.");
+                }
 
-        }
 
-        private void comboCategoria_SelectedIndexChanged(object sender, EventArgs e)
-        {
+                archivoNegocio.Agregar(articulo);
 
-        }
+                MessageBox.Show("agregado");
+               
 
-        private void textPrecio_TextChanged(object sender, EventArgs e)
-        {
+            }
+            catch (Exception ex)
+            {
 
-        }
-
-        private void pictureBoxVistaPrevia_Click(object sender, EventArgs e)
-        {
-
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

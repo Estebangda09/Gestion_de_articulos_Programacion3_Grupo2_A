@@ -1,5 +1,6 @@
 ﻿using dominio;
 using negocio;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace WindowsFormsApp1
 {
@@ -88,6 +90,7 @@ namespace WindowsFormsApp1
         {
             Articulo articulo = new Articulo();
             ArchivoNegocio archivoNegocio = new ArchivoNegocio();
+            
 
 
             try
@@ -119,6 +122,28 @@ namespace WindowsFormsApp1
 
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void frmArticulo_Load(object sender, EventArgs e)
+        {
+            
+              CategoriaNegocio negocio = new CategoriaNegocio();
+            try
+            {
+                comboCategoria.DataSource = negocio.Categorias();
+                comboCategoria.DisplayMember = "Descripcion"; 
+                comboCategoria.ValueMember = "Id";          
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
+
+
         }
     }
 }

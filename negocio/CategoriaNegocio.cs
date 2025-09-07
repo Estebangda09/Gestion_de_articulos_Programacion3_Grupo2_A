@@ -8,14 +8,14 @@ using dominio;
 
 namespace negocio
 {
-    internal class CategoriaNegocio
-    {
+    public class CategoriaNegocio
+    { 
 
-          
+
         public List<Categoria> Categorias()
         {
 
-            List<Categoria>lista = new List<Categoria>();
+            List<Categoria> lista = new List<Categoria>();
             AccesoDatos accesoDatos = new AccesoDatos();
 
 
@@ -49,9 +49,6 @@ namespace negocio
 
 
             }
-        
-
-            
 
 
 
@@ -60,11 +57,15 @@ namespace negocio
 
 
 
-         
-          
 
 
 
+
+
+
+
+        }
 
     }
 }
+

@@ -8,7 +8,7 @@ using System.Dynamic;
 
 namespace negocio
 {
-    internal class AccesoDatos
+    public class AccesoDatos
     {
 
         private SqlConnection conexion;

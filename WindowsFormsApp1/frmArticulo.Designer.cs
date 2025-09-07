@@ -72,7 +72,6 @@
             this.label2.Size = new System.Drawing.Size(94, 25);
             this.label2.TabIndex = 15;
             this.label2.Text = "Nombre:";
-         
             // 
             // label3
             // 
@@ -122,7 +121,6 @@
             this.textCodigo.Name = "textCodigo";
             this.textCodigo.Size = new System.Drawing.Size(324, 20);
             this.textCodigo.TabIndex = 1;
-         
             // 
             // textNombre
             // 
@@ -132,7 +130,6 @@
             this.textNombre.Name = "textNombre";
             this.textNombre.Size = new System.Drawing.Size(324, 20);
             this.textNombre.TabIndex = 2;
-           
             // 
             // textDescripcion
             // 
@@ -143,7 +140,6 @@
             this.textDescripcion.Name = "textDescripcion";
             this.textDescripcion.Size = new System.Drawing.Size(324, 20);
             this.textDescripcion.TabIndex = 3;
-      
             // 
             // textPrecio
             // 
@@ -153,8 +149,6 @@
             this.textPrecio.Name = "textPrecio";
             this.textPrecio.Size = new System.Drawing.Size(326, 20);
             this.textPrecio.TabIndex = 6;
-         
-
             // 
             // comboMarca
             // 
@@ -166,18 +160,17 @@
             this.comboMarca.Name = "comboMarca";
             this.comboMarca.Size = new System.Drawing.Size(324, 21);
             this.comboMarca.TabIndex = 4;
-         
             // 
             // comboCategoria
             // 
             this.comboCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboCategoria.FormattingEnabled = true;
             this.comboCategoria.Location = new System.Drawing.Point(162, 291);
             this.comboCategoria.Name = "comboCategoria";
             this.comboCategoria.Size = new System.Drawing.Size(324, 21);
             this.comboCategoria.TabIndex = 5;
-         
             // 
             // listImagenArticulo
             // 
@@ -210,7 +203,6 @@
             this.buttonEliminarIMG.TabIndex = 9;
             this.buttonEliminarIMG.Text = "Eliminar";
             this.buttonEliminarIMG.UseVisualStyleBackColor = true;
-       
             // 
             // label7
             // 
@@ -221,7 +213,6 @@
             this.label7.Size = new System.Drawing.Size(83, 25);
             this.label7.TabIndex = 0;
             this.label7.Text = "Imagen";
-            
             // 
             // pictureBoxVistaPrevia
             // 
@@ -232,7 +223,6 @@
             this.pictureBoxVistaPrevia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxVistaPrevia.TabIndex = 16;
             this.pictureBoxVistaPrevia.TabStop = false;
-           
             // 
             // label8
             // 
@@ -244,7 +234,6 @@
             this.label8.Size = new System.Drawing.Size(220, 25);
             this.label8.TabIndex = 13;
             this.label8.Text = "Vista Previa Producto";
-            
             // 
             // buttonGuardar
             // 
@@ -316,6 +305,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Articulo";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVistaPrevia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

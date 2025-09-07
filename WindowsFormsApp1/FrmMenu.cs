@@ -32,7 +32,7 @@ namespace WindowsFormsApp1
         {
             Form1 form1 = new Form1();
             
-            this.Close();
+            
             form1.ShowDialog(); 
         }
 

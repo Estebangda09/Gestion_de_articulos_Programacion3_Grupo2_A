@@ -31,12 +31,15 @@ namespace negocio
                 ////esteban
                 /// comando.CommandText = "select Codigo, Nombre, Descripcion, Precio, ImagenUrl FROM ARTICULOS A, IMAGENES I WHERE A.Id = I.IdArticulo";
                 /// ////matias
-                comando.CommandText = "select A.Codigo, A.Nombre, A.Descripcion, A.Precio, " +
-                       "I.ImagenUrl, " +
-                       "C.Id as IdCategoria, C.Descripcion as Categoria " +
-                       "from Articulos A " +
-                       "inner join Imagenes I on A.Id = I.IdArticulo " +
-                       "inner join Categorias C on A.IdCategoria = C.Id";
+                comando.CommandText = "SELECT A.Codigo, A.Nombre, A.Descripcion, A.Precio, " +
+                      "I.ImagenUrl, " +
+                      "C.Id AS IdCategoria, C.Descripcion AS Categoria, " +
+                      "M.Id AS IdMarca, M.Descripcion AS Marca " +
+                      "FROM Articulos A " +
+                      "INNER JOIN Imagenes I ON A.Id = I.IdArticulo " +
+                      "INNER JOIN Categorias C ON A.IdCategoria = C.Id " +
+                      "INNER JOIN Marcas M ON A.IdMarca = M.Id";
+
                 comando.Connection = conexion;
                 conexion.Open();
 
@@ -44,6 +47,7 @@ namespace negocio
 
                 while (lector.Read())
                 {
+                      
                     Articulo aux = new Articulo();
                     aux.Codigo = (string)lector["Codigo"];
                     aux.Nombre = (string)lector["Nombre"];
@@ -52,8 +56,15 @@ namespace negocio
                     aux.ImagenUrl = new Imagen();
                     aux.ImagenUrl.ImagenUrl = (string)lector["ImagenUrl"];
                    aux.tipo = new Categoria();
+                    aux.marca = new Marca();
+
+
+
                    aux.tipo.Id = (int)lector["IdCategoria"];               
                     aux.tipo.Descripcion = (string)lector["Categoria"];
+                    
+                    aux.marca.Id = (int)lector["IdMarca"];
+                    aux.marca.Descripcion = (string)lector["Marca"];
 
 
 

@@ -20,6 +20,9 @@ namespace dominio
         public decimal Precio { get; set; }
         public Imagen ImagenUrl { get; set; }
 
+        public Categoria    tipo { get; set; }
+        public Marca marca { get; set; }
+
 
 
 

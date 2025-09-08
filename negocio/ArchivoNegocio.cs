@@ -26,9 +26,17 @@ namespace negocio
                 // matias
                 conexion.ConnectionString = "server = .\\SQLEXPRESS02; database = CATALOGO_P3_DB; integrated security =true ;";
 
-                //
+                
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "select Codigo, Nombre, Descripcion, Precio, ImagenUrl FROM ARTICULOS A, IMAGENES I WHERE A.Id = I.IdArticulo";
+                ////esteban
+                /// comando.CommandText = "select Codigo, Nombre, Descripcion, Precio, ImagenUrl FROM ARTICULOS A, IMAGENES I WHERE A.Id = I.IdArticulo";
+                /// ////matias
+                comando.CommandText = "select A.Codigo, A.Nombre, A.Descripcion, A.Precio, " +
+                       "I.ImagenUrl, " +
+                       "C.Id as IdCategoria, C.Descripcion as Categoria " +
+                       "from Articulos A " +
+                       "inner join Imagenes I on A.Id = I.IdArticulo " +
+                       "inner join Categorias C on A.IdCategoria = C.Id";
                 comando.Connection = conexion;
                 conexion.Open();
 
@@ -43,7 +51,10 @@ namespace negocio
                     aux.Precio = (decimal)lector["Precio"];
                     aux.ImagenUrl = new Imagen();
                     aux.ImagenUrl.ImagenUrl = (string)lector["ImagenUrl"];
-                    
+                   aux.tipo = new Categoria();
+                   aux.tipo.Id = (int)lector["IdCategoria"];               
+                    aux.tipo.Descripcion = (string)lector["Categoria"];
+
 
 
                     lista.Add(aux);

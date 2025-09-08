@@ -91,6 +91,7 @@ namespace WindowsFormsApp1
             Articulo articulo = new Articulo();
             ArchivoNegocio archivoNegocio = new ArchivoNegocio();
             
+            
 
 
             try
@@ -111,6 +112,9 @@ namespace WindowsFormsApp1
                 }
 
 
+                articulo.tipo = (Categoria) comboCategoria.SelectedItem;
+                articulo.marca = (Marca) comboMarca.SelectedItem;
+
                 archivoNegocio.Agregar(articulo);
 
                 MessageBox.Show("agregado");
@@ -128,11 +132,18 @@ namespace WindowsFormsApp1
         {
             
               CategoriaNegocio negocio = new CategoriaNegocio();
+              MarcaNegocio marcaNegocio = new MarcaNegocio();
             try
             {
                 comboCategoria.DataSource = negocio.Categorias();
+                comboMarca.DataSource =  marcaNegocio.listamarca();
+
                 comboCategoria.DisplayMember = "Descripcion"; 
-                comboCategoria.ValueMember = "Id";          
+                comboCategoria.ValueMember = "Id";
+
+
+                comboMarca.DisplayMember = "Descripcion";
+                comboMarca.ValueMember = "Id";
 
 
             }

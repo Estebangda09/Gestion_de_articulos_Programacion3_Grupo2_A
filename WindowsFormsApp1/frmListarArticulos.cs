@@ -12,24 +12,19 @@ using dominio;
 using negocio;
 namespace WindowsFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class frmListarArticulos : Form
     {
         private List<Articulo> listaArticulos;
 
-        public Form1()
+        public frmListarArticulos()
         {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ArchivoNegocio dato = new ArchivoNegocio();
-            listaArticulos = dato.Listar();
-            dgvArchivos.DataSource = listaArticulos;
-            dgvArchivos.Columns["ImagenUrl"].Visible = false;
-
-            if (listaArticulos.Count > 0)
-                cargarImagen(listaArticulos[0].ImagenUrl.ImagenUrl);
+           
+            cargar();
         }
 
         private void dgvArchivos_SelectionChanged(object sender, EventArgs e)
@@ -38,6 +33,21 @@ namespace WindowsFormsApp1
             {
                 Articulo seleccionado = (Articulo)dgvArchivos.CurrentRow.DataBoundItem;
                 cargarImagen(seleccionado.ImagenUrl.ImagenUrl);
+            }
+        }
+
+        private void cargar()
+        {
+            ArchivoNegocio negocio = new ArchivoNegocio();
+            try
+            {
+                listaArticulos = negocio.Listar();
+                dgvArchivos.DataSource = listaArticulos;
+                dgvArchivos.Columns["ImagenUrl"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -55,6 +65,11 @@ namespace WindowsFormsApp1
 
         private void pbxArticulo_Click(object sender, EventArgs e)
         {
+        }
+
+        private void dgvArchivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -19,6 +19,7 @@ namespace WindowsFormsApp1
         public frmListarArticulos()
         {
             InitializeComponent();
+            Text = "Listado de Artículos";
         }
 
         private void Form1_Load(object sender, EventArgs e)

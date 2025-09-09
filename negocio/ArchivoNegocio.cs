@@ -93,11 +93,19 @@ namespace negocio
 
             try
             {
-               
+
                 datos.SetearConsulta(
-       "INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio) " +
-       "VALUES (" + articulo.Codigo + ", '" + articulo.Nombre + "', '" + articulo.Descricpcion + "', " + articulo.Precio + ")"
-                   );
+                  "INSERT INTO Articulos (Codigo, Nombre, Descripcion, Precio, IdCategoria, IdMarca) " +
+                  "VALUES (@Codigo, @Nombre, @Descripcion, @Precio, @IdCategoria, @IdMarca)"
+              );
+
+                
+                datos.SetearParametros("@Codigo", articulo.Codigo);                 
+                datos.SetearParametros("@Nombre", articulo.Nombre);                 
+                datos.SetearParametros("@Descripcion", articulo.Descricpcion);       
+                datos.SetearParametros("@Precio", articulo.Precio);                 
+                datos.SetearParametros("@IdCategoria", articulo.tipo.Id);           
+                datos.SetearParametros("@IdMarca", articulo.marca.Id);
 
                 datos.EjecutarAccion();
 

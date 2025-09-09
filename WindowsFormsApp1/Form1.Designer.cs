@@ -46,7 +46,7 @@ namespace WindowsFormsApp1
             this.dgvArchivos.Name = "dgvArchivos";
             this.dgvArchivos.Size = new System.Drawing.Size(516, 288);
             this.dgvArchivos.TabIndex = 0;
-            //this.dgvArchivos.SelectionChanged += new System.EventHandler(this.dgvArchivos_SelectionChanged);
+            this.dgvArchivos.SelectionChanged += new System.EventHandler(this.dgvArchivos_SelectionChanged);
             // 
             // pbxArticulo
             // 

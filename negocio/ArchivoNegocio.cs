@@ -93,7 +93,7 @@ namespace negocio
 
             try
             {
-
+               
                 datos.SetearConsulta(
        "INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio) " +
        "VALUES (" + articulo.Codigo + ", '" + articulo.Nombre + "', '" + articulo.Descricpcion + "', " + articulo.Precio + ")"

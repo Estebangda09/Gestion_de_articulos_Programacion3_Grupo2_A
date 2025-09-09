@@ -18,8 +18,10 @@ namespace dominio
       /// </summary>
       ////  public int IdCategoria { get; set; }
         public decimal Precio { get; set; }
-        public Imagen ImagenUrl { get; set; }
-
+        /// <summary>
+        /// public Imagen ImagenUrl { get; set; }
+        /// </summary>
+        public List<Imagen> Imagenes { get; set; } = new List<Imagen>();
         public Categoria    tipo { get; set; }
         public Marca marca { get; set; }
 

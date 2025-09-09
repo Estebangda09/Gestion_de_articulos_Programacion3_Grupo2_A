@@ -32,7 +32,9 @@ namespace WindowsFormsApp1
            
            /// dgvArchivos.Columns["ImagenUrl"].Visible = false;
             //cargarImagen(dgvArchivos.CurrentRow.Cells["ImagenUrl"].Value.ToString());
-            //pbxArticulo.Load(listaArticulos[0].ImagenUrl);
+            pbxArticulo.Load(listaArticulos[0].ImagenUrl.ImagenUrl);
+
+            
 
 
         }
@@ -47,6 +49,15 @@ namespace WindowsFormsApp1
             FrmMenu frmMenu = new FrmMenu();
             this.Close();
             frmMenu.ShowDialog();
+        }
+
+        private void dgvArchivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+                 Articulo seleccionado =  (Articulo) dgvArchivos.CurrentRow.DataBoundItem;
+
+                pbxArticulo.Load(seleccionado.ImagenUrl.ImagenUrl);
+
+
         }
     }
 }

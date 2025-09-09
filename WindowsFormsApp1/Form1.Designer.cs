@@ -47,6 +47,7 @@ namespace WindowsFormsApp1
             this.dgvArchivos.Name = "dgvArchivos";
             this.dgvArchivos.Size = new System.Drawing.Size(516, 288);
             this.dgvArchivos.TabIndex = 0;
+            this.dgvArchivos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArchivos_CellContentClick);
             // 
             // pbxArticulo
             // 

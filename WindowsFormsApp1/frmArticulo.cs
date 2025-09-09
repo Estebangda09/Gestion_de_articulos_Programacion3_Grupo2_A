@@ -84,12 +84,15 @@ namespace WindowsFormsApp1
 
         }
 
+        
+
       
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
             Articulo articulo = new Articulo();
             ArchivoNegocio archivoNegocio = new ArchivoNegocio();
+            
             
             
 
@@ -111,9 +114,31 @@ namespace WindowsFormsApp1
                     MessageBox.Show("El precio ingresado no es válido.");
                 }
 
+                
 
                 articulo.tipo = (Categoria) comboCategoria.SelectedItem;
                 articulo.marca = (Marca) comboMarca.SelectedItem;
+
+
+
+                foreach (string ruta in listImagenArticulo.Items)
+                {
+                    if (!string.IsNullOrWhiteSpace(ruta))
+                    {
+                        Imagen imagen = new Imagen();
+                        imagen.ImagenUrl = ruta;
+
+                        articulo.Imagenes.Add(imagen);
+                    }
+                }
+
+
+
+
+
+
+
+
 
                 archivoNegocio.Agregar(articulo);
 
@@ -133,10 +158,12 @@ namespace WindowsFormsApp1
             
               CategoriaNegocio negocio = new CategoriaNegocio();
               MarcaNegocio marcaNegocio = new MarcaNegocio();
+              ImagenNegocio imagenNegocio = new ImagenNegocio();
             try
             {
                 comboCategoria.DataSource = negocio.Categorias();
                 comboMarca.DataSource =  marcaNegocio.listamarca();
+                pictureBoxVistaPrevia = imagenNegocio.imagenes();
 
                 comboCategoria.DisplayMember = "Descripcion"; 
                 comboCategoria.ValueMember = "Id";

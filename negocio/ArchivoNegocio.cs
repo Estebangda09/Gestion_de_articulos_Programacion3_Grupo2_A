@@ -29,16 +29,22 @@ namespace negocio
                 
                 comando.CommandType = System.Data.CommandType.Text;
                 ////esteban
-                /// comando.CommandText = "select Codigo, Nombre, Descripcion, Precio, ImagenUrl FROM ARTICULOS A, IMAGENES I WHERE A.Id = I.IdArticulo";
+              ///  comando.CommandText = "select Codigo, Nombre, Descripcion, Precio, ImagenUrl FROM ARTICULOS A, IMAGENES I WHERE A.Id = I.IdArticulo";
                 /// ////matias
-                comando.CommandText = "SELECT A.Codigo, A.Nombre, A.Descripcion, A.Precio, " +
-                      "I.ImagenUrl, " +
-                      "C.Id AS IdCategoria, C.Descripcion AS Categoria, " +
-                      "M.Id AS IdMarca, M.Descripcion AS Marca " +
-                      "FROM Articulos A " +
-                      "INNER JOIN Imagenes I ON A.Id = I.IdArticulo " +
-                      "INNER JOIN Categorias C ON A.IdCategoria = C.Id " +
-                      "INNER JOIN Marcas M ON A.IdMarca = M.Id";
+                 comando.CommandText = "SELECT A.Codigo, A.Nombre, A.Descripcion, A.Precio, " +
+    "       ISNULL(I1.ImagenUrl, '') AS ImagenUrl, " +
+    "       ISNULL(C.Id, 0) AS IdCategoria, ISNULL(C.Descripcion, '') AS Categoria, " +
+    "       ISNULL(M.Id, 0) AS IdMarca,    ISNULL(M.Descripcion, '') AS Marca " +
+    "FROM Articulos A " +
+    "OUTER APPLY ( " +
+    "    SELECT TOP 1 ImagenUrl " +
+    "    FROM Imagenes I " +
+    "    WHERE I.IdArticulo = A.Id " +
+    "    ORDER BY I.Id " +
+    ") I1 " +
+    "LEFT JOIN Categorias C ON A.IdCategoria = C.Id " +
+    "LEFT JOIN Marcas     M ON A.IdMarca     = M.Id";
+
 
                 comando.Connection = conexion;
                 conexion.Open();
@@ -54,11 +60,11 @@ namespace negocio
                     aux.Descricpcion = (string)lector["Descripcion"];
                     aux.Precio = (decimal)lector["Precio"];
                     aux.ImagenUrl = new Imagen();
-                    aux.ImagenUrl.ImagenUrl = (string)lector["ImagenUrl"];
+                   aux.ImagenUrl.ImagenUrl = (string)lector["ImagenUrl"];
                    aux.tipo = new Categoria();
                     aux.marca = new Marca();
 
-
+                    
 
                    aux.tipo.Id = (int)lector["IdCategoria"];               
                     aux.tipo.Descripcion = (string)lector["Categoria"];

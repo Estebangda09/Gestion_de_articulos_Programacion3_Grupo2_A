@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    partial class Form1
+    partial class frmListarArticulos
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -43,16 +43,34 @@ namespace WindowsFormsApp1
             this.dgvArchivos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvArchivos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArchivos.Location = new System.Drawing.Point(30, 23);
+            this.dgvArchivos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+<<<<<<< HEAD
+            this.dgvArchivos.Location = new System.Drawing.Point(12, 36);
+            this.dgvArchivos.MultiSelect = false;
             this.dgvArchivos.Name = "dgvArchivos";
-            this.dgvArchivos.Size = new System.Drawing.Size(516, 288);
+            this.dgvArchivos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvArchivos.Size = new System.Drawing.Size(466, 288);
             this.dgvArchivos.TabIndex = 0;
             this.dgvArchivos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArchivos_CellContentClick);
+            this.dgvArchivos.SelectionChanged += new System.EventHandler(this.dgvArchivos_SelectionChanged);
+=======
+            this.dgvArchivos.Location = new System.Drawing.Point(30, 23);
+            this.dgvArchivos.MultiSelect = false;
+            this.dgvArchivos.Name = "dgvArchivos";
+            this.dgvArchivos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvArchivos.Size = new System.Drawing.Size(626, 288);
+            this.dgvArchivos.TabIndex = 0;
+            this.dgvArchivos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArchivos_CellContentClick);
+>>>>>>> matias
             // 
             // pbxArticulo
             // 
             this.pbxArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbxArticulo.Location = new System.Drawing.Point(552, 23);
+<<<<<<< HEAD
+            this.pbxArticulo.Location = new System.Drawing.Point(484, 36);
+=======
+            this.pbxArticulo.Location = new System.Drawing.Point(662, 23);
+>>>>>>> matias
             this.pbxArticulo.Name = "pbxArticulo";
             this.pbxArticulo.Size = new System.Drawing.Size(290, 288);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -60,6 +78,8 @@ namespace WindowsFormsApp1
             this.pbxArticulo.TabStop = false;
             this.pbxArticulo.Click += new System.EventHandler(this.pbxArticulo_Click);
             // 
+<<<<<<< HEAD
+=======
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(133, 386);
@@ -70,17 +90,30 @@ namespace WindowsFormsApp1
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form1
+>>>>>>> matias
+            // frmListarArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
-            this.ClientSize = new System.Drawing.Size(864, 450);
+<<<<<<< HEAD
+            this.ClientSize = new System.Drawing.Size(798, 344);
+            this.Controls.Add(this.pbxArticulo);
+            this.Controls.Add(this.dgvArchivos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "frmListarArticulos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Listado Articulos";
+=======
+            this.ClientSize = new System.Drawing.Size(974, 450);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pbxArticulo);
             this.Controls.Add(this.dgvArchivos);
-            this.Name = "Form1";
+            this.Name = "frmListarArticulos";
             this.Text = "Form1";
+>>>>>>> matias
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArchivos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();

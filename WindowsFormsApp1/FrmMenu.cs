@@ -30,10 +30,13 @@ namespace WindowsFormsApp1
 
         private void articulosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
-            
-            
-            form1.ShowDialog(); 
+            frmListarArticulos ListaArticulo = new frmListarArticulos();
+            ListaArticulo.MdiParent = this;
+<<<<<<< HEAD
+            ListaArticulo.Show(); 
+=======
+            ListaArticulo.Show();
+>>>>>>> matias
         }
 
         private void AgregararticuloToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,5 +45,25 @@ namespace WindowsFormsApp1
             
             frmArticulo.ShowDialog();
         }
+<<<<<<< HEAD
+
+        private void BuscarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void artículoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmArticulo frmArticulo = new frmArticulo();
+
+            frmArticulo.ShowDialog();
+        }
+
+        private void dgvArchivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+=======
+>>>>>>> matias
     }
 }

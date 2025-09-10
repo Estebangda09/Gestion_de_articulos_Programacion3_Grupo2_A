@@ -163,7 +163,7 @@ namespace WindowsFormsApp1
             {
                 comboCategoria.DataSource = negocio.Categorias();
                 comboMarca.DataSource =  marcaNegocio.listamarca();
-                pictureBoxVistaPrevia = imagenNegocio.imagenes();
+                //pictureBoxVistaPrevia = imagenNegocio.imagenes();
 
                 comboCategoria.DisplayMember = "Descripcion"; 
                 comboCategoria.ValueMember = "Id";

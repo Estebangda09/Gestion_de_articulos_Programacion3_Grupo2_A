@@ -20,6 +20,7 @@ namespace WindowsFormsApp1
         private void FrmMenu_Load(object sender, EventArgs e)
         {
             this.BackColor = Color.Black;
+            listar();
 
         }
 
@@ -30,17 +31,24 @@ namespace WindowsFormsApp1
 
         private void articulosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            listar();
+
+        }
+
+        private void listar()
+        {
             frmListarArticulos ListaArticulo = new frmListarArticulos();
             ListaArticulo.MdiParent = this;
-            ListaArticulo.Show(); 
+            ListaArticulo.Show();
         }
 
         private void AgregararticuloToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmArticulo frmArticulo = new frmArticulo();
-            
+
             frmArticulo.ShowDialog();
         }
+
 
         private void BuscarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -58,5 +66,6 @@ namespace WindowsFormsApp1
         {
 
         }
+
     }
 }

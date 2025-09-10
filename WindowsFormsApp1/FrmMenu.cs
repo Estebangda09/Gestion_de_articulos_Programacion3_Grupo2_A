@@ -45,7 +45,7 @@ namespace WindowsFormsApp1
         private void AgregararticuloToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmArticulo frmArticulo = new frmArticulo();
-            
+
             frmArticulo.ShowDialog();
         }
 

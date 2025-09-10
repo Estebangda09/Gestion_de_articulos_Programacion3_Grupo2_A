@@ -1,4 +1,7 @@
-﻿using System;
+﻿using dominio;
+using negocio;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace WindowsFormsApp1
 {
@@ -17,15 +21,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void listImagenArticulo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -39,25 +35,7 @@ namespace WindowsFormsApp1
 
         }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textCodigo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboMarca_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+   
 
         private void buttonLimpiar_Click(object sender, EventArgs e)
         {
@@ -82,13 +60,12 @@ namespace WindowsFormsApp1
 
         private void buttonCancelarArticulo_Click(object sender, EventArgs e)
         {
-
+            FrmMenu frmMenu = new FrmMenu();
+            this.Close();
+            
         }
 
-        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
+        
 
         private void buttonAgregarIMG_Click(object sender, EventArgs e)
         {
@@ -107,33 +84,103 @@ namespace WindowsFormsApp1
 
         }
 
-        private void buttonEliminarIMG_Click(object sender, EventArgs e)
-        {
+        
 
+      
+
+        private void buttonGuardar_Click(object sender, EventArgs e)
+        {
+            Articulo articulo = new Articulo();
+            ArchivoNegocio archivoNegocio = new ArchivoNegocio();
+            
+            
+            
+
+
+            try
+            {
+
+               articulo.Codigo= textCodigo.Text;
+                articulo.Nombre = textNombre.Text;
+                articulo.Descricpcion = textDescripcion.Text;
+
+                decimal precio;
+                if (decimal.TryParse(textPrecio.Text, out precio))
+                {
+                    articulo.Precio = precio;  
+                }
+                else
+                {
+                    MessageBox.Show("El precio ingresado no es válido.");
+                }
+
+                
+
+                articulo.tipo = (Categoria) comboCategoria.SelectedItem;
+                articulo.marca = (Marca) comboMarca.SelectedItem;
+
+
+
+                foreach (string ruta in listImagenArticulo.Items)
+                {
+                    if (!string.IsNullOrWhiteSpace(ruta))
+                    {
+                        Imagen imagen = new Imagen();
+                        imagen.ImagenUrl = ruta;
+
+                        articulo.Imagenes.Add(imagen);
+                    }
+                }
+
+
+
+
+
+
+
+
+
+                archivoNegocio.Agregar(articulo);
+
+                MessageBox.Show("agregado");
+               
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
 
-        private void textNombre_TextChanged(object sender, EventArgs e)
+        private void frmArticulo_Load(object sender, EventArgs e)
         {
+            
+              CategoriaNegocio negocio = new CategoriaNegocio();
+              MarcaNegocio marcaNegocio = new MarcaNegocio();
+              ImagenNegocio imagenNegocio = new ImagenNegocio();
+            try
+            {
+                comboCategoria.DataSource = negocio.Categorias();
+                comboMarca.DataSource =  marcaNegocio.listamarca();
+                //pictureBoxVistaPrevia = imagenNegocio.imagenes();
 
-        }
+                comboCategoria.DisplayMember = "Descripcion"; 
+                comboCategoria.ValueMember = "Id";
 
-        private void textDescripcion_TextChanged(object sender, EventArgs e)
-        {
 
-        }
+                comboMarca.DisplayMember = "Descripcion";
+                comboMarca.ValueMember = "Id";
 
-        private void comboCategoria_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
+            }
+            catch (Exception ex)
+            {
 
-        private void textPrecio_TextChanged(object sender, EventArgs e)
-        {
+                throw ex;
+            }
+            
 
-        }
-
-        private void pictureBoxVistaPrevia_Click(object sender, EventArgs e)
-        {
 
         }
     }

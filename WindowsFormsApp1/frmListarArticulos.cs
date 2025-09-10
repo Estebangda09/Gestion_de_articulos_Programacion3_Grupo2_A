@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dominio; 
 using negocio;
+<<<<<<< HEAD
+=======
+
+>>>>>>> matias
 namespace WindowsFormsApp1
 {
     public partial class frmListarArticulos : Form
@@ -24,17 +28,29 @@ namespace WindowsFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
            
+=======
+
+>>>>>>> matias
             cargar();
         }
 
         private void dgvArchivos_SelectionChanged(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             if (dgvArchivos.CurrentRow != null)
             {
                 Articulo seleccionado = (Articulo)dgvArchivos.CurrentRow.DataBoundItem;
                 cargarImagen(seleccionado.ImagenUrl.ImagenUrl);
             }
+=======
+            
+
+                Articulo seleccionado = (Articulo)dgvArchivos.CurrentRow.DataBoundItem;
+                cargarImagen(seleccionado.ImagenUrl.ImagenUrl);
+            
+>>>>>>> matias
         }
 
         private void cargar()
@@ -68,6 +84,16 @@ namespace WindowsFormsApp1
         {
         }
 
+<<<<<<< HEAD
+=======
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmMenu frmMenu = new FrmMenu();
+            this.Close();
+            frmMenu.ShowDialog();
+        }
+
+>>>>>>> matias
         private void dgvArchivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

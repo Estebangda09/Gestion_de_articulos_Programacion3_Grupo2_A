@@ -28,12 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
+=======
+>>>>>>> matias
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ListarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BuscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+<<<<<<< HEAD
             this.detallesDeLosArticulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.artículoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +51,13 @@
             this.artículoToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.categoríaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.marcaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+=======
+            this.AgregararticuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ModificartoolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.EliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detallesDeLosArticulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label2 = new System.Windows.Forms.Label();
+>>>>>>> matias
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +66,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.LawnGreen;
+<<<<<<< HEAD
             this.label1.Location = new System.Drawing.Point(286, 34);
+=======
+            this.label1.Location = new System.Drawing.Point(396, 489);
+>>>>>>> matias
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(286, 29);
             this.label1.TabIndex = 0;
@@ -64,6 +79,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+<<<<<<< HEAD
             this.menuToolStripMenuItem,
             this.agregarToolStripMenuItem,
             this.modificarToolStripMenuItem,
@@ -71,6 +87,12 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(926, 24);
+=======
+            this.menuToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1158, 24);
+>>>>>>> matias
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -79,15 +101,27 @@
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ListarToolStripMenuItem,
             this.BuscarToolStripMenuItem,
+<<<<<<< HEAD
             this.detallesDeLosArticulosToolStripMenuItem});
             this.menuToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+=======
+            this.AgregararticuloToolStripMenuItem,
+            this.ModificartoolStripMenuItem1,
+            this.EliminarToolStripMenuItem,
+            this.detallesDeLosArticulosToolStripMenuItem});
+            this.menuToolStripMenuItem.ForeColor = System.Drawing.Color.Blue;
+>>>>>>> matias
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.menuToolStripMenuItem.Text = "Articulos";
             // 
             // ListarToolStripMenuItem
             // 
+<<<<<<< HEAD
             this.ListarToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+=======
+            this.ListarToolStripMenuItem.ForeColor = System.Drawing.Color.Blue;
+>>>>>>> matias
             this.ListarToolStripMenuItem.Name = "ListarToolStripMenuItem";
             this.ListarToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.ListarToolStripMenuItem.Text = "Listado de Articulos";
@@ -95,6 +129,7 @@
             // 
             // BuscarToolStripMenuItem
             // 
+<<<<<<< HEAD
             this.BuscarToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.BuscarToolStripMenuItem.Name = "BuscarToolStripMenuItem";
             this.BuscarToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
@@ -104,10 +139,43 @@
             // detallesDeLosArticulosToolStripMenuItem
             // 
             this.detallesDeLosArticulosToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+=======
+            this.BuscarToolStripMenuItem.ForeColor = System.Drawing.Color.Blue;
+            this.BuscarToolStripMenuItem.Name = "BuscarToolStripMenuItem";
+            this.BuscarToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.BuscarToolStripMenuItem.Text = "Buscar Articulos";
+            // 
+            // AgregararticuloToolStripMenuItem
+            // 
+            this.AgregararticuloToolStripMenuItem.ForeColor = System.Drawing.Color.Blue;
+            this.AgregararticuloToolStripMenuItem.Name = "AgregararticuloToolStripMenuItem";
+            this.AgregararticuloToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.AgregararticuloToolStripMenuItem.Text = "Agregar Aarticulos";
+            this.AgregararticuloToolStripMenuItem.Click += new System.EventHandler(this.AgregararticuloToolStripMenuItem_Click);
+            // 
+            // ModificartoolStripMenuItem1
+            // 
+            this.ModificartoolStripMenuItem1.ForeColor = System.Drawing.Color.Blue;
+            this.ModificartoolStripMenuItem1.Name = "ModificartoolStripMenuItem1";
+            this.ModificartoolStripMenuItem1.Size = new System.Drawing.Size(199, 22);
+            this.ModificartoolStripMenuItem1.Text = "Modificar Articulos";
+            // 
+            // EliminarToolStripMenuItem
+            // 
+            this.EliminarToolStripMenuItem.ForeColor = System.Drawing.Color.Blue;
+            this.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem";
+            this.EliminarToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.EliminarToolStripMenuItem.Text = "Eliminar Articulos";
+            // 
+            // detallesDeLosArticulosToolStripMenuItem
+            // 
+            this.detallesDeLosArticulosToolStripMenuItem.ForeColor = System.Drawing.Color.Blue;
+>>>>>>> matias
             this.detallesDeLosArticulosToolStripMenuItem.Name = "detallesDeLosArticulosToolStripMenuItem";
             this.detallesDeLosArticulosToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.detallesDeLosArticulosToolStripMenuItem.Text = "Detalles de los Articulos";
             // 
+<<<<<<< HEAD
             // agregarToolStripMenuItem
             // 
             this.agregarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -195,11 +263,24 @@
             this.marcaToolStripMenuItem2.Name = "marcaToolStripMenuItem2";
             this.marcaToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.marcaToolStripMenuItem2.Text = "Marca";
+=======
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Broadway", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(130, 529);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(841, 48);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "    En lso iconos de articulos (arriba a la derecha)tiene las opciones,\r\n     par" +
+    "a poder usar el el sistema correctamente";
+>>>>>>> matias
             // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(926, 450);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label1);
@@ -210,6 +291,18 @@
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMenu";
+=======
+            this.ClientSize = new System.Drawing.Size(1158, 586);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuStrip1;
+            this.Name = "FrmMenu";
+            this.Text = "FrmMenu";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+>>>>>>> matias
             this.Load += new System.EventHandler(this.FrmMenu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -225,6 +318,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ListarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem BuscarToolStripMenuItem;
+<<<<<<< HEAD
         private System.Windows.Forms.ToolStripMenuItem detallesDeLosArticulosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem artículoToolStripMenuItem;
@@ -238,5 +332,12 @@
         private System.Windows.Forms.ToolStripMenuItem artículoToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem categoríaToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem marcaToolStripMenuItem2;
+=======
+        private System.Windows.Forms.ToolStripMenuItem AgregararticuloToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ModificartoolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem EliminarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem detallesDeLosArticulosToolStripMenuItem;
+        private System.Windows.Forms.Label label2;
+>>>>>>> matias
     }
 }

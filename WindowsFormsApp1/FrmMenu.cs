@@ -32,7 +32,11 @@ namespace WindowsFormsApp1
         {
             frmListarArticulos ListaArticulo = new frmListarArticulos();
             ListaArticulo.MdiParent = this;
+<<<<<<< HEAD
             ListaArticulo.Show(); 
+=======
+            ListaArticulo.Show();
+>>>>>>> matias
         }
 
         private void AgregararticuloToolStripMenuItem_Click(object sender, EventArgs e)
@@ -41,6 +45,7 @@ namespace WindowsFormsApp1
             
             frmArticulo.ShowDialog();
         }
+<<<<<<< HEAD
 
         private void BuscarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -58,5 +63,7 @@ namespace WindowsFormsApp1
         {
 
         }
+=======
+>>>>>>> matias
     }
 }

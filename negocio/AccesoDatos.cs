@@ -23,12 +23,14 @@ namespace negocio
 
         public AccesoDatos()
         {
-            
+
             //estaban
-            conexion = new SqlConnection("Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;");
+            //conexion = new SqlConnection("Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;");
 
             ///matias
-           // conexion = new SqlConnection("server = .\\SQLEXPRESS02; database = CATALOGO_P3_DB; integrated security =true ;");
+            // conexion = new SqlConnection("server = .\\SQLEXPRESS02; database = CATALOGO_P3_DB; integrated security =true ;");
+            // Adri
+            conexion = new SqlConnection("Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=BaseDeDatos#2;");
             comando = new SqlCommand();
 
         }
@@ -57,7 +59,7 @@ namespace negocio
                 throw ex;
             }
 
-          
+
 
 
         }
@@ -81,7 +83,7 @@ namespace negocio
 
         }
 
-        public void SetearParametros(string nombre,object valor)
+        public void SetearParametros(string nombre, object valor)
         {
 
             comando.Parameters.AddWithValue(nombre, valor);

@@ -23,11 +23,12 @@ namespace negocio
             try
             {   //Comentar la que no usen 
                 //Esteban conexion a base 
-                conexion.ConnectionString = "Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;";
+                //conexion.ConnectionString = "Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;";
 
                 //Matias
 
                 //Adrian
+                conexion = new SqlConnection("Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=BaseDeDatos#2;");
 
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = "SELECT A.Codigo, A.Nombre, A.Descripcion, A.Precio, MIN(I.ImagenUrl) AS ImagenUrl FROM ARTICULOS A INNER JOIN IMAGENES I ON A.Id = I.IdArticulo GROUP BY A.Codigo, A.Nombre, A.Descripcion, A.Precio;";
@@ -35,24 +36,24 @@ namespace negocio
                 // matias
                 //conexion.ConnectionString = "server = .\\SQLEXPRESS02; database = CATALOGO_P3_DB; integrated security =true ;";
 
-                
+
                 comando.CommandType = System.Data.CommandType.Text;
                 ////esteban
-               comando.CommandText = "select Codigo, Nombre, Descripcion, Precio, ImagenUrl FROM ARTICULOS A, IMAGENES I WHERE A.Id = I.IdArticulo";
+                comando.CommandText = "select Codigo, Nombre, Descripcion, Precio, ImagenUrl FROM ARTICULOS A, IMAGENES I WHERE A.Id = I.IdArticulo";
                 /// ////matias
-                 comando.CommandText = "SELECT A.Codigo, A.Nombre, A.Descripcion, A.Precio, " +
-    "       ISNULL(I1.ImagenUrl, '') AS ImagenUrl, " +
-    "       ISNULL(C.Id, 0) AS IdCategoria, ISNULL(C.Descripcion, '') AS Categoria, " +
-    "       ISNULL(M.Id, 0) AS IdMarca,    ISNULL(M.Descripcion, '') AS Marca " +
-    "FROM Articulos A " +
-    "OUTER APPLY ( " +
-    "    SELECT TOP 1 ImagenUrl " +
-    "    FROM Imagenes I " +
-    "    WHERE I.IdArticulo = A.Id " +
-    "    ORDER BY I.Id " +
-    ") I1 " +
-    "LEFT JOIN Categorias C ON A.IdCategoria = C.Id " +
-    "LEFT JOIN Marcas     M ON A.IdMarca     = M.Id";
+                comando.CommandText = "SELECT A.Codigo, A.Nombre, A.Descripcion, A.Precio, " +
+   "       ISNULL(I1.ImagenUrl, '') AS ImagenUrl, " +
+   "       ISNULL(C.Id, 0) AS IdCategoria, ISNULL(C.Descripcion, '') AS Categoria, " +
+   "       ISNULL(M.Id, 0) AS IdMarca,    ISNULL(M.Descripcion, '') AS Marca " +
+   "FROM Articulos A " +
+   "OUTER APPLY ( " +
+   "    SELECT TOP 1 ImagenUrl " +
+   "    FROM Imagenes I " +
+   "    WHERE I.IdArticulo = A.Id " +
+   "    ORDER BY I.Id " +
+   ") I1 " +
+   "LEFT JOIN Categorias C ON A.IdCategoria = C.Id " +
+   "LEFT JOIN Marcas     M ON A.IdMarca     = M.Id";
 
 
 
@@ -63,22 +64,22 @@ namespace negocio
 
                 while (lector.Read())
                 {
-                      
+
                     Articulo aux = new Articulo();
                     aux.Codigo = (string)lector["Codigo"];
                     aux.Nombre = (string)lector["Nombre"];
                     aux.Descricpcion = (string)lector["Descripcion"];
                     aux.Precio = (decimal)lector["Precio"];
                     aux.ImagenUrl = new Imagen();
-                   aux.ImagenUrl.ImagenUrl = (string)lector["ImagenUrl"];
-                   aux.tipo = new Categoria();
+                    aux.ImagenUrl.ImagenUrl = (string)lector["ImagenUrl"];
+                    aux.tipo = new Categoria();
                     aux.marca = new Marca();
 
-                    
 
-                   aux.tipo.Id = (int)lector["IdCategoria"];               
+
+                    aux.tipo.Id = (int)lector["IdCategoria"];
                     aux.tipo.Descripcion = (string)lector["Categoria"];
-                    
+
                     aux.marca.Id = (int)lector["IdMarca"];
                     aux.marca.Descripcion = (string)lector["Marca"];
 
@@ -99,10 +100,10 @@ namespace negocio
             }
 
 
-           
+
 
         }
-        public void Agregar (Articulo articulo)
+        public void Agregar(Articulo articulo)
         {
 
             AccesoDatos datos = new AccesoDatos();
@@ -115,12 +116,12 @@ namespace negocio
                   "VALUES (@Codigo, @Nombre, @Descripcion, @Precio, @IdCategoria, @IdMarca)"
               );
 
-                
-                datos.SetearParametros("@Codigo", articulo.Codigo);                 
-                datos.SetearParametros("@Nombre", articulo.Nombre);                 
-                datos.SetearParametros("@Descripcion", articulo.Descricpcion);       
-                datos.SetearParametros("@Precio", articulo.Precio);                 
-                datos.SetearParametros("@IdCategoria", articulo.tipo.Id);           
+
+                datos.SetearParametros("@Codigo", articulo.Codigo);
+                datos.SetearParametros("@Nombre", articulo.Nombre);
+                datos.SetearParametros("@Descripcion", articulo.Descricpcion);
+                datos.SetearParametros("@Precio", articulo.Precio);
+                datos.SetearParametros("@IdCategoria", articulo.tipo.Id);
                 datos.SetearParametros("@IdMarca", articulo.marca.Id);
 
                 datos.EjecutarAccion();
@@ -138,6 +139,24 @@ namespace negocio
 
             }
         }
-     }   
-    
+        public void Eliminar(int ID)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.SetearConsulta("DELETE FROM Articulos WHERE ID = @ID");
+                accesoDatos.SetearParametros("@ID", ID);
+                accesoDatos.EjecutarAccion();
+
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+        }
+
+
+    }
+
 }

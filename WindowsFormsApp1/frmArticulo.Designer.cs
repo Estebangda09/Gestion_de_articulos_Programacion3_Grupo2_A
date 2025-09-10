@@ -117,7 +117,7 @@
             // 
             this.textCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textCodigo.Location = new System.Drawing.Point(162, 87);
+            this.textCodigo.Location = new System.Drawing.Point(180, 87);
             this.textCodigo.Name = "textCodigo";
             this.textCodigo.Size = new System.Drawing.Size(324, 20);
             this.textCodigo.TabIndex = 1;
@@ -126,7 +126,7 @@
             // 
             this.textNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textNombre.Location = new System.Drawing.Point(162, 139);
+            this.textNombre.Location = new System.Drawing.Point(180, 139);
             this.textNombre.Name = "textNombre";
             this.textNombre.Size = new System.Drawing.Size(324, 20);
             this.textNombre.TabIndex = 2;
@@ -135,7 +135,7 @@
             // 
             this.textDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textDescripcion.Location = new System.Drawing.Point(162, 191);
+            this.textDescripcion.Location = new System.Drawing.Point(180, 191);
             this.textDescripcion.Multiline = true;
             this.textDescripcion.Name = "textDescripcion";
             this.textDescripcion.Size = new System.Drawing.Size(324, 20);
@@ -145,7 +145,7 @@
             // 
             this.textPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textPrecio.Location = new System.Drawing.Point(162, 344);
+            this.textPrecio.Location = new System.Drawing.Point(180, 344);
             this.textPrecio.Name = "textPrecio";
             this.textPrecio.Size = new System.Drawing.Size(326, 20);
             this.textPrecio.TabIndex = 6;
@@ -156,7 +156,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboMarca.FormattingEnabled = true;
-            this.comboMarca.Location = new System.Drawing.Point(162, 242);
+            this.comboMarca.Location = new System.Drawing.Point(180, 242);
             this.comboMarca.Name = "comboMarca";
             this.comboMarca.Size = new System.Drawing.Size(324, 21);
             this.comboMarca.TabIndex = 4;
@@ -167,7 +167,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboCategoria.FormattingEnabled = true;
-            this.comboCategoria.Location = new System.Drawing.Point(162, 291);
+            this.comboCategoria.Location = new System.Drawing.Point(180, 291);
             this.comboCategoria.Name = "comboCategoria";
             this.comboCategoria.Size = new System.Drawing.Size(324, 21);
             this.comboCategoria.TabIndex = 5;
@@ -178,7 +178,7 @@
             this.listImagenArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listImagenArticulo.FormattingEnabled = true;
-            this.listImagenArticulo.Location = new System.Drawing.Point(162, 385);
+            this.listImagenArticulo.Location = new System.Drawing.Point(180, 385);
             this.listImagenArticulo.Name = "listImagenArticulo";
             this.listImagenArticulo.Size = new System.Drawing.Size(326, 95);
             this.listImagenArticulo.TabIndex = 7;
@@ -187,7 +187,7 @@
             // buttonAgregarIMG
             // 
             this.buttonAgregarIMG.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonAgregarIMG.Location = new System.Drawing.Point(162, 486);
+            this.buttonAgregarIMG.Location = new System.Drawing.Point(180, 486);
             this.buttonAgregarIMG.Name = "buttonAgregarIMG";
             this.buttonAgregarIMG.Size = new System.Drawing.Size(75, 23);
             this.buttonAgregarIMG.TabIndex = 8;
@@ -197,7 +197,7 @@
             // 
             // buttonEliminarIMG
             // 
-            this.buttonEliminarIMG.Location = new System.Drawing.Point(243, 486);
+            this.buttonEliminarIMG.Location = new System.Drawing.Point(261, 486);
             this.buttonEliminarIMG.Name = "buttonEliminarIMG";
             this.buttonEliminarIMG.Size = new System.Drawing.Size(75, 23);
             this.buttonEliminarIMG.TabIndex = 9;
@@ -217,7 +217,7 @@
             // pictureBoxVistaPrevia
             // 
             this.pictureBoxVistaPrevia.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBoxVistaPrevia.Location = new System.Drawing.Point(520, 111);
+            this.pictureBoxVistaPrevia.Location = new System.Drawing.Point(544, 107);
             this.pictureBoxVistaPrevia.Name = "pictureBoxVistaPrevia";
             this.pictureBoxVistaPrevia.Size = new System.Drawing.Size(276, 206);
             this.pictureBoxVistaPrevia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

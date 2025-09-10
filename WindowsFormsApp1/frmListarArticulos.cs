@@ -47,12 +47,17 @@ namespace WindowsFormsApp1
             {
                 listaArticulos = negocio.Listar();
                 dgvArchivos.DataSource = listaArticulos;
-                dgvArchivos.Columns["ImagenUrl"].Visible = false;
+                ocultarColumnas();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void ocultarColumnas()
+        {
+            dgvArchivos.Columns["ImagenUrl"].Visible = false;
         }
 
         private void cargarImagen(string imagen)
@@ -83,6 +88,26 @@ namespace WindowsFormsApp1
         private void dgvArchivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+ 
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+     
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+            string filtro = txtFiltro.Text;
+
+            listaFiltrada = listaArticulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Descricpcion.ToUpper().Contains(filtro.ToUpper()) || x.Codigo.ToUpper().Contains(filtro.ToUpper())  );
+            dgvArchivos.DataSource = null;
+            dgvArchivos.DataSource = listaFiltrada;
+            ocultarColumnas();
         }
     }
 }

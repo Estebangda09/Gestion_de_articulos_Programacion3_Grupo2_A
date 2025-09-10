@@ -34,6 +34,8 @@ namespace WindowsFormsApp1
             this.dgvArchivos = new System.Windows.Forms.DataGridView();
             this.pbxArticulo = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.lbeFiltro = new System.Windows.Forms.Label();
+            this.txtFiltro = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArchivos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.SuspendLayout();
@@ -74,12 +76,32 @@ namespace WindowsFormsApp1
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // lbeFiltro
+            // 
+            this.lbeFiltro.AutoSize = true;
+            this.lbeFiltro.Location = new System.Drawing.Point(13, 16);
+            this.lbeFiltro.Name = "lbeFiltro";
+            this.lbeFiltro.Size = new System.Drawing.Size(32, 13);
+            this.lbeFiltro.TabIndex = 2;
+            this.lbeFiltro.Text = "Filtrar";
+            this.lbeFiltro.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // txtFiltro
+            // 
+            this.txtFiltro.Location = new System.Drawing.Point(46, 14);
+            this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.Size = new System.Drawing.Size(167, 20);
+            this.txtFiltro.TabIndex = 3;
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
+            // 
             // frmListarArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(992, 344);
+            this.Controls.Add(this.txtFiltro);
+            this.Controls.Add(this.lbeFiltro);
             this.Controls.Add(this.pbxArticulo);
             this.Controls.Add(this.dgvArchivos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -92,6 +114,7 @@ namespace WindowsFormsApp1
             ((System.ComponentModel.ISupportInitialize)(this.dgvArchivos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -102,6 +125,8 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridView dgvArchivos;
         private PictureBox pbxArticulo;
         private Button button1;
+        private Label lbeFiltro;
+        private TextBox txtFiltro;
     }
 }
 

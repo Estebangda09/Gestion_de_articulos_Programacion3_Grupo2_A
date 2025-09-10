@@ -62,7 +62,7 @@ namespace WindowsFormsApp1
         {
             FrmMenu frmMenu = new FrmMenu();
             this.Close();
-            frmMenu.ShowDialog();
+            
         }
 
         

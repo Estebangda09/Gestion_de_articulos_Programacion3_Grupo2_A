@@ -24,14 +24,14 @@ namespace negocio
             {   //Comentar la que no usen 
                 //Esteban conexion a base 
                 conexion.ConnectionString = "Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;";
-<<<<<<< HEAD
+
                 //Matias
 
                 //Adrian
 
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = "SELECT A.Codigo, A.Nombre, A.Descripcion, A.Precio, MIN(I.ImagenUrl) AS ImagenUrl FROM ARTICULOS A INNER JOIN IMAGENES I ON A.Id = I.IdArticulo GROUP BY A.Codigo, A.Nombre, A.Descripcion, A.Precio;";
-=======
+
                 // matias
                 //conexion.ConnectionString = "server = .\\SQLEXPRESS02; database = CATALOGO_P3_DB; integrated security =true ;";
 
@@ -55,7 +55,7 @@ namespace negocio
     "LEFT JOIN Marcas     M ON A.IdMarca     = M.Id";
 
 
->>>>>>> matias
+
                 comando.Connection = conexion;
                 conexion.Open();
 

@@ -38,7 +38,7 @@ namespace negocio
                 
                 comando.CommandType = System.Data.CommandType.Text;
                 ////esteban
-               comando.CommandText = "select Codigo, Nombre, Descripcion, Precio, ImagenUrl FROM ARTICULOS A, IMAGENES I WHERE A.Id = I.IdArticulo";
+               //comando.CommandText = "select Codigo, Nombre, Descripcion, Precio, ImagenUrl FROM ARTICULOS A, IMAGENES I WHERE A.Id = I.IdArticulo";
                 /// ////matias
                  comando.CommandText = "SELECT A.Codigo, A.Nombre, A.Descripcion, A.Precio, " +
     "       ISNULL(I1.ImagenUrl, '') AS ImagenUrl, " +
@@ -138,6 +138,44 @@ namespace negocio
 
             }
         }
-     }   
+
+
+        public void Modificar(Articulo articulo)
+        {
+
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+
+                datos.SetearConsulta(
+                  "INSERT INTO Articulos (Codigo, Nombre, Descripcion, Precio, IdCategoria, IdMarca) " +
+                  "VALUES (@Codigo, @Nombre, @Descripcion, @Precio, @IdCategoria, @IdMarca)"
+              );
+
+
+                datos.SetearParametros("@Codigo", articulo.Codigo);
+                datos.SetearParametros("@Nombre", articulo.Nombre);
+                datos.SetearParametros("@Descripcion", articulo.Descricpcion);
+                datos.SetearParametros("@Precio", articulo.Precio);
+                datos.SetearParametros("@IdCategoria", articulo.tipo.Id);
+                datos.SetearParametros("@IdMarca", articulo.marca.Id);
+
+                datos.EjecutarAccion();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            finally
+            {
+                datos.CerrarConexion();
+
+            }
+        }
+    }   
     
 }

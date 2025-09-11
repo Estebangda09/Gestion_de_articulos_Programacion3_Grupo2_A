@@ -131,6 +131,7 @@
             this.categoríaToolStripMenuItem.Name = "categoríaToolStripMenuItem";
             this.categoríaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.categoríaToolStripMenuItem.Text = "Categoría";
+            this.categoríaToolStripMenuItem.Click += new System.EventHandler(this.categoríaToolStripMenuItem_Click);
             // 
             // marcaToolStripMenuItem
             // 
@@ -154,6 +155,7 @@
             this.artículoToolStripMenuItem1.Name = "artículoToolStripMenuItem1";
             this.artículoToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
             this.artículoToolStripMenuItem1.Text = "Artículo";
+            this.artículoToolStripMenuItem1.Click += new System.EventHandler(this.artículoToolStripMenuItem1_Click);
             // 
             // categoríaToolStripMenuItem1
             // 

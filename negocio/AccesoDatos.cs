@@ -56,10 +56,6 @@ namespace negocio
 
                 throw ex;
             }
-
-          
-
-
         }
 
         public void EjecutarAccion()
@@ -67,11 +63,8 @@ namespace negocio
             comando.Connection = conexion;
             try
             {
-
                 conexion.Open();
                 comando.ExecuteNonQuery();
-
-
             }
             catch (Exception ex)
             {
@@ -86,7 +79,6 @@ namespace negocio
 
             comando.Parameters.AddWithValue(nombre, valor);
 
-
         }
 
         public void CerrarConexion()
@@ -96,8 +88,5 @@ namespace negocio
             conexion.Close();
 
         }
-
-
-
     }
 }

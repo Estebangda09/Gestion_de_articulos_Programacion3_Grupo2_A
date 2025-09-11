@@ -51,7 +51,7 @@ namespace negocio
 
 
 
-            return new List<Imagen>();
+            return imagenes;
 
         }
 

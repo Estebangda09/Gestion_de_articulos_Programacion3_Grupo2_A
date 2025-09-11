@@ -40,7 +40,7 @@ namespace WindowsFormsApp1
 
         }
 
-        private void cargar()
+        public void cargar()
         {
             ArchivoNegocio negocio = new ArchivoNegocio();
             try
@@ -109,5 +109,22 @@ namespace WindowsFormsApp1
             dgvArchivos.DataSource = listaFiltrada;
             ocultarColumnas();
         }
+        //
+
+
+        public Articulo ArticuloSeleccionado
+        {
+            get
+            {
+                if (dgvArchivos.CurrentRow != null)
+                    return (Articulo)dgvArchivos.CurrentRow.DataBoundItem;
+                else
+                    return null;
+            }
+        }
+
+
+
+
     }
 }

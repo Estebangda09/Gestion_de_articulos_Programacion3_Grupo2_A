@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dominio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -67,5 +68,24 @@ namespace WindowsFormsApp1
 
         }
 
+        private frmListarArticulos listaArticulosForm;
+
+        private void listarmodificacion()
+        {
+            listaArticulosForm = new frmListarArticulos();
+            listaArticulosForm.MdiParent = this;
+            listaArticulosForm.Show();
+        }
+
+        private void artículoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void categoríaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

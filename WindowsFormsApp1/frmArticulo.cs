@@ -22,6 +22,14 @@ namespace WindowsFormsApp1
         }
 
 
+        private Articulo articuloModificado;
+
+        public frmArticulo(Articulo articulo)
+        {
+            InitializeComponent();
+            articuloModificado = articulo;
+        }
+
 
         private void listImagenArticulo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -63,6 +71,8 @@ namespace WindowsFormsApp1
             FrmMenu frmMenu = new FrmMenu();
             this.Close();
             
+            
+
         }
 
         
@@ -82,25 +92,27 @@ namespace WindowsFormsApp1
                 }
             }
 
-        }
-
-        
-
-      
+        }      
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
             Articulo articulo = new Articulo();
             ArchivoNegocio archivoNegocio = new ArchivoNegocio();
-            
-            
-            
-
 
             try
             {
 
-               articulo.Codigo= textCodigo.Text;
+                if (string.IsNullOrWhiteSpace(textCodigo.Text) ||
+                    string.IsNullOrWhiteSpace(textNombre.Text) ||
+                    string.IsNullOrWhiteSpace(textDescripcion.Text) ||
+                    comboCategoria.SelectedIndex == -1 ||
+                    comboMarca.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Por favor, completá todos los campos obligatorios.");
+                    return;
+                }
+
+                articulo.Codigo= textCodigo.Text;
                 articulo.Nombre = textNombre.Text;
                 articulo.Descricpcion = textDescripcion.Text;
 
@@ -112,15 +124,10 @@ namespace WindowsFormsApp1
                 else
                 {
                     MessageBox.Show("El precio ingresado no es válido.");
+                    return;
                 }
-
-                
-
                 articulo.tipo = (Categoria) comboCategoria.SelectedItem;
                 articulo.marca = (Marca) comboMarca.SelectedItem;
-
-
-
                 foreach (string ruta in listImagenArticulo.Items)
                 {
                     if (!string.IsNullOrWhiteSpace(ruta))
@@ -132,26 +139,18 @@ namespace WindowsFormsApp1
                     }
                 }
 
-
-
-
-
-
-
-
-
-                archivoNegocio.Agregar(articulo);
-
+                archivoNegocio.Agregar(articulo); 
                 MessageBox.Show("agregado");
                
-
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.ToString());
-            }
+            }           
         }
+
+        
 
         private void frmArticulo_Load(object sender, EventArgs e)
         {

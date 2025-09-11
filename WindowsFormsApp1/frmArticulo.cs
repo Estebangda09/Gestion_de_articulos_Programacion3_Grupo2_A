@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Microsoft.VisualBasic;
 
 namespace WindowsFormsApp1
 {
@@ -20,6 +20,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
+
 
 
         private Articulo articuloModificado;
@@ -79,7 +80,7 @@ namespace WindowsFormsApp1
 
         private void buttonAgregarIMG_Click(object sender, EventArgs e)
         {
-
+            
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Multiselect = true;
             openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp";
@@ -91,6 +92,8 @@ namespace WindowsFormsApp1
                     listImagenArticulo.Items.Add(file);
                 }
             }
+
+       
 
         }      
 
@@ -182,5 +185,7 @@ namespace WindowsFormsApp1
 
 
         }
+
+    
     }
 }

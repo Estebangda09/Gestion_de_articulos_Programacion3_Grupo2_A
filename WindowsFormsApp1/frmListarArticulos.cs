@@ -47,6 +47,7 @@ namespace WindowsFormsApp1
             {
                 listaArticulos = negocio.Listar();
                 dgvArchivos.DataSource = listaArticulos;
+                cargarImagen(listaArticulos[0].ImagenUrl.ImagenUrl);
                 ocultarColumnas();
             }
             catch (Exception ex)

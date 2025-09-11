@@ -107,6 +107,7 @@
             this.detallesDeLosArticulosToolStripMenuItem.Name = "detallesDeLosArticulosToolStripMenuItem";
             this.detallesDeLosArticulosToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.detallesDeLosArticulosToolStripMenuItem.Text = "Detalles de los Articulos";
+            this.detallesDeLosArticulosToolStripMenuItem.Click += new System.EventHandler(this.detallesDeLosArticulosToolStripMenuItem_Click);
             // 
             // agregarToolStripMenuItem
             // 
@@ -153,20 +154,20 @@
             // artículoToolStripMenuItem1
             // 
             this.artículoToolStripMenuItem1.Name = "artículoToolStripMenuItem1";
-            this.artículoToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
+            this.artículoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.artículoToolStripMenuItem1.Text = "Artículo";
             this.artículoToolStripMenuItem1.Click += new System.EventHandler(this.artículoToolStripMenuItem1_Click);
             // 
             // categoríaToolStripMenuItem1
             // 
             this.categoríaToolStripMenuItem1.Name = "categoríaToolStripMenuItem1";
-            this.categoríaToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
+            this.categoríaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.categoríaToolStripMenuItem1.Text = "Categoría";
             // 
             // marcaToolStripMenuItem1
             // 
             this.marcaToolStripMenuItem1.Name = "marcaToolStripMenuItem1";
-            this.marcaToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
+            this.marcaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.marcaToolStripMenuItem1.Text = "Marca";
             // 
             // eliminarToolStripMenuItem1

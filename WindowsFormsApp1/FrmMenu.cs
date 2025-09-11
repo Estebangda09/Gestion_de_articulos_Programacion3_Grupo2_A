@@ -87,5 +87,13 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void detallesDeLosArticulosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListarArticulos frmListarArticulos = new frmListarArticulos();
+
+            frmListarArticulos.ShowDialog();
+        }
+           
     }
 }

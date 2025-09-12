@@ -44,12 +44,12 @@ namespace negocio
     "       ISNULL(I1.ImagenUrl, '') AS ImagenUrl, " +
     "       ISNULL(C.Id, 0) AS IdCategoria, ISNULL(C.Descripcion, '') AS Categoria, " +
     "       ISNULL(M.Id, 0) AS IdMarca,    ISNULL(M.Descripcion, '') AS Marca " +
-    "FROM Articulos A " +
-    "OUTER APPLY ( " +
-    "    SELECT TOP 1 ImagenUrl " +
-    "    FROM Imagenes I " +
-    "    WHERE I.IdArticulo = A.Id " +
-    "    ORDER BY I.Id " +
+    "       FROM Articulos A " +
+    "       OUTER APPLY ( " +
+    "        SELECT TOP 1 ImagenUrl " +
+    "        FROM Imagenes I " +
+    "       WHERE I.IdArticulo = A.Id " +
+    "       ORDER BY I.Id " +
     ") I1 " +
     "LEFT JOIN Categorias C ON A.IdCategoria = C.Id " +
     "LEFT JOIN Marcas     M ON A.IdMarca     = M.Id";
@@ -70,19 +70,17 @@ namespace negocio
                     aux.Descricpcion = (string)lector["Descripcion"];
                     aux.Precio = (decimal)lector["Precio"];
                     aux.ImagenUrl = new Imagen();
-                   aux.ImagenUrl.ImagenUrl = (string)lector["ImagenUrl"];
-                   aux.tipo = new Categoria();
+                    aux.ImagenUrl.ImagenUrl = (string)lector["ImagenUrl"];
+                    aux.tipo = new Categoria();
                     aux.marca = new Marca();
 
                     
 
-                   aux.tipo.Id = (int)lector["IdCategoria"];               
+                    aux.tipo.Id = (int)lector["IdCategoria"];               
                     aux.tipo.Descripcion = (string)lector["Categoria"];
                     
                     aux.marca.Id = (int)lector["IdMarca"];
                     aux.marca.Descripcion = (string)lector["Marca"];
-
-
 
                     lista.Add(aux);
 
@@ -102,42 +100,54 @@ namespace negocio
            
 
         }
-        public void Agregar (Articulo articulo)
+        public int Agregar(Articulo articulo)
         {
-
             AccesoDatos datos = new AccesoDatos();
-
             try
             {
-
+                // Inserto el artículo
                 datos.SetearConsulta(
-                  "INSERT INTO Articulos (Codigo, Nombre, Descripcion, Precio, IdCategoria, IdMarca) " +
-                  "VALUES (@Codigo, @Nombre, @Descripcion, @Precio, @IdCategoria, @IdMarca)"
-              );
+                    "INSERT INTO Articulos (Codigo, Nombre, Descripcion, Precio, IdCategoria, IdMarca) " +
+                    "VALUES (@Codigo, @Nombre, @Descripcion, @Precio, @IdCategoria, @IdMarca); " +
+                    "SELECT SCOPE_IDENTITY();"
+                );
 
-                
-                datos.SetearParametros("@Codigo", articulo.Codigo);                 
-                datos.SetearParametros("@Nombre", articulo.Nombre);                 
-                datos.SetearParametros("@Descripcion", articulo.Descricpcion);       
-                datos.SetearParametros("@Precio", articulo.Precio);                 
-                datos.SetearParametros("@IdCategoria", articulo.tipo.Id);           
+                datos.SetearParametros("@Codigo", articulo.Codigo);
+                datos.SetearParametros("@Nombre", articulo.Nombre);
+                datos.SetearParametros("@Descripcion", articulo.Descricpcion);
+                datos.SetearParametros("@Precio", articulo.Precio);
+                datos.SetearParametros("@IdCategoria", articulo.tipo.Id);
                 datos.SetearParametros("@IdMarca", articulo.marca.Id);
 
-                datos.EjecutarAccion();
+            
+                int idArticulo = Convert.ToInt32(datos.EjecutarEscalar());
 
+                
+                if (!string.IsNullOrEmpty(articulo.ImagenUrl.ImagenUrl))
+                {
+                    AccesoDatos datosImg = new AccesoDatos();
+                    datosImg.SetearConsulta(
+                        "INSERT INTO Imagenes (IdArticulo, ImagenUrl) VALUES (@IdArticulo, @ImagenUrl)"
+                    );
+                    datosImg.SetearParametros("@IdArticulo", idArticulo);
+                    datosImg.SetearParametros("@ImagenUrl", articulo.ImagenUrl.ImagenUrl);
+                    datosImg.EjecutarAccion();
+                    datosImg.CerrarConexion();
+                }
+
+                return idArticulo;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw ex;
             }
-
             finally
             {
                 datos.CerrarConexion();
-
             }
         }
+
+
 
 
         public void Modificar(Articulo articulo)

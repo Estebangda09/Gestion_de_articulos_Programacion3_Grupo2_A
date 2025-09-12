@@ -19,38 +19,8 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
-
-        private void Buscarbutton_Click(object sender, EventArgs e)
-        {
-            /// buscararticulo(CodigoArttextBox.Text);
-            Articulo articulo = new Articulo();
-
-            if (CodigoArttextBox.Text == "" ) 
-            {
-                MessageBox.Show("pongo un coidgo valido");
-            }
-
-            try
-            {
-               articulo= buscararticulo(CodigoArttextBox.Text);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("error");
-                
-               
-                return;
-            }
-
-            if (articulo != null) 
-            {
-                MessageBox.Show("no se encontro");
-            }
-
-
-
-           
-        }
+        
+    
 
 
         public Articulo buscararticulo (string articulo)
@@ -66,8 +36,12 @@ namespace WindowsFormsApp1
                 try
                 {
 
-                    accesoDatos.SetearConsulta("select Codigo, Nombre, Descripcion, Precio,IdMarca,IdCategoria from ARTICULOS where Codigo = @Codigo");
-                    accesoDatos.SetearParametros("@codigo",articulo);
+                accesoDatos.SetearConsulta("SELECT Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria " +
+    "FROM Articulos " +
+    "WHERE Codigo = @Codigo;");
+
+
+                    accesoDatos.SetearParametros("@Codigo",articulo.Trim());
                     accesoDatos.EjecutarLectura();
 
                 if (accesoDatos.Lector.Read())
@@ -109,7 +83,7 @@ namespace WindowsFormsApp1
                 }
                 catch (Exception ex)
                 {
-
+                MessageBox.Show("ANDA MAL0");
                     throw ex;
                 }
 
@@ -133,6 +107,34 @@ namespace WindowsFormsApp1
 
 
       
+        }
+
+        private void Buscarbutton_Click_1(object sender, EventArgs e)
+        {
+            Articulo articulo = new Articulo();
+
+
+            if (CodigoArttextBox.Text == "")
+            {
+                MessageBox.Show("pongo un codigo valido");
+            }
+
+            try
+            {
+                articulo = buscararticulo(CodigoArttextBox.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            if (articulo == null)
+            {
+                MessageBox.Show("no se encontro");
+            }
+
+            MessageBox.Show(articulo.Nombre.ToString());
+
         }
     }
 }

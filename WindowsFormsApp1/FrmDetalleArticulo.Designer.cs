@@ -71,7 +71,6 @@
             this.dataGridViewdetalle.Name = "dataGridViewdetalle";
             this.dataGridViewdetalle.Size = new System.Drawing.Size(616, 274);
             this.dataGridViewdetalle.TabIndex = 3;
-            this.dataGridViewdetalle.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewdetalle_CellContentClick);
             // 
             // pictureBox1
             // 
@@ -89,7 +88,7 @@
             this.Buscarbutton.TabIndex = 5;
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.UseVisualStyleBackColor = true;
-            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
+            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click_1);
             // 
             // FrmDetalleArticulo
             // 

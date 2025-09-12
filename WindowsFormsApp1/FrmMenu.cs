@@ -25,10 +25,7 @@ namespace WindowsFormsApp1
 
         }
 
-        private void toolStripLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void articulosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -46,11 +43,7 @@ namespace WindowsFormsApp1
        
 
 
-        private void BuscarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
+     
         private void artículoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmArticulo frmArticulo = new frmArticulo();
@@ -58,29 +51,25 @@ namespace WindowsFormsApp1
             frmArticulo.ShowDialog();
         }
 
-        private void dgvArchivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-       
-        private void artículoToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        private void categoríaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void detallesDeLosArticulosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmListarArticulos frmListarArticulos = new frmListarArticulos();
+        {  
+         
+             
 
-            frmListarArticulos.ShowDialog();
         }
-           
+
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void detallesDeLosArticulosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+              FrmDetalleArticulo articulo = new FrmDetalleArticulo();
+
+            articulo.ShowDialog();
+
+        }
     }
 }

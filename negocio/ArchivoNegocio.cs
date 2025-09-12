@@ -25,7 +25,7 @@ namespace negocio
                 //Esteban conexion a base 
                //// conexion.ConnectionString = "Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;";
 
-                //Matias
+                
 
                 //Adrian
 
@@ -40,7 +40,7 @@ namespace negocio
                 ////esteban
                //comando.CommandText = "select Codigo, Nombre, Descripcion, Precio, ImagenUrl FROM ARTICULOS A, IMAGENES I WHERE A.Id = I.IdArticulo";
                 /// ////matias
-                 comando.CommandText = "SELECT A.Codigo, A.Nombre, A.Descripcion, A.Precio, " +
+            /*    comando.CommandText = "SELECT A.Codigo, A.Nombre, A.Descripcion, A.Precio, " +
     "       ISNULL(I1.ImagenUrl, '') AS ImagenUrl, " +
     "       ISNULL(C.Id, 0) AS IdCategoria, ISNULL(C.Descripcion, '') AS Categoria, " +
     "       ISNULL(M.Id, 0) AS IdMarca,    ISNULL(M.Descripcion, '') AS Marca " +
@@ -52,7 +52,7 @@ namespace negocio
     "       ORDER BY I.Id " +
     ") I1 " +
     "LEFT JOIN Categorias C ON A.IdCategoria = C.Id " +
-    "LEFT JOIN Marcas     M ON A.IdMarca     = M.Id";
+    "LEFT JOIN Marcas     M ON A.IdMarca     = M.Id";*/
 
 
 
@@ -71,6 +71,7 @@ namespace negocio
                     aux.Precio = (decimal)lector["Precio"];
                     aux.ImagenUrl = new Imagen();
                     aux.ImagenUrl.ImagenUrl = (string)lector["ImagenUrl"];
+                    /*
                     aux.tipo = new Categoria();
                     aux.marca = new Marca();
 
@@ -80,7 +81,7 @@ namespace negocio
                     aux.tipo.Descripcion = (string)lector["Categoria"];
                     
                     aux.marca.Id = (int)lector["IdMarca"];
-                    aux.marca.Descripcion = (string)lector["Marca"];
+                    aux.marca.Descripcion = (string)lector["Marca"];*/
 
                     lista.Add(aux);
 

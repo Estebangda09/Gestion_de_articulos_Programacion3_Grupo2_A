@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Label label9;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmArticulo));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,17 +42,25 @@
             this.textPrecio = new System.Windows.Forms.TextBox();
             this.comboMarca = new System.Windows.Forms.ComboBox();
             this.comboCategoria = new System.Windows.Forms.ComboBox();
-            this.listImagenArticulo = new System.Windows.Forms.ListBox();
-            this.buttonAgregarIMG = new System.Windows.Forms.Button();
-            this.buttonEliminarIMG = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.pictureBoxVistaPrevia = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonLimpiar = new System.Windows.Forms.Button();
             this.buttonCancelarArticulo = new System.Windows.Forms.Button();
+            this.txtImagenUrl = new System.Windows.Forms.TextBox();
+            label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVistaPrevia)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.75F, System.Drawing.FontStyle.Bold);
+            label9.Location = new System.Drawing.Point(44, 382);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(130, 25);
+            label9.TabIndex = 20;
+            label9.Text = "Imagen URL";
             // 
             // label1
             // 
@@ -172,64 +181,23 @@
             this.comboCategoria.Size = new System.Drawing.Size(324, 21);
             this.comboCategoria.TabIndex = 5;
             // 
-            // listImagenArticulo
-            // 
-            this.listImagenArticulo.AccessibleDescription = "  ";
-            this.listImagenArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listImagenArticulo.FormattingEnabled = true;
-            this.listImagenArticulo.Location = new System.Drawing.Point(180, 385);
-            this.listImagenArticulo.Name = "listImagenArticulo";
-            this.listImagenArticulo.Size = new System.Drawing.Size(326, 95);
-            this.listImagenArticulo.TabIndex = 7;
-            this.listImagenArticulo.SelectedIndexChanged += new System.EventHandler(this.listImagenArticulo_SelectedIndexChanged);
-            // 
-            // buttonAgregarIMG
-            // 
-            this.buttonAgregarIMG.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonAgregarIMG.Location = new System.Drawing.Point(180, 486);
-            this.buttonAgregarIMG.Name = "buttonAgregarIMG";
-            this.buttonAgregarIMG.Size = new System.Drawing.Size(75, 23);
-            this.buttonAgregarIMG.TabIndex = 8;
-            this.buttonAgregarIMG.Text = "Agregar";
-            this.buttonAgregarIMG.UseVisualStyleBackColor = true;
-            this.buttonAgregarIMG.Click += new System.EventHandler(this.buttonAgregarIMG_Click);
-            // 
-            // buttonEliminarIMG
-            // 
-            this.buttonEliminarIMG.Location = new System.Drawing.Point(261, 486);
-            this.buttonEliminarIMG.Name = "buttonEliminarIMG";
-            this.buttonEliminarIMG.Size = new System.Drawing.Size(75, 23);
-            this.buttonEliminarIMG.TabIndex = 9;
-            this.buttonEliminarIMG.Text = "Eliminar";
-            this.buttonEliminarIMG.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.75F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(52, 399);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 25);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Imagen";
-            // 
             // pictureBoxVistaPrevia
             // 
             this.pictureBoxVistaPrevia.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBoxVistaPrevia.Location = new System.Drawing.Point(544, 107);
+            this.pictureBoxVistaPrevia.Location = new System.Drawing.Point(592, 93);
             this.pictureBoxVistaPrevia.Name = "pictureBoxVistaPrevia";
-            this.pictureBoxVistaPrevia.Size = new System.Drawing.Size(276, 206);
+            this.pictureBoxVistaPrevia.Size = new System.Drawing.Size(260, 242);
             this.pictureBoxVistaPrevia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxVistaPrevia.TabIndex = 16;
             this.pictureBoxVistaPrevia.TabStop = false;
+            this.pictureBoxVistaPrevia.Click += new System.EventHandler(this.pictureBoxVistaPrevia_Click);
             // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.75F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(563, 79);
+            this.label8.Location = new System.Drawing.Point(613, 65);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(220, 25);
             this.label8.TabIndex = 13;
@@ -239,7 +207,7 @@
             // 
             this.buttonGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.buttonGuardar.Location = new System.Drawing.Point(544, 456);
+            this.buttonGuardar.Location = new System.Drawing.Point(533, 355);
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.Size = new System.Drawing.Size(110, 53);
             this.buttonGuardar.TabIndex = 10;
@@ -250,7 +218,7 @@
             // buttonLimpiar
             // 
             this.buttonLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLimpiar.Location = new System.Drawing.Point(667, 456);
+            this.buttonLimpiar.Location = new System.Drawing.Point(662, 355);
             this.buttonLimpiar.Name = "buttonLimpiar";
             this.buttonLimpiar.Size = new System.Drawing.Size(109, 53);
             this.buttonLimpiar.TabIndex = 11;
@@ -262,7 +230,7 @@
             // 
             this.buttonCancelarArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancelarArticulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.buttonCancelarArticulo.Location = new System.Drawing.Point(792, 456);
+            this.buttonCancelarArticulo.Location = new System.Drawing.Point(790, 355);
             this.buttonCancelarArticulo.Name = "buttonCancelarArticulo";
             this.buttonCancelarArticulo.Size = new System.Drawing.Size(109, 53);
             this.buttonCancelarArticulo.TabIndex = 12;
@@ -270,22 +238,29 @@
             this.buttonCancelarArticulo.UseVisualStyleBackColor = false;
             this.buttonCancelarArticulo.Click += new System.EventHandler(this.buttonCancelarArticulo_Click);
             // 
+            // txtImagenUrl
+            // 
+            this.txtImagenUrl.Location = new System.Drawing.Point(180, 388);
+            this.txtImagenUrl.Name = "txtImagenUrl";
+            this.txtImagenUrl.Size = new System.Drawing.Size(326, 20);
+            this.txtImagenUrl.TabIndex = 21;
+            this.txtImagenUrl.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtImagenUrl_KeyUp);
+            this.txtImagenUrl.Leave += new System.EventHandler(this.txtImagenUrl_Leave);
+            // 
             // frmArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.GrayText;
-            this.ClientSize = new System.Drawing.Size(925, 584);
+            this.ClientSize = new System.Drawing.Size(925, 452);
+            this.Controls.Add(this.txtImagenUrl);
+            this.Controls.Add(label9);
             this.Controls.Add(this.buttonCancelarArticulo);
             this.Controls.Add(this.buttonLimpiar);
             this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.pictureBoxVistaPrevia);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.buttonEliminarIMG);
-            this.Controls.Add(this.buttonAgregarIMG);
-            this.Controls.Add(this.listImagenArticulo);
             this.Controls.Add(this.comboCategoria);
             this.Controls.Add(this.comboMarca);
             this.Controls.Add(this.textPrecio);
@@ -300,7 +275,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(961, 623);
-            this.MinimumSize = new System.Drawing.Size(807, 585);
+            this.MinimumSize = new System.Drawing.Size(941, 491);
             this.Name = "frmArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Articulo";
@@ -326,14 +301,11 @@
         private System.Windows.Forms.TextBox textPrecio;
         private System.Windows.Forms.ComboBox comboMarca;
         private System.Windows.Forms.ComboBox comboCategoria;
-        private System.Windows.Forms.ListBox listImagenArticulo;
-        private System.Windows.Forms.Button buttonAgregarIMG;
-        private System.Windows.Forms.Button buttonEliminarIMG;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBoxVistaPrevia;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button buttonGuardar;
         private System.Windows.Forms.Button buttonLimpiar;
         private System.Windows.Forms.Button buttonCancelarArticulo;
+        private System.Windows.Forms.TextBox txtImagenUrl;
     }
 }

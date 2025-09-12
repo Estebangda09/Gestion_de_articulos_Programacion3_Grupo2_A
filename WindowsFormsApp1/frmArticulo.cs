@@ -10,41 +10,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.VisualBasic;
+using static System.Net.Mime.MediaTypeNames;
+
 
 namespace WindowsFormsApp1
 {
     public partial class frmArticulo : Form
     {
+        private Articulo articulo = null;
         public frmArticulo()
         {
             InitializeComponent();
         }
-
-
-
-        private Articulo articuloModificado;
+        
+        
 
         public frmArticulo(Articulo articulo)
         {
             InitializeComponent();
-            articuloModificado = articulo;
+            this.articulo = articulo;
         }
-
-
-        private void listImagenArticulo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if (listImagenArticulo.SelectedItem != null)
-            {
-                string selectedImagePath = listImagenArticulo.SelectedItem.ToString();
-                pictureBoxVistaPrevia.Image = Image.FromFile(selectedImagePath);
-                pictureBoxVistaPrevia.SizeMode = PictureBoxSizeMode.Zoom;
-            }
-
-        }
-
-   
+        
 
         private void buttonLimpiar_Click(object sender, EventArgs e)
         {
@@ -60,7 +46,7 @@ namespace WindowsFormsApp1
             comboCategoria.SelectedIndex = -1;
 
             // Limpiar lista de imágenes
-            listImagenArticulo.Items.Clear();
+           txtImagenUrl.Text = "";
 
             // Limpiar vista previa
             pictureBoxVistaPrevia.Image = null;
@@ -71,88 +57,9 @@ namespace WindowsFormsApp1
         {
             FrmMenu frmMenu = new FrmMenu();
             this.Close();
-            
-            
-
         }
 
-        
-
-        private void buttonAgregarIMG_Click(object sender, EventArgs e)
-        {
-            
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Multiselect = true;
-            openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                foreach (string file in openFileDialog.FileNames)
-                {
-                    listImagenArticulo.Items.Add(file);
-                }
-            }
-
-       
-
-        }      
-
-        private void buttonGuardar_Click(object sender, EventArgs e)
-        {
-            Articulo articulo = new Articulo();
-            ArchivoNegocio archivoNegocio = new ArchivoNegocio();
-
-            try
-            {
-
-                if (string.IsNullOrWhiteSpace(textCodigo.Text) ||
-                    string.IsNullOrWhiteSpace(textNombre.Text) ||
-                    string.IsNullOrWhiteSpace(textDescripcion.Text) ||
-                    comboCategoria.SelectedIndex == -1 ||
-                    comboMarca.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Por favor, completá todos los campos obligatorios.");
-                    return;
-                }
-
-                articulo.Codigo= textCodigo.Text;
-                articulo.Nombre = textNombre.Text;
-                articulo.Descricpcion = textDescripcion.Text;
-
-                decimal precio;
-                if (decimal.TryParse(textPrecio.Text, out precio))
-                {
-                    articulo.Precio = precio;  
-                }
-                else
-                {
-                    MessageBox.Show("El precio ingresado no es válido.");
-                    return;
-                }
-                articulo.tipo = (Categoria) comboCategoria.SelectedItem;
-                articulo.marca = (Marca) comboMarca.SelectedItem;
-                foreach (string ruta in listImagenArticulo.Items)
-                {
-                    if (!string.IsNullOrWhiteSpace(ruta))
-                    {
-                        Imagen imagen = new Imagen();
-                        imagen.ImagenUrl = ruta;
-
-                        articulo.Imagenes.Add(imagen);
-                    }
-                }
-
-                archivoNegocio.Agregar(articulo); 
-                MessageBox.Show("agregado");
-               
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.ToString());
-            }           
-        }
-
+      
         
 
         private void frmArticulo_Load(object sender, EventArgs e)
@@ -165,7 +72,7 @@ namespace WindowsFormsApp1
             {
                 comboCategoria.DataSource = negocio.Categorias();
                 comboMarca.DataSource =  marcaNegocio.listamarca();
-                //pictureBoxVistaPrevia = imagenNegocio.imagenes();
+               
 
                 comboCategoria.DisplayMember = "Descripcion"; 
                 comboCategoria.ValueMember = "Id";
@@ -174,6 +81,18 @@ namespace WindowsFormsApp1
                 comboMarca.DisplayMember = "Descripcion";
                 comboMarca.ValueMember = "Id";
 
+
+                if(articulo != null)
+                {
+                    textCodigo.Text = articulo.Codigo;
+                    textNombre.Text = articulo.Nombre;
+                    textDescripcion.Text = articulo.Descricpcion;
+                    textPrecio.Text = articulo.Precio.ToString();
+                    comboCategoria.SelectedValue = articulo.tipo.Id;
+                    comboMarca.SelectedValue = articulo.marca.Id;
+                    txtImagenUrl.Text = articulo.ImagenUrl.ImagenUrl;
+                    pictureBoxVistaPrevia.Load(articulo.ImagenUrl.ImagenUrl);
+                }
 
             }
             catch (Exception ex)
@@ -186,6 +105,86 @@ namespace WindowsFormsApp1
 
         }
 
-    
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonGuardar_Click(object sender, EventArgs e)
+        {
+
+            Articulo articulo = new Articulo();
+            ArchivoNegocio archivoNegocio = new ArchivoNegocio();
+
+            try
+            {
+
+                if (string.IsNullOrWhiteSpace(textCodigo.Text) ||
+                    string.IsNullOrWhiteSpace(textNombre.Text) ||
+                    string.IsNullOrWhiteSpace(textDescripcion.Text) ||
+                    comboCategoria.SelectedIndex == -1 ||
+                    comboMarca.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Por favor, complete todos los campos obligatorios.");
+                    return;
+                }
+
+                articulo.Codigo = textCodigo.Text;
+                articulo.Nombre = textNombre.Text;
+                articulo.Descricpcion = textDescripcion.Text;
+
+
+                // Cargar imagen desde el TextBox
+                articulo.ImagenUrl = new Imagen();
+                articulo.ImagenUrl.ImagenUrl = txtImagenUrl.Text;
+
+                decimal precio;
+                if (decimal.TryParse(textPrecio.Text, out precio))
+                {
+                    articulo.Precio = precio;
+                }
+                else
+                {
+                    MessageBox.Show("El precio ingresado no es válido.");
+                    return;
+                }
+                articulo.tipo = (Categoria)comboCategoria.SelectedItem;
+                articulo.marca = (Marca)comboMarca.SelectedItem;
+
+
+                archivoNegocio.Agregar(articulo);
+                MessageBox.Show("agregado");
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+
+        }
+
+        private void pictureBoxVistaPrevia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtImagenUrl_Leave(object sender, EventArgs e)
+        {
+          
+            
+        }
+
+        private void txtImagenUrl_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                pictureBoxVistaPrevia.Load(txtImagenUrl.Text);
+            }
+            catch
+            {
+                pictureBoxVistaPrevia.Load("https://w7.pngwing.com/pngs/285/84/png-transparent-computer-icons-error-super-8-film-angle-triangle-computer-icons-thumbnail.png");
+            }
+        }
     }
 }

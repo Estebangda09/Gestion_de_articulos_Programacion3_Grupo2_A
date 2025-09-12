@@ -43,12 +43,7 @@ namespace WindowsFormsApp1
             ListaArticulo.Show();
         }
 
-        private void AgregararticuloToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmArticulo frmArticulo = new frmArticulo();
-
-            frmArticulo.ShowDialog();
-        }
+       
 
 
         private void BuscarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -68,15 +63,7 @@ namespace WindowsFormsApp1
 
         }
 
-        private frmListarArticulos listaArticulosForm;
-
-        private void listarmodificacion()
-        {
-            listaArticulosForm = new frmListarArticulos();
-            listaArticulosForm.MdiParent = this;
-            listaArticulosForm.Show();
-        }
-
+       
         private void artículoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             

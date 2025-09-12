@@ -36,6 +36,7 @@ namespace WindowsFormsApp1
             this.button1 = new System.Windows.Forms.Button();
             this.lbeFiltro = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
+            this.btnModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArchivos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.SuspendLayout();
@@ -94,12 +95,23 @@ namespace WindowsFormsApp1
             this.txtFiltro.TabIndex = 3;
             this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(233, 10);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.TabIndex = 4;
+            this.btnModificar.Text = "Modifcar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
             // frmListarArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(992, 344);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.lbeFiltro);
             this.Controls.Add(this.pbxArticulo);
@@ -110,7 +122,7 @@ namespace WindowsFormsApp1
             this.Name = "frmListarArticulos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado Articulos";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.frmListarArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArchivos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();
             this.ResumeLayout(false);
@@ -127,6 +139,7 @@ namespace WindowsFormsApp1
         private Button button1;
         private Label lbeFiltro;
         private TextBox txtFiltro;
+        private Button btnModificar;
     }
 }
 

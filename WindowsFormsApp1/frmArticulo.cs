@@ -23,15 +23,12 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
         
-        
-
         public frmArticulo(Articulo articulo)
         {
             InitializeComponent();
             this.articulo = articulo;
         }
         
-
         private void buttonLimpiar_Click(object sender, EventArgs e)
         {
 
@@ -91,7 +88,7 @@ namespace WindowsFormsApp1
                     comboCategoria.SelectedValue = articulo.tipo.Id;
                     comboMarca.SelectedValue = articulo.marca.Id;
                     txtImagenUrl.Text = articulo.ImagenUrl.ImagenUrl;
-                    pictureBoxVistaPrevia.Load(articulo.ImagenUrl.ImagenUrl);
+                    cargarImagen(articulo.ImagenUrl.ImagenUrl);
                 }
 
             }
@@ -101,14 +98,19 @@ namespace WindowsFormsApp1
                 throw ex;
             }
             
-
-
         }
-
-        private void label9_Click(object sender, EventArgs e)
+        private void cargarImagen(string imagen)
         {
-
+            try
+            {
+                pictureBoxVistaPrevia.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                pictureBoxVistaPrevia.Load("https://w7.pngwing.com/pngs/285/84/png-transparent-computer-icons-error-super-8-film-angle-triangle-computer-icons-thumbnail.png");
+            }
         }
+
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
@@ -164,10 +166,6 @@ namespace WindowsFormsApp1
 
         }
 
-        private void pictureBoxVistaPrevia_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void txtImagenUrl_Leave(object sender, EventArgs e)
         {
@@ -183,7 +181,7 @@ namespace WindowsFormsApp1
             }
             catch
             {
-                pictureBoxVistaPrevia.Load("https://w7.pngwing.com/pngs/285/84/png-transparent-computer-icons-error-super-8-film-angle-triangle-computer-icons-thumbnail.png");
+                //pictureBoxVistaPrevia.Load("https://w7.pngwing.com/pngs/285/84/png-transparent-computer-icons-error-super-8-film-angle-triangle-computer-icons-thumbnail.png");
             }
         }
     }

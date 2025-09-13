@@ -62,25 +62,7 @@ namespace WindowsFormsApp1
         private void artículoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmArticulo frmArticulo = new frmArticulo();
-
             frmArticulo.ShowDialog();
-        }
-
-        private void dgvArchivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-       
-        private void artículoToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        private void categoríaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void EliminarArticulo_Click(object sender, EventArgs e)
@@ -107,6 +89,14 @@ namespace WindowsFormsApp1
                 MessageBox.Show(ex.ToString());
                 throw;
             }
+        }
+
+        private void ModificarArticulo_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = _listado.GetSeleccionado();
+            frmArticulo frmArticulo = new frmArticulo(seleccionado);
+            frmArticulo.ShowDialog();
         }
     }
 }

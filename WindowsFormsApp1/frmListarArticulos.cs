@@ -73,7 +73,7 @@ namespace WindowsFormsApp1
             {
                 pbxArticulo.Load(imagen);
             }
-            catch
+            catch (Exception ex)
             {
                 pbxArticulo.Load("https://w7.pngwing.com/pngs/285/84/png-transparent-computer-icons-error-super-8-film-angle-triangle-computer-icons-thumbnail.png");
             }

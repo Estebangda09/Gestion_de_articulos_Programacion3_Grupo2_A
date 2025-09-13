@@ -40,8 +40,7 @@
             this.categoríaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.categoríaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.marcaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ModificarArticulo = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.EliminarArticulo = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -130,7 +129,6 @@
             this.categoríaToolStripMenuItem.Name = "categoríaToolStripMenuItem";
             this.categoríaToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.categoríaToolStripMenuItem.Text = "Categoría";
-            this.categoríaToolStripMenuItem.Click += new System.EventHandler(this.categoríaToolStripMenuItem_Click);
             // 
             // marcaToolStripMenuItem
             // 
@@ -141,24 +139,18 @@
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.categoríaToolStripMenuItem1,
-            this.marcaToolStripMenuItem1});
+            this.ModificarArticulo});
             this.modificarToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
             this.modificarToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
             this.modificarToolStripMenuItem.Text = "Modificar";
             // 
-            // categoríaToolStripMenuItem1
+            // ModificarArticulo
             // 
-            this.categoríaToolStripMenuItem1.Name = "categoríaToolStripMenuItem1";
-            this.categoríaToolStripMenuItem1.Size = new System.Drawing.Size(157, 26);
-            this.categoríaToolStripMenuItem1.Text = "Categoría";
-            // 
-            // marcaToolStripMenuItem1
-            // 
-            this.marcaToolStripMenuItem1.Name = "marcaToolStripMenuItem1";
-            this.marcaToolStripMenuItem1.Size = new System.Drawing.Size(157, 26);
-            this.marcaToolStripMenuItem1.Text = "Marca";
+            this.ModificarArticulo.Name = "ModificarArticulo";
+            this.ModificarArticulo.Size = new System.Drawing.Size(224, 26);
+            this.ModificarArticulo.Text = "Articulo";
+            this.ModificarArticulo.Click += new System.EventHandler(this.ModificarArticulo_Click);
             // 
             // eliminarToolStripMenuItem1
             // 
@@ -172,7 +164,7 @@
             // EliminarArticulo
             // 
             this.EliminarArticulo.Name = "EliminarArticulo";
-            this.EliminarArticulo.Size = new System.Drawing.Size(224, 26);
+            this.EliminarArticulo.Size = new System.Drawing.Size(144, 26);
             this.EliminarArticulo.Text = "Artículo";
             this.EliminarArticulo.Click += new System.EventHandler(this.EliminarArticulo_Click);
             // 
@@ -187,7 +179,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMenu";
@@ -213,8 +205,7 @@
         private System.Windows.Forms.ToolStripMenuItem categoríaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem marcaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem categoríaToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem marcaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ModificarArticulo;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem EliminarArticulo;
 

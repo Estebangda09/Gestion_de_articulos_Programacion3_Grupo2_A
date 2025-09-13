@@ -190,7 +190,6 @@
             this.pictureBoxVistaPrevia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxVistaPrevia.TabIndex = 16;
             this.pictureBoxVistaPrevia.TabStop = false;
-            this.pictureBoxVistaPrevia.Click += new System.EventHandler(this.pictureBoxVistaPrevia_Click);
             // 
             // label8
             // 

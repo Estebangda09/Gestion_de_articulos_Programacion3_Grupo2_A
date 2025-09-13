@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dominio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,12 +43,7 @@ namespace WindowsFormsApp1
             ListaArticulo.Show();
         }
 
-        private void AgregararticuloToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmArticulo frmArticulo = new frmArticulo();
-
-            frmArticulo.ShowDialog();
-        }
+       
 
 
         private void BuscarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -67,5 +63,16 @@ namespace WindowsFormsApp1
 
         }
 
+       
+        private void artículoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void categoríaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

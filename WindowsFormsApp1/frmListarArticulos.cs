@@ -23,11 +23,11 @@ namespace WindowsFormsApp1
             Text = "Listado de Artículos";
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void frmListarArticulos_Load(object sender, EventArgs e)
         {
-
             cargar();
         }
+
 
         private void dgvArchivos_SelectionChanged(object sender, EventArgs e)
         {
@@ -39,8 +39,8 @@ namespace WindowsFormsApp1
             }
 
         }
-
-        private void cargar()
+        
+        public void cargar()
         {
             ArchivoNegocio negocio = new ArchivoNegocio();
             try
@@ -108,6 +108,26 @@ namespace WindowsFormsApp1
             dgvArchivos.DataSource = null;
             dgvArchivos.DataSource = listaFiltrada;
             ocultarColumnas();
+        }
+
+
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+            if (dgvArchivos.CurrentRow != null)
+            {
+                Articulo seleccionado = (Articulo)dgvArchivos.CurrentRow.DataBoundItem;
+                frmArticulo formularioEdicion = new frmArticulo(seleccionado);
+                formularioEdicion.ShowDialog();
+
+                cargar();
+            }
+            else
+            {
+                MessageBox.Show("Seleccioná un artículo para modificar.");
+            }
+
         }
     }
 }

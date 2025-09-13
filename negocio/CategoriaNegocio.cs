@@ -10,14 +10,11 @@ namespace negocio
 {
     public class CategoriaNegocio
     { 
-
-
         public List<Categoria> Categorias()
         {
 
             List<Categoria> lista = new List<Categoria>();
             AccesoDatos accesoDatos = new AccesoDatos();
-
 
             try
             {
@@ -31,38 +28,18 @@ namespace negocio
                     aux.Descripcion = (string)accesoDatos.Lector["descripcion"];
 
                     lista.Add(aux);
-
-
                 }
                 return lista;
-
 
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
             {
                 accesoDatos.CerrarConexion();
-
-
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         }
 

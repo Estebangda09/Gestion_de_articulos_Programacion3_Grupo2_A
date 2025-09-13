@@ -12,49 +12,25 @@ namespace negocio
     public class ImagenNegocio
     {
 
-
-      public  List<Imagen> imagenes()
+        public void AgregarImagen(Imagen imagen)
         {
-            List<Imagen> imagenes = new List<Imagen>();
-            AccesoDatos accesoDatos = new AccesoDatos();
-
+            AccesoDatos datos = new AccesoDatos();
             try
             {
-                accesoDatos.SetearConsulta("select id,Id,ImagenUrl from IMAGENES");
-                accesoDatos.EjecutarLectura();
-
-                while (accesoDatos.Lector.Read())
-                {
-                    Imagen aux = new Imagen();
-                    aux.Id = (int)accesoDatos.Lector["id"];
-                    aux.IdArticulo = (int)accesoDatos.Lector["IdArticulo"];
-                    aux.ImagenUrl = (string)accesoDatos.Lector["ImagenUrl"];
-
-
-                    imagenes.Add(aux);
-
-
-                }
-
-
+                datos.SetearConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@IdArticulo, @ImagenUrl)");
+                datos.SetearParametro("@IdArticulo", imagen.IdArticulo);
+                datos.SetearParametro("@ImagenUrl", imagen.ImagenUrl);
+                datos.EjecutarAccion();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw ex;
             }
-
             finally
             {
-                accesoDatos.CerrarConexion();
+                datos.CerrarConexion();
             }
-
-
-
-            return new List<Imagen>();
-
         }
-
-
+        
     }
 }

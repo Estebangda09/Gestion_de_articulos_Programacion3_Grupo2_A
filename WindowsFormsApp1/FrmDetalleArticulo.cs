@@ -36,7 +36,7 @@ namespace WindowsFormsApp1
                 try
                 {
 
-                accesoDatos.SetearConsulta("SELECT  a.Codigo, a.Nombre, a.Descripcion, a.Precio,      m.Descripcion AS Marca,   c.Descripcion AS Categoria    FROM Articulos a LEFT JOIN Marcas m     ON m.Id = a.IdMarca  LEFT JOIN Categorias c ON c.Id = a.IdCategoria WHERE Codigo = @Codigo;");
+                accesoDatos.SetearConsulta("SELECT  a.Codigo, a.Nombre, a.Descripcion, a.Precio,m.Descripcion AS Marca,   c.Descripcion AS Categoria,i.ImagenUrl  FROM Articulos a LEFT JOIN Marcas m     ON m.Id = a.IdMarca  LEFT JOIN Categorias c ON c.Id = a.IdCategoria left join IMAGENES i on i.IdArticulo = a.Id WHERE Codigo = @Codigo");
 
 
                     accesoDatos.SetearParametros("@Codigo",articulo.Trim());
@@ -52,18 +52,23 @@ namespace WindowsFormsApp1
                     aux.Nombre = (string)accesoDatos.Lector["Nombre"];
                     aux.Descricpcion = (string)accesoDatos.Lector["Descripcion"];
                     aux.Precio = (decimal)accesoDatos.Lector["Precio"];
-                    /*
+                    
                     aux.ImagenUrl = new Imagen();
-                    aux.ImagenUrl.ImagenUrl = (string)accesoDatos.Lector["ImagenUrl"];*/
+
+                    if (!(accesoDatos.Lector["ImagenUrl"] is DBNull))
+                        aux.ImagenUrl.ImagenUrl = (string)accesoDatos.Lector["ImagenUrl"];
+
+                   
+
                     aux.tipo = new Categoria();
                     aux.marca = new Marca();
 
 
 
                    // aux.tipo.Id = (int)accesoDatos.Lector["IdCategoria"];
-                    aux.tipo.Descripcion = (string)accesoDatos.Lector["Descripcion"];
+                    aux.tipo.Descripcion = (string)accesoDatos.Lector["Categoria"];
 
-                    aux.marca.Descripcion = (string)accesoDatos.Lector["Descripcion"];
+                    aux.marca.Descripcion = (string)accesoDatos.Lector["Marca"];
 
                    // aux.marca.Id = (int)accesoDatos.Lector["IdMarca"];
 
@@ -131,7 +136,8 @@ namespace WindowsFormsApp1
                 throw ex;
             }
 
-            if (lista == null || lista.Count ==0)
+         
+             if (lista == null || lista.Count == 0)
             {
                 MessageBox.Show("no se encontro");
                 return;
@@ -139,6 +145,11 @@ namespace WindowsFormsApp1
 
             dataGridViewdetalle.DataSource = null;
             dataGridViewdetalle.DataSource = lista;
+            imagenpictureBox.Load(lista[0].ImagenUrl.ImagenUrl);
+
+            dataGridViewdetalle.Columns["ImagenUrl"].Visible = false;
+
+
 
         }
 
@@ -147,6 +158,59 @@ namespace WindowsFormsApp1
             FrmMenu frmMenu = new FrmMenu();
 
             frmMenu.ShowDialog();
+        }
+
+        private void Vercodigosbutton_Click(object sender, EventArgs e)
+        {
+
+           AccesoDatos accesoDatos = new AccesoDatos();
+            VercodigoslistBox.DisplayMember = "Codigo";
+            VercodigoslistBox.ValueMember = "Codigo";
+            VercodigoslistBox.Items.Clear();
+           
+           
+
+
+            accesoDatos.SetearConsulta("select distinct   a.Codigo  from ARTICULOS a order by a.Codigo asc");
+            accesoDatos.EjecutarLectura();
+
+            try
+            {
+                while (accesoDatos.Lector.Read())
+                {
+
+                    Articulo aux = new Articulo();
+
+                    aux.Codigo = (string)accesoDatos.Lector["Codigo"];
+
+                    VercodigoslistBox.Items.Add(aux);
+
+
+
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            finally
+            {
+                accesoDatos.CerrarConexion();
+            }
+
+
+           
+        }
+
+        private void VercodigoslistBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VercodigoslistBox.SelectedItem is Articulo art)
+                CodigoArttextBox.Text = art.Codigo;
         }
     }
 }

@@ -70,7 +70,8 @@ namespace negocio
                     aux.Descricpcion = (string)lector["Descripcion"];
                     aux.Precio = (decimal)lector["Precio"];
                     aux.ImagenUrl = new Imagen();
-                    aux.ImagenUrl.ImagenUrl = (string)lector["ImagenUrl"];
+                    if (!(lector["ImagenUrl"] is DBNull))
+                        aux.ImagenUrl.ImagenUrl = (string)lector["ImagenUrl"];
                     /*
                     aux.tipo = new Categoria();
                     aux.marca = new Marca();

@@ -34,6 +34,7 @@
             this.dataGridViewdetalle = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Buscarbutton = new System.Windows.Forms.Button();
+            this.Atrasbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewdetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -90,11 +91,22 @@
             this.Buscarbutton.UseVisualStyleBackColor = true;
             this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click_1);
             // 
+            // Atrasbutton
+            // 
+            this.Atrasbutton.Location = new System.Drawing.Point(940, 409);
+            this.Atrasbutton.Name = "Atrasbutton";
+            this.Atrasbutton.Size = new System.Drawing.Size(75, 23);
+            this.Atrasbutton.TabIndex = 6;
+            this.Atrasbutton.Text = "atras";
+            this.Atrasbutton.UseVisualStyleBackColor = true;
+            this.Atrasbutton.Click += new System.EventHandler(this.Atrasbutton_Click);
+            // 
             // FrmDetalleArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1197, 450);
+            this.Controls.Add(this.Atrasbutton);
             this.Controls.Add(this.Buscarbutton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridViewdetalle);
@@ -118,5 +130,6 @@
         private System.Windows.Forms.DataGridView dataGridViewdetalle;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button Buscarbutton;
+        private System.Windows.Forms.Button Atrasbutton;
     }
 }

@@ -20,31 +20,29 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
         
-    
+        
 
 
-        public Articulo buscararticulo (string articulo)
+        public List<Articulo>buscararticulos (string articulo)
         {
 
            AccesoDatos accesoDatos = new AccesoDatos();
 
-
-
+            
+            List<Articulo> lista = new List<Articulo>();
 
 
 
                 try
                 {
 
-                accesoDatos.SetearConsulta("SELECT Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria " +
-    "FROM Articulos " +
-    "WHERE Codigo = @Codigo;");
+                accesoDatos.SetearConsulta("SELECT  a.Codigo, a.Nombre, a.Descripcion, a.Precio,      m.Descripcion AS Marca,   c.Descripcion AS Categoria    FROM Articulos a LEFT JOIN Marcas m     ON m.Id = a.IdMarca  LEFT JOIN Categorias c ON c.Id = a.IdCategoria WHERE Codigo = @Codigo;");
 
 
                     accesoDatos.SetearParametros("@Codigo",articulo.Trim());
                     accesoDatos.EjecutarLectura();
 
-                if (accesoDatos.Lector.Read())
+                while (accesoDatos.Lector.Read())
                 {
 
 
@@ -62,20 +60,24 @@ namespace WindowsFormsApp1
 
 
 
-                    aux.tipo.Id = (int)accesoDatos.Lector["IdCategoria"];
+                   // aux.tipo.Id = (int)accesoDatos.Lector["IdCategoria"];
+                    aux.tipo.Descripcion = (string)accesoDatos.Lector["Descripcion"];
+
+                    aux.marca.Descripcion = (string)accesoDatos.Lector["Descripcion"];
+
+                   // aux.marca.Id = (int)accesoDatos.Lector["IdMarca"];
+
+                   lista.Add(aux);
 
 
-                    aux.marca.Id = (int)accesoDatos.Lector["IdMarca"];
-
-
-
-
-                    return aux;
+                    
+                   
                 }
+                return lista;
 
 
 
-                    return null;
+                
 
 
 
@@ -111,30 +113,40 @@ namespace WindowsFormsApp1
 
         private void Buscarbutton_Click_1(object sender, EventArgs e)
         {
-            Articulo articulo = new Articulo();
+            List<Articulo>lista = new List<Articulo>();
 
 
             if (CodigoArttextBox.Text == "")
             {
                 MessageBox.Show("pongo un codigo valido");
+                return;
             }
 
             try
             {
-                articulo = buscararticulo(CodigoArttextBox.Text);
+                lista = buscararticulos(CodigoArttextBox.Text);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
 
-            if (articulo == null)
+            if (lista == null || lista.Count ==0)
             {
                 MessageBox.Show("no se encontro");
+                return;
             }
 
-            MessageBox.Show(articulo.Nombre.ToString());
+            dataGridViewdetalle.DataSource = null;
+            dataGridViewdetalle.DataSource = lista;
 
+        }
+
+        private void Atrasbutton_Click(object sender, EventArgs e)
+        {
+            FrmMenu frmMenu = new FrmMenu();
+
+            frmMenu.ShowDialog();
         }
     }
 }

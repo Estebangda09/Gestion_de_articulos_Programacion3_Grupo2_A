@@ -1,4 +1,5 @@
 ﻿using dominio;
+using negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,8 @@ namespace WindowsFormsApp1
 {
     public partial class FrmMenu : Form
     {
+        private frmListarArticulos _listado;
+
         public FrmMenu()
         {
             InitializeComponent();
@@ -38,12 +41,17 @@ namespace WindowsFormsApp1
 
         private void listar()
         {
-            frmListarArticulos ListaArticulo = new frmListarArticulos();
-            ListaArticulo.MdiParent = this;
-            ListaArticulo.Show();
+            if (_listado == null)
+            {
+                _listado = new frmListarArticulos();
+                _listado.MdiParent = this;
+                _listado.Show();
+            }
+            else
+            {
+                _listado.Activate();
+            }
         }
-
-       
 
 
         private void BuscarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -73,6 +81,32 @@ namespace WindowsFormsApp1
         private void categoríaToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void EliminarArticulo_Click(object sender, EventArgs e)
+        {
+            ArchivoNegocio negocio = new ArchivoNegocio();
+            Articulo seleccionado = new Articulo();
+            try
+            {
+                if (_listado == null )
+                {
+                    MessageBox.Show("Abrí primero el listado de artículos.");
+                    return;
+                }
+                DialogResult = MessageBox.Show("Deseas eliminar definitivamente el elemento?", "Eliminando...", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (DialogResult == DialogResult.No) return;
+                seleccionado = (Articulo)_listado.GetSeleccionado();
+                negocio.Eliminar(seleccionado.Codigo);
+                _listado.cargar();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                throw;
+            }
         }
     }
 }

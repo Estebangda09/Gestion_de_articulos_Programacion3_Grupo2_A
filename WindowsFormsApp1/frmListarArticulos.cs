@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using dominio; 
+using dominio;
 using negocio;
 
 namespace WindowsFormsApp1
@@ -17,6 +17,13 @@ namespace WindowsFormsApp1
     {
         private List<Articulo> listaArticulos;
 
+        public Articulo GetSeleccionado()
+        {
+            if (dgvArchivos == null || dgvArchivos.CurrentRow == null)
+                return null;
+
+            return dgvArchivos.CurrentRow.DataBoundItem as Articulo;
+        }
         public frmListarArticulos()
         {
             InitializeComponent();
@@ -39,7 +46,7 @@ namespace WindowsFormsApp1
             }
 
         }
-        
+
         public void cargar()
         {
             ArchivoNegocio negocio = new ArchivoNegocio();
@@ -90,21 +97,21 @@ namespace WindowsFormsApp1
 
         }
 
- 
+
 
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-     
+
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
             List<Articulo> listaFiltrada;
             string filtro = txtFiltro.Text;
 
-            listaFiltrada = listaArticulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Descricpcion.ToUpper().Contains(filtro.ToUpper()) || x.Codigo.ToUpper().Contains(filtro.ToUpper())  );
+            listaFiltrada = listaArticulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Descricpcion.ToUpper().Contains(filtro.ToUpper()) || x.Codigo.ToUpper().Contains(filtro.ToUpper()));
             dgvArchivos.DataSource = null;
             dgvArchivos.DataSource = listaFiltrada;
             ocultarColumnas();

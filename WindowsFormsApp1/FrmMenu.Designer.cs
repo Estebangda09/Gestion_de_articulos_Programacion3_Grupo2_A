@@ -92,7 +92,13 @@
 
             // BuscarToolStripMenuItem
             // 
-          
+
+            this.BuscarToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.BuscarToolStripMenuItem.Name = "BuscarToolStripMenuItem";
+            this.BuscarToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.BuscarToolStripMenuItem.Text = "Buscar Articulos";
+            this.BuscarToolStripMenuItem.Click += new System.EventHandler(this.BuscarToolStripMenuItem_Click);
+
             // 
 
             // agregarArticuloToolStripMenuItem
@@ -179,9 +185,11 @@
             this.agregarCategoriaToolStripMenuItem.Name = "agregarCategoriaToolStripMenuItem";
             this.agregarCategoriaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
 
-            this.agregarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.agregarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
+
 
             this.agregarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
+
 
             this.agregarCategoriaToolStripMenuItem.Text = "Agregar Categoria";
             this.agregarCategoriaToolStripMenuItem.Click += new System.EventHandler(this.agregarCategoriaToolStripMenuItem_Click);
@@ -190,12 +198,12 @@
             // 
             this.modificarCategoriaToolStripMenuItem2.Name = "modificarCategoriaToolStripMenuItem2";
 
-            this.modificarCategoriaToolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.modificarCategoriaToolStripMenuItem2.Size = new System.Drawing.Size(221, 22);
-
-            this.modificarCategoriaToolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            this.modificarCategoriaToolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.F4)));
-            this.modificarCategoriaToolStripMenuItem2.Size = new System.Drawing.Size(311, 26);
+            this.modificarCategoriaToolStripMenuItem2.Size = new System.Drawing.Size(271, 22);
+
+           
+
 
             this.modificarCategoriaToolStripMenuItem2.Text = "Modificar Categoria";
             this.modificarCategoriaToolStripMenuItem2.Click += new System.EventHandler(this.modificarCategoriaToolStripMenuItem2_Click);
@@ -206,9 +214,12 @@
             this.eliminarCategoriaToolStripMenuItem2.Name = "eliminarCategoriaToolStripMenuItem2";
             this.eliminarCategoriaToolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F4)));
 
-            this.eliminarCategoriaToolStripMenuItem2.Size = new System.Drawing.Size(221, 22);
+            this.eliminarCategoriaToolStripMenuItem2.Size = new System.Drawing.Size(271, 22);
+
+
 
             this.eliminarCategoriaToolStripMenuItem2.Size = new System.Drawing.Size(311, 26);
+
 
             this.eliminarCategoriaToolStripMenuItem2.Text = "Eliminar Categoria";
             this.eliminarCategoriaToolStripMenuItem2.Click += new System.EventHandler(this.eliminarCategoriaToolStripMenuItem2_Click);
@@ -261,6 +272,7 @@
 
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1378, 591);
+
 
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

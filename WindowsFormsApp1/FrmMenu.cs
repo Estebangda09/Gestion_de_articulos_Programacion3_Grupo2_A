@@ -39,7 +39,7 @@ namespace WindowsFormsApp1
         {
             if (_listado == null)
             {
-                _listado = new frmListarArticulos();
+                _listado = new frmListarArticulos(true);
                 _listado.MdiParent = this;
                 _listado.Show();
             }
@@ -142,6 +142,15 @@ namespace WindowsFormsApp1
 
         private void detallesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+
+            frmListarArticulos ventana = new frmListarArticulos(false);
+            ventana.Show();
+
+        }
+
+
+
             string msg =
                 "Instrucciones de uso:" + Environment.NewLine + Environment.NewLine +
                 "• Paso 1: Haz click en el Modulo que quieres utilizar." + Environment.NewLine +

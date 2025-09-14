@@ -26,6 +26,9 @@ namespace negocio
             
             //estaban
 
+            conexion = new SqlConnection("Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;");
+            comando = new SqlCommand();
+
             //conexion = new SqlConnection("Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;");
             //comando = new SqlCommand();
 
@@ -37,8 +40,12 @@ namespace negocio
            // comando = new SqlCommand();
 
             //AdriR
+
+           // conexion = new SqlConnection("Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=BaseDeDatos#2;");
+
           ////  conexion = new SqlConnection("Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=BaseDeDatos#2;");
            // comando = new SqlCommand();
+
 
         }
 

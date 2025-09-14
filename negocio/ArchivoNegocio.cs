@@ -24,6 +24,11 @@ namespace negocio
             {   //Comentar la que no usen 
                 ///Esteban conexion a base 
 
+                conexion.ConnectionString = "Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;";
+                //Adrian
+                //conexion = new SqlConnection("Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=BaseDeDatos#2;");
+
+
                 //conexion.ConnectionString = "Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;";
 
                // conexion.ConnectionString = "Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;";

@@ -108,5 +108,40 @@ namespace WindowsFormsApp1
         {
             Cargar();
         }
+
+
+        private bool mostrarComoVentana;
+
+        public frmListarArticulos(bool mostrarComoVentana = false)
+        {
+            InitializeComponent();
+            this.mostrarComoVentana = mostrarComoVentana;
+
+            ConfigurarEstilo();
+        }
+        private void ConfigurarEstilo()
+        {
+            if (mostrarComoVentana)
+            {
+                this.TopLevel = false;
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.Dock = DockStyle.Fill;
+
+                txtFiltro.Visible = false;
+                lbeFiltro.Visible = false;
+
+            }
+            else
+            {
+                this.TopLevel = true;
+                this.FormBorderStyle = FormBorderStyle.Sizable;
+                this.Dock = DockStyle.None;
+
+                
+                txtFiltro.Visible = true;
+                lbeFiltro.Visible = true;  
+            }
+        }
+
     }
 }

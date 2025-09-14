@@ -43,6 +43,7 @@ namespace negocio
 
         public void AgregarMarca(Marca marca)
         {
+            //metodo para agregar marcas
             AccesoDatos datos = new AccesoDatos();
             try
             {
@@ -50,7 +51,7 @@ namespace negocio
                        "INSERT INTO MARCAS (Descripcion)" +
                        "VALUES (@Descripcion); "
                    );
-                datos.SetearParametro("Descripcion", marca.Descripcion);
+                datos.SetearParametros("Descripcion", marca.Descripcion);
                 datos.EjecutarAccion();
 
             }
@@ -64,14 +65,15 @@ namespace negocio
                 datos.CerrarConexion();
             }
         }
+        //metodo para modificar marcas
         public void ModificarMarca(Marca marca)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
                 datos.SetearConsulta("UPDATE MARCAS SET Descripcion = @Descripcion WHERE Id = @Id");
-                datos.SetearParametro("@Descripcion", marca.Descripcion);
-                datos.SetearParametro("@Id", marca.Id);
+                datos.SetearParametros("@Descripcion", marca.Descripcion);
+                datos.SetearParametros("@Id", marca.Id);
                 datos.EjecutarAccion();
             }
             finally
@@ -79,14 +81,14 @@ namespace negocio
                 datos.CerrarConexion();
             }
         }
-
+        //metodo para eliminar marcas
         public void EliminarMarca(int id)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
                 datos.SetearConsulta("DELETE FROM MARCAS WHERE Id = @Id");
-                datos.SetearParametro("@Id", id);
+                datos.SetearParametros("@Id", id);
                 datos.EjecutarAccion();
             }
             finally

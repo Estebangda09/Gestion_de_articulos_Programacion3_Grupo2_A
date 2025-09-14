@@ -197,7 +197,7 @@ namespace negocio
             {
                 AccesoDatos accesoDatos = new AccesoDatos();
                 accesoDatos.SetearConsulta("DELETE FROM CATALOGO_P3_DB.dbo.ARTICULOS WHERE Id = @Id");
-                accesoDatos.SetearParametro("@Id", id);
+                accesoDatos.SetearParametros("@Id", id);
                 accesoDatos.EjecutarAccion();
             }
             catch (Exception e)

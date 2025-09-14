@@ -51,7 +51,7 @@ namespace negocio
                        "INSERT INTO CATEGORIAS (Descripcion)" +
                        "VALUES (@Descripcion); "
                    );
-                datos.SetearParametro("Descripcion", categoria.Descripcion);
+                datos.SetearParametros("Descripcion", categoria.Descripcion);
                 datos.EjecutarAccion();
 
             }
@@ -72,8 +72,8 @@ namespace negocio
             try
             {
                 datos.SetearConsulta("UPDATE CATEGORIAS SET Descripcion = @Descripcion WHERE Id = @Id");
-                datos.SetearParametro("@Descripcion", categoria.Descripcion);
-                datos.SetearParametro("@Id", categoria.Id);
+                datos.SetearParametros("@Descripcion", categoria.Descripcion);
+                datos.SetearParametros("@Id", categoria.Id);
                 datos.EjecutarAccion();
             }
             finally
@@ -88,7 +88,7 @@ namespace negocio
             try
             {
                 datos.SetearConsulta("DELETE FROM CATEGORIAS  WHERE Id = @Id");
-                datos.SetearParametro("@Id", id);
+                datos.SetearParametros("@Id", id);
                 datos.EjecutarAccion();
             }
             finally

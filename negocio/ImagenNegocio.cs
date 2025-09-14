@@ -18,8 +18,8 @@ namespace negocio
             try
             {
                 datos.SetearConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@IdArticulo, @ImagenUrl)");
-                datos.SetearParametro("@IdArticulo", imagen.IdArticulo);
-                datos.SetearParametro("@ImagenUrl", imagen.ImagenUrl);
+                datos.SetearParametros("@IdArticulo", imagen.IdArticulo);
+                datos.SetearParametros("@ImagenUrl", imagen.ImagenUrl);
                 datos.EjecutarAccion();
             }
             catch (Exception ex)

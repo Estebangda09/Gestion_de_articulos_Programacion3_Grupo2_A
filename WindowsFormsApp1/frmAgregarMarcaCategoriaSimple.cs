@@ -121,6 +121,8 @@ namespace WindowsFormsApp1
                             break;
 
                         case ModoOperacion.Eliminar:
+                            DialogResult dialog  = MessageBox.Show("Deseas eliminar definitivamente el elemento?", "Eliminando...", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                            if (dialog == DialogResult.No) break;
                             negocio.EliminarMarca(idSeleccionado);
                             MessageBox.Show("Marca eliminada correctamente");
                             break;
@@ -145,6 +147,8 @@ namespace WindowsFormsApp1
                             break;
 
                         case ModoOperacion.Eliminar:
+                            DialogResult dialog = MessageBox.Show("Deseas eliminar definitivamente el elemento?", "Eliminando...", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                            if (dialog == DialogResult.No) break;
                             negocio.EliminarCategoria(idSeleccionado);
                             MessageBox.Show("Categoría eliminada correctamente");
                             break;

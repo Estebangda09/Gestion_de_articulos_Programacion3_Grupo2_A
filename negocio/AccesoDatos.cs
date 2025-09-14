@@ -14,13 +14,13 @@ namespace negocio
         private SqlConnection conexion;
         private SqlCommand comando;
         private SqlDataReader lector;
-
+        //propiedad para el lector
         public SqlDataReader Lector
         {
 
             get { return lector; }
         }
-
+        //constructor
         public AccesoDatos()
         {
             
@@ -35,7 +35,7 @@ namespace negocio
             comando = new SqlCommand();
 
         }
-
+        //metodo para setear consulta
         public void SetearConsulta(string consulta)
         {
 
@@ -43,7 +43,7 @@ namespace negocio
 
             comando.CommandText = consulta;
         }
-
+        //metodo para ejecutar lectura
         public void EjecutarLectura()
         {
 
@@ -60,7 +60,7 @@ namespace negocio
                 throw ex;
             }
         }
-
+        //metodo para ejecutar accion
         public void EjecutarAccion()
         {
             comando.Connection = conexion;
@@ -76,27 +76,22 @@ namespace negocio
             }
 
         }
-
+        //metodo para ejecutar escalar
         public object EjecutarEscalar()
         {
             comando.Connection = conexion;
             conexion.Open();
             return comando.ExecuteScalar();
         }
-
-        public void SetearParametro(string nombre, object valor)
-        {
-            comando.Parameters.AddWithValue(nombre, valor);
-        }
-
-
+        //metodo para setear parametro
+       
         public void SetearParametros(string nombre,object valor)
         {
 
             comando.Parameters.AddWithValue(nombre, valor);
 
         }
-
+        //metodo para cerrar conexion
         public void CerrarConexion()
         {
             if (lector != null)

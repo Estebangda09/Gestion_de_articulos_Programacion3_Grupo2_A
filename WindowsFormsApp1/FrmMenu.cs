@@ -111,7 +111,7 @@ namespace WindowsFormsApp1
 
         }
 
-        //Modificar Marca y Categoria
+     
 
         //Modificar Marca
         private void modificarMarcaToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -128,7 +128,7 @@ namespace WindowsFormsApp1
             _listado.Cargar();
         }
 
-        //Eliminar Marca y Categoria
+
 
         //Eliminar Marca
         private void eliminarMarcaToolStripMenuItem_Click(object sender, EventArgs e)

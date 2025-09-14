@@ -52,6 +52,7 @@
             this.label1.Size = new System.Drawing.Size(685, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalles de los articulos (busque alguno en particular)";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -162,6 +163,7 @@
             this.Controls.Add(this.CodigoArttextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MinimumSize = new System.Drawing.Size(996, 413);
             this.Name = "FrmDetalleArticulo";
             this.Text = "FrmDetalleArticulo";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewdetalle)).EndInit();

@@ -54,12 +54,11 @@ namespace WindowsFormsApp1
             {
                 listaArticulos = negocio.Listar();
                 dgvArchivos.DataSource = listaArticulos;
-<<<<<<< HEAD
                 AjustarTabla();
-=======
+
                 cargarImagen(listaArticulos[0].ImagenUrl.ImagenUrl);
-                ocultarColumnas();
->>>>>>> matias
+                
+
             }
             catch (Exception ex)
             {

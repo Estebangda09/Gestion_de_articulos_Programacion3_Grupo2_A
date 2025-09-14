@@ -157,5 +157,15 @@ namespace WindowsFormsApp1
 
             frmDetalleArticulo.ShowDialog();
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void detallesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Matias Gomez Legajo:2793");
+        }
     }
 }

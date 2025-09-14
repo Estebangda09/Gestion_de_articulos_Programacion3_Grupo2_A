@@ -1,4 +1,6 @@
-﻿using System;
+﻿using dominio;
+using negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,23 +10,20 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using dominio;
-using negocio;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace WindowsFormsApp1
 {
     public partial class FrmDetalleArticulo : Form
-    {
+    {   //cosntructor
         public FrmDetalleArticulo()
         {
             InitializeComponent();
+            Text = "Detall De articulos";
 
             Color color = Color.Black;
         }
-        
-        
-
-
+        //metodo para buscar articulos
         public List<Articulo>buscararticulos (string articulo)
         {
 
@@ -115,13 +114,8 @@ namespace WindowsFormsApp1
             
         }
 
-        private void dataGridViewdetalle_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-
       
-        }
-
+        //boton buscar
         private void Buscarbutton_Click_1(object sender, EventArgs e)
         {
             List<Articulo>lista = new List<Articulo>();
@@ -161,14 +155,7 @@ namespace WindowsFormsApp1
 
 
         }
-
-        private void Atrasbutton_Click(object sender, EventArgs e)
-        {
-            FrmMenu frmMenu = new FrmMenu();
-
-            this.Close();
-        }
-
+        //boton ver codigos
         private void Vercodigosbutton_Click(object sender, EventArgs e)
         {
 
@@ -215,13 +202,13 @@ namespace WindowsFormsApp1
 
            
         }
-
+        //evento al seleccionar un codigo
         private void VercodigoslistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (VercodigoslistBox.SelectedItem is Articulo art)
                 CodigoArttextBox.Text = art.Codigo;
         }
-
+        //boton limpiar
         private void Limpiarbutton_Click(object sender, EventArgs e)
         {
             CodigoArttextBox.Text = "";
@@ -237,7 +224,7 @@ namespace WindowsFormsApp1
 
 
         }
-
+        //boton cancelar
         private void buttonCancelarDetalle_Click(object sender, EventArgs e)
         {
             FrmMenu frmMenu = new FrmMenu();

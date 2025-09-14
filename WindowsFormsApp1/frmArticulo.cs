@@ -17,17 +17,18 @@ namespace WindowsFormsApp1
     public partial class frmArticulo : Form
     {
         private Articulo _articulo = null;
+        //constructor vacio
         public frmArticulo()
         {
             InitializeComponent();
         }
-
+        //constructor con parametro
         public frmArticulo(Articulo articulo)
         {
             InitializeComponent();
             this._articulo = articulo;
         }
-
+        //metodo para limpiar campos
         private void buttonLimpiar_Click(object sender, EventArgs e)
         {
 
@@ -48,13 +49,13 @@ namespace WindowsFormsApp1
             pictureBoxVistaPrevia.Image = null;
 
         }
-
+        //metodo para cancelar y cerrar formulario
         private void buttonCancelarArticulo_Click(object sender, EventArgs e)
         {
             FrmMenu frmMenu = new FrmMenu();
             this.Close();
         }
-
+        //metodo para cargar formulario
         private void frmArticulo_Load(object sender, EventArgs e)
         {
 
@@ -96,7 +97,7 @@ namespace WindowsFormsApp1
             }
 
         }
-
+        //metodo para cargar imagen
         private void cargarImagen(string imagen)
         {
             try
@@ -108,7 +109,7 @@ namespace WindowsFormsApp1
                 pictureBoxVistaPrevia.Load("https://w7.pngwing.com/pngs/285/84/png-transparent-computer-icons-error-super-8-film-angle-triangle-computer-icons-thumbnail.png");
             }
         }
-
+        //metodo para guardar articulo
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
             ArchivoNegocio archivoNegocio = new ArchivoNegocio();
@@ -170,7 +171,7 @@ namespace WindowsFormsApp1
             }
 
         }
-
+        //metodo para vista previa de imagen
         private void txtImagenUrl_KeyUp(object sender, KeyEventArgs e)
         {
             try

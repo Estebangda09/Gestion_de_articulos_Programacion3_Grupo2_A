@@ -29,11 +29,6 @@ namespace WindowsFormsApp1
             listar();
         }
 
-        private void articulosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            listar();
-
-        }
         // Lista Articulos
         private void listar()
         {
@@ -94,27 +89,38 @@ namespace WindowsFormsApp1
         }
 
         //Agregar Marca y Categoria
+        //Agregar Marca
         private void agregarMarcaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAgregarMarcaCategoriaSimple frm = new frmAgregarMarcaCategoriaSimple(true, ModoOperacion.Agregar);
             frm.ShowDialog();
             _listado.Cargar();
         }
+        //Agregar Categoria
         private void agregarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAgregarMarcaCategoriaSimple frm = new frmAgregarMarcaCategoriaSimple(false, ModoOperacion.Agregar);
             frm.ShowDialog();
             _listado.Cargar();
         }
+        // Buscar Articulo
+        private void buscarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListarArticulos ventana = new frmListarArticulos(false);
+            ventana.Show();
 
+        }
 
         //Modificar Marca y Categoria
+
+        //Modificar Marca
         private void modificarMarcaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmAgregarMarcaCategoriaSimple frm = new frmAgregarMarcaCategoriaSimple(true, ModoOperacion.Modificar);
             frm.ShowDialog();
             _listado.Cargar();
         }
+        //Modificar Categoria
         private void modificarCategoriaToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             frmAgregarMarcaCategoriaSimple frm = new frmAgregarMarcaCategoriaSimple(false, ModoOperacion.Modificar);
@@ -122,8 +128,9 @@ namespace WindowsFormsApp1
             _listado.Cargar();
         }
 
-
         //Eliminar Marca y Categoria
+
+        //Eliminar Marca
         private void eliminarMarcaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAgregarMarcaCategoriaSimple frm = new frmAgregarMarcaCategoriaSimple(true, ModoOperacion.Eliminar);
@@ -131,7 +138,7 @@ namespace WindowsFormsApp1
             _listado.Cargar();
 
         }
-
+        //Eliminar Categoria
         private void eliminarCategoriaToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             frmAgregarMarcaCategoriaSimple frm = new frmAgregarMarcaCategoriaSimple(false, ModoOperacion.Eliminar);
@@ -139,7 +146,7 @@ namespace WindowsFormsApp1
             _listado.Cargar();
 
         }
-
+        // Detalles e Integrantes
         private void detallesToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -157,7 +164,7 @@ namespace WindowsFormsApp1
             MessageBox.Show(this,msg, "Instrucciones", MessageBoxButtons.OK, MessageBoxIcon.Information
             );
         }
-
+        // Integrantes
         private void acercaDeNosotrosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string msg =
@@ -169,24 +176,18 @@ namespace WindowsFormsApp1
             MessageBox.Show(this, msg, "Integrantes", MessageBoxButtons.OK, MessageBoxIcon.Information
             );
         }
-
+        // Detalles de los Articulos
         private void detallesDeLosArticulosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmDetalleArticulo frmDetalleArticulo = new FrmDetalleArticulo();
 
             frmDetalleArticulo.ShowDialog();
         }
-
+        // About
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void buscarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmListarArticulos ventana = new frmListarArticulos(false);
-            ventana.Show();
-
-        }
+        
     }
 }

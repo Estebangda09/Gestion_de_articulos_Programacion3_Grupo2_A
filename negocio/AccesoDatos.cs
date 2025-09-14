@@ -24,28 +24,15 @@ namespace negocio
         public AccesoDatos()
         {
             
-            //estaban
-
+            //esteban
             conexion = new SqlConnection("Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;");
-            comando = new SqlCommand();
-
-            //conexion = new SqlConnection("Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;");
-            //comando = new SqlCommand();
-
-           // conexion = new SqlConnection("Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;");
-            comando = new SqlCommand();
-
-            ///matias
-            //conexion = new SqlConnection("server = .\\SQLEXPRESS02; database = CATALOGO_P3_DB; integrated security =true ;");
-           // comando = new SqlCommand();
-
-            //AdriR
-
+           //matias
+           //conexion = new SqlConnection("server = .\\SQLEXPRESS02; database = CATALOGO_P3_DB; integrated security =true ;");
+           //AdriR
            // conexion = new SqlConnection("Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=BaseDeDatos#2;");
-
-          ////  conexion = new SqlConnection("Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=BaseDeDatos#2;");
-           // comando = new SqlCommand();
-
+                   
+          
+            comando = new SqlCommand();
 
         }
 

@@ -44,7 +44,7 @@ namespace WindowsFormsApp1
         {
             if (_listado == null)
             {
-                _listado = new frmListarArticulos();
+                _listado = new frmListarArticulos(true);
                 _listado.MdiParent = this;
                 _listado.Show();
             }
@@ -148,7 +148,12 @@ namespace WindowsFormsApp1
         //Buscar Articulo
         private void BuscarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
+            frmListarArticulos ventana = new frmListarArticulos(false);
+            ventana.Show();
+
         }
+
+
     }
 }

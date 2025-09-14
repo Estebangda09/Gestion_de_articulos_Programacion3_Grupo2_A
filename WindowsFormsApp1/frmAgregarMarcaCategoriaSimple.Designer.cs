@@ -38,9 +38,10 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(12, 255);
+            this.btnAceptar.Location = new System.Drawing.Point(9, 207);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(99, 35);
+            this.btnAceptar.Size = new System.Drawing.Size(74, 28);
             this.btnAceptar.TabIndex = 1;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -48,9 +49,10 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(441, 255);
+            this.btnCancelar.Location = new System.Drawing.Point(331, 207);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(99, 35);
+            this.btnCancelar.Size = new System.Drawing.Size(74, 28);
             this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -58,17 +60,19 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 61);
+            this.textBox1.Location = new System.Drawing.Point(11, 50);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(277, 22);
+            this.textBox1.Size = new System.Drawing.Size(209, 20);
             this.textBox1.TabIndex = 3;
             // 
             // labelTipoPorAgregar
             // 
             this.labelTipoPorAgregar.AutoSize = true;
-            this.labelTipoPorAgregar.Location = new System.Drawing.Point(12, 30);
+            this.labelTipoPorAgregar.Location = new System.Drawing.Point(9, 24);
+            this.labelTipoPorAgregar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTipoPorAgregar.Name = "labelTipoPorAgregar";
-            this.labelTipoPorAgregar.Size = new System.Drawing.Size(105, 16);
+            this.labelTipoPorAgregar.Size = new System.Drawing.Size(81, 13);
             this.labelTipoPorAgregar.TabIndex = 4;
             this.labelTipoPorAgregar.Text = "TipoPorAgregar";
             // 
@@ -83,24 +87,27 @@
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgv.GridColor = System.Drawing.SystemColors.AppWorkspace;
-            this.dgv.Location = new System.Drawing.Point(340, 12);
+            this.dgv.Location = new System.Drawing.Point(255, 10);
+            this.dgv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgv.Name = "dgv";
             this.dgv.RowHeadersWidth = 51;
             this.dgv.RowTemplate.Height = 24;
-            this.dgv.Size = new System.Drawing.Size(200, 237);
+            this.dgv.Size = new System.Drawing.Size(150, 193);
             this.dgv.TabIndex = 5;
+            this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
             // frmAgregarMarcaCategoriaSimple
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(552, 302);
+            this.ClientSize = new System.Drawing.Size(414, 245);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.labelTipoPorAgregar);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAgregarMarcaCategoriaSimple";

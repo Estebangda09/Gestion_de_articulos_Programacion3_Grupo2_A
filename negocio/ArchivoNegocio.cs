@@ -23,12 +23,12 @@ namespace negocio
             try
             {   //Comentar la que no usen 
                 ///Esteban conexion a base 
-                ///conexion.ConnectionString = "Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;";
+                conexion.ConnectionString = "Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;";
                 //Adrian
-                conexion = new SqlConnection("Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=BaseDeDatos#2;");
+                //conexion = new SqlConnection("Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=BaseDeDatos#2;");
 
-                comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "SELECT A.Codigo, A.Nombre, A.Descripcion, A.Precio, MIN(I.ImagenUrl) AS ImagenUrl FROM ARTICULOS A INNER JOIN IMAGENES I ON A.Id = I.IdArticulo GROUP BY A.Codigo, A.Nombre, A.Descripcion, A.Precio;";
+                //comando.CommandType = System.Data.CommandType.Text;
+                //comando.CommandText = "SELECT A.Codigo, A.Nombre, A.Descripcion, A.Precio, MIN(I.ImagenUrl) AS ImagenUrl FROM ARTICULOS A INNER JOIN IMAGENES I ON A.Id = I.IdArticulo GROUP BY A.Codigo, A.Nombre, A.Descripcion, A.Precio;";
 
                 // matias
                 //conexion.ConnectionString = "server = .\\SQLEXPRESS02; database = CATALOGO_P3_DB; integrated security =true ;";
@@ -201,13 +201,13 @@ namespace negocio
                 datos.CerrarConexion();                    
             }
         }
-        public void Eliminar(string Codigo)
+        public void Eliminar(int id)
         {
             try
             {
                 AccesoDatos accesoDatos = new AccesoDatos();
-                accesoDatos.SetearConsulta("DELETE FROM CATALOGO_P3_DB.dbo.ARTICULOS WHERE Codigo = @Codigo");
-                accesoDatos.SetearParametro("@Codigo", Codigo);
+                accesoDatos.SetearConsulta("DELETE FROM CATALOGO_P3_DB.dbo.ARTICULOS WHERE Id = @Id");
+                accesoDatos.SetearParametro("@Id", id);
                 accesoDatos.EjecutarAccion();
             }
             catch (Exception e)

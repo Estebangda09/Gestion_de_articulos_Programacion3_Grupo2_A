@@ -18,6 +18,8 @@ namespace WindowsFormsApp1
         public FrmDetalleArticulo()
         {
             InitializeComponent();
+
+            Color color = Color.Black;
         }
         
         
@@ -36,7 +38,7 @@ namespace WindowsFormsApp1
                 try
                 {
 
-                accesoDatos.SetearConsulta("SELECT  a.Codigo, a.Nombre, a.Descripcion, a.Precio,m.Descripcion AS Marca,   c.Descripcion AS Categoria,i.ImagenUrl  FROM Articulos a LEFT JOIN Marcas m     ON m.Id = a.IdMarca  LEFT JOIN Categorias c ON c.Id = a.IdCategoria left join IMAGENES i on i.IdArticulo = a.Id WHERE Codigo = @Codigo");
+                accesoDatos.SetearConsulta("SELECT  a.Codigo, a.Nombre, a.Descripcion, a.Precio,m.Descripcion AS Marca,   c.Descripcion AS Categoria,i.ImagenUrl FROM Articulos a LEFT JOIN Marcas m     ON m.Id = a.IdMarca  LEFT JOIN Categorias c ON c.Id = a.IdCategoria left join IMAGENES i on i.IdArticulo = a.Id WHERE Codigo = @Codigo");
 
 
                     accesoDatos.SetearParametros("@Codigo",articulo.Trim());
@@ -48,9 +50,10 @@ namespace WindowsFormsApp1
 
                     Articulo aux = new Articulo();
 
+                    
                     aux.Codigo = (string)accesoDatos.Lector["Codigo"];
                     aux.Nombre = (string)accesoDatos.Lector["Nombre"];
-                    aux.Descricpcion = (string)accesoDatos.Lector["Descripcion"];
+                    aux.Descripcion = (string)accesoDatos.Lector["Descripcion"];
                     aux.Precio = (decimal)accesoDatos.Lector["Precio"];
                     
                     aux.ImagenUrl = new Imagen();
@@ -60,19 +63,22 @@ namespace WindowsFormsApp1
 
                    
 
-                    aux.tipo = new Categoria();
-                    aux.marca = new Marca();
+                    aux.Categoria = new Categoria();
+                    aux.Marca = new Marca();
 
 
 
-                   // aux.tipo.Id = (int)accesoDatos.Lector["IdCategoria"];
-                    aux.tipo.Descripcion = (string)accesoDatos.Lector["Categoria"];
+                  //  aux.Categoria.Id = (int)accesoDatos.Lector["IdCategoria"];
+                    aux.Categoria.Descripcion = (string)accesoDatos.Lector["Categoria"];
 
-                    aux.marca.Descripcion = (string)accesoDatos.Lector["Marca"];
+                    aux.Marca.Descripcion = (string)accesoDatos.Lector["Marca"];
 
-                   // aux.marca.Id = (int)accesoDatos.Lector["IdMarca"];
+                   ///   aux.Marca.Id = (int)accesoDatos.Lector["IdMarca"];
 
-                   lista.Add(aux);
+
+                  
+
+                    lista.Add(aux);
 
 
                     
@@ -147,7 +153,10 @@ namespace WindowsFormsApp1
             dataGridViewdetalle.DataSource = lista;
             imagenpictureBox.Load(lista[0].ImagenUrl.ImagenUrl);
 
-            dataGridViewdetalle.Columns["ImagenUrl"].Visible = false;
+            dataGridViewdetalle.Columns["ImagenUrl"].Visible = true;
+
+            if (dataGridViewdetalle.Columns.Contains("Id"))
+                dataGridViewdetalle.Columns["Id"].Visible = false;
 
 
 
@@ -211,6 +220,22 @@ namespace WindowsFormsApp1
         {
             if (VercodigoslistBox.SelectedItem is Articulo art)
                 CodigoArttextBox.Text = art.Codigo;
+        }
+
+        private void Limpiarbutton_Click(object sender, EventArgs e)
+        {
+            CodigoArttextBox.Text = "";
+
+            VercodigoslistBox.Items.Clear();
+            imagenpictureBox.Image = null;
+
+            dataGridViewdetalle.DataSource = null;
+
+            dataGridViewdetalle.Enabled = true;
+
+            CodigoArttextBox.Focus();
+
+
         }
     }
 }

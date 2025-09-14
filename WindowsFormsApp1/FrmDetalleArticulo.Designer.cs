@@ -38,6 +38,7 @@
             this.Vercodigosbutton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.VercodigoslistBox = new System.Windows.Forms.ListBox();
+            this.Limpiarbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewdetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagenpictureBox)).BeginInit();
             this.SuspendLayout();
@@ -87,7 +88,7 @@
             // 
             // Buscarbutton
             // 
-            this.Buscarbutton.Location = new System.Drawing.Point(495, 111);
+            this.Buscarbutton.Location = new System.Drawing.Point(386, 114);
             this.Buscarbutton.Name = "Buscarbutton";
             this.Buscarbutton.Size = new System.Drawing.Size(75, 23);
             this.Buscarbutton.TabIndex = 5;
@@ -133,11 +134,22 @@
             this.VercodigoslistBox.TabIndex = 9;
             this.VercodigoslistBox.SelectedIndexChanged += new System.EventHandler(this.VercodigoslistBox_SelectedIndexChanged);
             // 
+            // Limpiarbutton
+            // 
+            this.Limpiarbutton.Location = new System.Drawing.Point(525, 114);
+            this.Limpiarbutton.Name = "Limpiarbutton";
+            this.Limpiarbutton.Size = new System.Drawing.Size(75, 23);
+            this.Limpiarbutton.TabIndex = 10;
+            this.Limpiarbutton.Text = "Limpiar";
+            this.Limpiarbutton.UseVisualStyleBackColor = true;
+            this.Limpiarbutton.Click += new System.EventHandler(this.Limpiarbutton_Click);
+            // 
             // FrmDetalleArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1328, 450);
+            this.Controls.Add(this.Limpiarbutton);
             this.Controls.Add(this.VercodigoslistBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Vercodigosbutton);
@@ -169,5 +181,6 @@
         private System.Windows.Forms.Button Vercodigosbutton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox VercodigoslistBox;
+        private System.Windows.Forms.Button Limpiarbutton;
     }
 }

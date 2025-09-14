@@ -54,7 +54,7 @@ namespace WindowsFormsApp1
             {
                 listaArticulos = negocio.Listar();
                 dgvArchivos.DataSource = listaArticulos;
-                ocultarColumnas();
+                AjustarTabla();
             }
             catch (Exception ex)
             {
@@ -62,8 +62,9 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void ocultarColumnas()
+        private void AjustarTabla()
         {
+            dgvArchivos.Columns["Precio"].DefaultCellStyle.Format = "$ 0.00";
             dgvArchivos.Columns["ImagenUrl"].Visible = false;
             dgvArchivos.Columns["ID"].Visible = false;
         }
@@ -115,7 +116,7 @@ namespace WindowsFormsApp1
             listaFiltrada = listaArticulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Codigo.ToUpper().Contains(filtro.ToUpper()));
             dgvArchivos.DataSource = null;
             dgvArchivos.DataSource = listaFiltrada;
-            ocultarColumnas();
+            AjustarTabla();
         }
 
 

@@ -14,16 +14,15 @@ namespace WindowsFormsApp1
 {
     public partial class frmAgregarMarcaCategoriaSimple : Form
     {   
-
         private bool isMarca = false;
         private ModoOperacion modo; 
         private int idSeleccionado =0;
-
+        // Constructor vacio
         public frmAgregarMarcaCategoriaSimple()
         {
             InitializeComponent();
         }
-
+        // Constructor con parametros
         public frmAgregarMarcaCategoriaSimple(bool isMarca, ModoOperacion modo)
         {   
             this.isMarca = isMarca;
@@ -33,7 +32,7 @@ namespace WindowsFormsApp1
             ConfigurarFormulario();
 
         }
-
+        // Configuracion inicial del formulario
         private void ConfigurarFormulario()
         {
             if (isMarca) {
@@ -65,19 +64,19 @@ namespace WindowsFormsApp1
             }
 
         }
-
+        // Carga de datos en el DataGridView para Marcas
         private void CargarFormularioMarca()
         {
             dgv.DataSource = new MarcaNegocio().ListarMarcas();
             dgv.Columns["ID"].Visible = false;
         }
-
+        // Carga de datos en el DataGridView para Categorias
         private void CargarFormularioCategoria()
         {
             dgv.DataSource = new CategoriaNegocio().ListarCategorias();
             dgv.Columns["ID"].Visible = false;
         }
-
+        // Manejo de la seleccion en el DataGridView
         private void dgv_SelectionChanged(object sender, EventArgs e)
         {
             if (modo == ModoOperacion.Agregar)
@@ -88,12 +87,12 @@ namespace WindowsFormsApp1
                 textBox1.Text = dgv.CurrentRow.Cells["Descripcion"].Value.ToString();
             }
         }
-
+        // Boton Cancelar
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        // Boton Aceptar
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             try

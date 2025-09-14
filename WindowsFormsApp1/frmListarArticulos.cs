@@ -29,13 +29,21 @@ namespace WindowsFormsApp1
             InitializeComponent();
             Text = "Listado de Artículos";
         }
+        public frmListarArticulos(bool mostrarComoVentana = false)
+        {
+            InitializeComponent();
+            this.mostrarComoVentana = mostrarComoVentana;
 
+            ConfigurarEstilo();
+        }
+
+        private bool mostrarComoVentana;
+        //carga inicial
         private void frmListarArticulos_Load(object sender, EventArgs e)
         {
             Cargar();
         }
-
-
+        // seleccion de datos
         private void dgvArchivos_SelectionChanged(object sender, EventArgs e)
         {
 
@@ -46,7 +54,7 @@ namespace WindowsFormsApp1
             }
 
         }
-
+        //ejecucion de cargar/actualizar datos
         public void Cargar()
         {
             ArchivoNegocio negocio = new ArchivoNegocio();
@@ -65,14 +73,14 @@ namespace WindowsFormsApp1
                 MessageBox.Show(ex.ToString());
             }
         }
-
+        //ajuste de tabla
         private void AjustarTabla()
         {
             dgvArchivos.Columns["Precio"].DefaultCellStyle.Format = "$ 0.00";
             dgvArchivos.Columns["ImagenUrl"].Visible = false;
             dgvArchivos.Columns["ID"].Visible = false;
         }
-
+        //carga de imagen
         private void cargarImagen(string imagen)
         {
             try
@@ -84,15 +92,14 @@ namespace WindowsFormsApp1
                 pbxArticulo.Load("https://w7.pngwing.com/pngs/285/84/png-transparent-computer-icons-error-super-8-film-angle-triangle-computer-icons-thumbnail.png");
             }
         }
-
-
+        //boton volver
         private void button1_Click(object sender, EventArgs e)
         {
             FrmMenu frmMenu = new FrmMenu();
             this.Close();
             frmMenu.ShowDialog();
         }
-
+        //filtro de busqueda
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
             List<Articulo> listaFiltrada;
@@ -103,22 +110,12 @@ namespace WindowsFormsApp1
             dgvArchivos.DataSource = listaFiltrada;
             AjustarTabla();
         }
-      
+        //boton recargar
         private void btnReload_Click(object sender, EventArgs e)
         {
             Cargar();
         }
-
-
-        private bool mostrarComoVentana;
-
-        public frmListarArticulos(bool mostrarComoVentana = false)
-        {
-            InitializeComponent();
-            this.mostrarComoVentana = mostrarComoVentana;
-
-            ConfigurarEstilo();
-        }
+        //configuracion de estilo segun modo
         private void ConfigurarEstilo()
         {
             if (mostrarComoVentana)

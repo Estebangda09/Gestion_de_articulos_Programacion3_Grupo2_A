@@ -12,9 +12,10 @@ namespace negocio
 {
     public class ArchivoNegocio
     {
+        //metodo para listar articulos
         public List<Articulo> Listar()
         {
-
+            
             List<Articulo> lista = new List<Articulo>();
             SqlConnection conexion = new SqlConnection();
             SqlCommand comando = new SqlCommand();
@@ -23,30 +24,14 @@ namespace negocio
             try
             {   //Comentar la que no usen 
                 ///Esteban conexion a base 
-
-                conexion.ConnectionString = "Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;";
+                  conexion.ConnectionString = "Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;";
                 //Adrian
-                //conexion = new SqlConnection("Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=BaseDeDatos#2;");
-
-
-                //conexion.ConnectionString = "Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;";
-
-               // conexion.ConnectionString = "Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;";
-
-                //Adrian
-             ///   conexion = new SqlConnection("Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=BaseDeDatos#2;");
-
-                //comando.CommandType = System.Data.CommandType.Text;
-                //comando.CommandText = "SELECT A.Codigo, A.Nombre, A.Descripcion, A.Precio, MIN(I.ImagenUrl) AS ImagenUrl FROM ARTICULOS A INNER JOIN IMAGENES I ON A.Id = I.IdArticulo GROUP BY A.Codigo, A.Nombre, A.Descripcion, A.Precio;";
-
+                //conexion = new SqlConnection("Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=BaseDeDatos#2;";
                 // matias
                 //conexion.ConnectionString = "server = .\\SQLEXPRESS02; database = CATALOGO_P3_DB; integrated security =true ;";
 
-
                 comando.CommandType = System.Data.CommandType.Text;
-                ////esteban
-                //comando.CommandText = "select Codigo, Nombre, Descripcion, Precio, ImagenUrl FROM ARTICULOS A, IMAGENES I WHERE A.Id = I.IdArticulo";
-                /// ////matias
+                
                 comando.CommandText = "SELECT A.Codigo, A.Nombre, A.Descripcion, A.Precio, A.Id, " +
                    "       ISNULL(I1.ImagenUrl, '') AS ImagenUrl, " +
                    "       ISNULL(C.Id, 0) AS IdCategoria, ISNULL(C.Descripcion, '') AS Categoria, " +
@@ -94,17 +79,14 @@ namespace negocio
 
                 return lista;
 
-
             }
             catch (Exception ex)
             {
                 throw ex;
             }
 
-
-
-
         }
+        //metodo para agregar articulos
         public int Agregar(Articulo articulo)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -151,6 +133,7 @@ namespace negocio
                 datos.CerrarConexion();
             }
         }
+        //metodo para modificar articulos
         public int Modificar(Articulo articulo)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -207,6 +190,7 @@ namespace negocio
                 datos.CerrarConexion();                    
             }
         }
+        //metodo para eliminar articulos
         public void Eliminar(int id)
         {
             try

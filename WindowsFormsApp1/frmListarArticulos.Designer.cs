@@ -82,13 +82,13 @@ namespace WindowsFormsApp1
             this.lbeFiltro.AutoSize = true;
             this.lbeFiltro.Location = new System.Drawing.Point(13, 16);
             this.lbeFiltro.Name = "lbeFiltro";
-            this.lbeFiltro.Size = new System.Drawing.Size(32, 13);
+            this.lbeFiltro.Size = new System.Drawing.Size(40, 13);
             this.lbeFiltro.TabIndex = 2;
-            this.lbeFiltro.Text = "Filtrar";
+            this.lbeFiltro.Text = "Buscar";
             // 
             // txtFiltro
             // 
-            this.txtFiltro.Location = new System.Drawing.Point(46, 14);
+            this.txtFiltro.Location = new System.Drawing.Point(59, 13);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(167, 20);
             this.txtFiltro.TabIndex = 3;

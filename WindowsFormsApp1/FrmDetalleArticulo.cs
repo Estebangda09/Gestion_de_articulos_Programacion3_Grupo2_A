@@ -166,7 +166,7 @@ namespace WindowsFormsApp1
         {
             FrmMenu frmMenu = new FrmMenu();
 
-            frmMenu.ShowDialog();
+            this.Close();
         }
 
         private void Vercodigosbutton_Click(object sender, EventArgs e)
@@ -235,6 +235,13 @@ namespace WindowsFormsApp1
 
             CodigoArttextBox.Focus();
 
+
+        }
+
+        private void buttonCancelarDetalle_Click(object sender, EventArgs e)
+        {
+            FrmMenu frmMenu = new FrmMenu();
+            this.Close();
 
         }
     }

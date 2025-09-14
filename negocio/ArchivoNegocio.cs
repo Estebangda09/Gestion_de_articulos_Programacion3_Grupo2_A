@@ -40,7 +40,7 @@ namespace negocio
                 //comando.CommandText = "SELECT A.Codigo, A.Nombre, A.Descripcion, A.Precio, MIN(I.ImagenUrl) AS ImagenUrl FROM ARTICULOS A INNER JOIN IMAGENES I ON A.Id = I.IdArticulo GROUP BY A.Codigo, A.Nombre, A.Descripcion, A.Precio;";
 
                 // matias
-                conexion.ConnectionString = "server = .\\SQLEXPRESS02; database = CATALOGO_P3_DB; integrated security =true ;";
+                //conexion.ConnectionString = "server = .\\SQLEXPRESS02; database = CATALOGO_P3_DB; integrated security =true ;";
 
 
                 comando.CommandType = System.Data.CommandType.Text;

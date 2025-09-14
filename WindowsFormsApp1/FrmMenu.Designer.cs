@@ -47,6 +47,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detallesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeNosotrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buscarArticuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.LawnGreen;
-            this.label1.Location = new System.Drawing.Point(286, 34);
+            this.label1.Location = new System.Drawing.Point(284, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(286, 29);
             this.label1.TabIndex = 0;
@@ -72,13 +73,14 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1022, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1003, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.buscarArticuloToolStripMenuItem,
             this.agregarArticuloToolStripMenuItem,
             this.modificarArticuloToolStripMenuItem,
             this.eliminarArticuloToolStripMenuItem,
@@ -89,18 +91,6 @@
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.menuToolStripMenuItem.Text = "&Articulos";
             // 
-
-            // BuscarToolStripMenuItem
-            // 
-
-            this.BuscarToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.BuscarToolStripMenuItem.Name = "BuscarToolStripMenuItem";
-            this.BuscarToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.BuscarToolStripMenuItem.Text = "Buscar Articulos";
-            this.BuscarToolStripMenuItem.Click += new System.EventHandler(this.BuscarToolStripMenuItem_Click);
-
-            // 
-
             // agregarArticuloToolStripMenuItem
             // 
             this.agregarArticuloToolStripMenuItem.Name = "agregarArticuloToolStripMenuItem";
@@ -184,27 +174,16 @@
             // 
             this.agregarCategoriaToolStripMenuItem.Name = "agregarCategoriaToolStripMenuItem";
             this.agregarCategoriaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
-
             this.agregarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
-
-
-            this.agregarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
-
-
             this.agregarCategoriaToolStripMenuItem.Text = "Agregar Categoria";
             this.agregarCategoriaToolStripMenuItem.Click += new System.EventHandler(this.agregarCategoriaToolStripMenuItem_Click);
             // 
             // modificarCategoriaToolStripMenuItem2
             // 
             this.modificarCategoriaToolStripMenuItem2.Name = "modificarCategoriaToolStripMenuItem2";
-
             this.modificarCategoriaToolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.F4)));
             this.modificarCategoriaToolStripMenuItem2.Size = new System.Drawing.Size(271, 22);
-
-           
-
-
             this.modificarCategoriaToolStripMenuItem2.Text = "Modificar Categoria";
             this.modificarCategoriaToolStripMenuItem2.Click += new System.EventHandler(this.modificarCategoriaToolStripMenuItem2_Click);
             // 
@@ -213,14 +192,7 @@
             this.eliminarCategoriaToolStripMenuItem2.ForeColor = System.Drawing.Color.Crimson;
             this.eliminarCategoriaToolStripMenuItem2.Name = "eliminarCategoriaToolStripMenuItem2";
             this.eliminarCategoriaToolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F4)));
-
             this.eliminarCategoriaToolStripMenuItem2.Size = new System.Drawing.Size(271, 22);
-
-
-
-            this.eliminarCategoriaToolStripMenuItem2.Size = new System.Drawing.Size(311, 26);
-
-
             this.eliminarCategoriaToolStripMenuItem2.Text = "Eliminar Categoria";
             this.eliminarCategoriaToolStripMenuItem2.Click += new System.EventHandler(this.eliminarCategoriaToolStripMenuItem2_Click);
             // 
@@ -238,12 +210,7 @@
             // 
             this.detallesToolStripMenuItem.Name = "detallesToolStripMenuItem";
             this.detallesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-
-            this.detallesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.detallesToolStripMenuItem.Text = "G&uia";
-            
-
-            this.detallesToolStripMenuItem.Size = new System.Drawing.Size(275, 26);
+            this.detallesToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.detallesToolStripMenuItem.Text = "G&uia";
             this.detallesToolStripMenuItem.Click += new System.EventHandler(this.detallesToolStripMenuItem_Click);
             // 
@@ -251,32 +218,34 @@
             // 
             this.acercaDeNosotrosToolStripMenuItem.Name = "acercaDeNosotrosToolStripMenuItem";
             this.acercaDeNosotrosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.acercaDeNosotrosToolStripMenuItem.Size = new System.Drawing.Size(275, 26);
+            this.acercaDeNosotrosToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.acercaDeNosotrosToolStripMenuItem.Text = "Acerca de &Nosotros";
             this.acercaDeNosotrosToolStripMenuItem.Click += new System.EventHandler(this.acercaDeNosotrosToolStripMenuItem_Click);
-
+            // 
+            // buscarArticuloToolStripMenuItem
+            // 
+            this.buscarArticuloToolStripMenuItem.Name = "buscarArticuloToolStripMenuItem";
+            this.buscarArticuloToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.buscarArticuloToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.buscarArticuloToolStripMenuItem.Text = "Buscar Articulo";
+            this.buscarArticuloToolStripMenuItem.Click += new System.EventHandler(this.buscarArticuloToolStripMenuItem_Click);
             // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1022, 450);
+            this.ClientSize = new System.Drawing.Size(1003, 447);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-
-            this.MinimumSize = new System.Drawing.Size(1038, 487);
-
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(1378, 591);
-
-
+            this.MinimumSize = new System.Drawing.Size(1019, 486);
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmMenu";
+            this.Text = "|";
             this.Load += new System.EventHandler(this.FrmMenu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -306,5 +275,6 @@
         private System.Windows.Forms.ToolStripMenuItem agregarMarcaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarCategoriaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeNosotrosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buscarArticuloToolStripMenuItem;
     }
 }

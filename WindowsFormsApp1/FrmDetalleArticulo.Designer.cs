@@ -34,11 +34,11 @@
             this.dataGridViewdetalle = new System.Windows.Forms.DataGridView();
             this.imagenpictureBox = new System.Windows.Forms.PictureBox();
             this.Buscarbutton = new System.Windows.Forms.Button();
-            this.Atrasbutton = new System.Windows.Forms.Button();
             this.Vercodigosbutton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.VercodigoslistBox = new System.Windows.Forms.ListBox();
             this.Limpiarbutton = new System.Windows.Forms.Button();
+            this.buttonCancelarDetalle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewdetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagenpictureBox)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +47,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Broadway", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(54, 38);
+            this.label1.Location = new System.Drawing.Point(8, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(685, 24);
             this.label1.TabIndex = 0;
@@ -56,7 +56,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 114);
+            this.label2.Location = new System.Drawing.Point(16, 174);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(140, 13);
             this.label2.TabIndex = 1;
@@ -64,54 +64,44 @@
             // 
             // CodigoArttextBox
             // 
-            this.CodigoArttextBox.Location = new System.Drawing.Point(218, 114);
+            this.CodigoArttextBox.Location = new System.Drawing.Point(179, 174);
             this.CodigoArttextBox.Name = "CodigoArttextBox";
             this.CodigoArttextBox.Size = new System.Drawing.Size(100, 20);
-            this.CodigoArttextBox.TabIndex = 2;
+            this.CodigoArttextBox.TabIndex = 1;
             // 
             // dataGridViewdetalle
             // 
             this.dataGridViewdetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewdetalle.Location = new System.Drawing.Point(32, 140);
+            this.dataGridViewdetalle.Location = new System.Drawing.Point(145, 207);
             this.dataGridViewdetalle.Name = "dataGridViewdetalle";
-            this.dataGridViewdetalle.Size = new System.Drawing.Size(616, 274);
-            this.dataGridViewdetalle.TabIndex = 3;
+            this.dataGridViewdetalle.Size = new System.Drawing.Size(823, 114);
+            this.dataGridViewdetalle.TabIndex = 2;
             // 
             // imagenpictureBox
             // 
-            this.imagenpictureBox.Location = new System.Drawing.Point(687, 140);
+            this.imagenpictureBox.Location = new System.Drawing.Point(722, 20);
             this.imagenpictureBox.Name = "imagenpictureBox";
-            this.imagenpictureBox.Size = new System.Drawing.Size(269, 181);
+            this.imagenpictureBox.Size = new System.Drawing.Size(246, 181);
             this.imagenpictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imagenpictureBox.TabIndex = 4;
             this.imagenpictureBox.TabStop = false;
             // 
             // Buscarbutton
             // 
-            this.Buscarbutton.Location = new System.Drawing.Point(386, 114);
+            this.Buscarbutton.Location = new System.Drawing.Point(347, 174);
             this.Buscarbutton.Name = "Buscarbutton";
             this.Buscarbutton.Size = new System.Drawing.Size(75, 23);
-            this.Buscarbutton.TabIndex = 5;
+            this.Buscarbutton.TabIndex = 2;
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.UseVisualStyleBackColor = true;
             this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click_1);
             // 
-            // Atrasbutton
-            // 
-            this.Atrasbutton.Location = new System.Drawing.Point(761, 358);
-            this.Atrasbutton.Name = "Atrasbutton";
-            this.Atrasbutton.Size = new System.Drawing.Size(75, 23);
-            this.Atrasbutton.TabIndex = 6;
-            this.Atrasbutton.Text = "atras";
-            this.Atrasbutton.UseVisualStyleBackColor = true;
-            this.Atrasbutton.Click += new System.EventHandler(this.Atrasbutton_Click);
-            // 
             // Vercodigosbutton
             // 
-            this.Vercodigosbutton.Location = new System.Drawing.Point(1055, 69);
+            this.Vercodigosbutton.Location = new System.Drawing.Point(12, 127);
             this.Vercodigosbutton.Name = "Vercodigosbutton";
             this.Vercodigosbutton.Size = new System.Drawing.Size(241, 23);
-            this.Vercodigosbutton.TabIndex = 7;
+            this.Vercodigosbutton.TabIndex = 0;
             this.Vercodigosbutton.Text = "Haga click,para que le muestre los codigos";
             this.Vercodigosbutton.UseVisualStyleBackColor = true;
             this.Vercodigosbutton.Click += new System.EventHandler(this.Vercodigosbutton_Click);
@@ -119,41 +109,53 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(951, 74);
+            this.label3.Location = new System.Drawing.Point(951, 113);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 13);
-            this.label3.TabIndex = 8;
+            this.label3.TabIndex = 7;
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // VercodigoslistBox
             // 
             this.VercodigoslistBox.FormattingEnabled = true;
-            this.VercodigoslistBox.Location = new System.Drawing.Point(1104, 140);
+            this.VercodigoslistBox.Location = new System.Drawing.Point(19, 207);
             this.VercodigoslistBox.Name = "VercodigoslistBox";
-            this.VercodigoslistBox.Size = new System.Drawing.Size(120, 212);
-            this.VercodigoslistBox.TabIndex = 9;
+            this.VercodigoslistBox.Size = new System.Drawing.Size(99, 121);
+            this.VercodigoslistBox.TabIndex = 4;
             this.VercodigoslistBox.SelectedIndexChanged += new System.EventHandler(this.VercodigoslistBox_SelectedIndexChanged);
             // 
             // Limpiarbutton
             // 
-            this.Limpiarbutton.Location = new System.Drawing.Point(525, 114);
+            this.Limpiarbutton.Location = new System.Drawing.Point(428, 174);
             this.Limpiarbutton.Name = "Limpiarbutton";
             this.Limpiarbutton.Size = new System.Drawing.Size(75, 23);
-            this.Limpiarbutton.TabIndex = 10;
+            this.Limpiarbutton.TabIndex = 3;
             this.Limpiarbutton.Text = "Limpiar";
             this.Limpiarbutton.UseVisualStyleBackColor = true;
             this.Limpiarbutton.Click += new System.EventHandler(this.Limpiarbutton_Click);
+            // 
+            // buttonCancelarDetalle
+            // 
+            this.buttonCancelarDetalle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancelarDetalle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.buttonCancelarDetalle.Location = new System.Drawing.Point(509, 174);
+            this.buttonCancelarDetalle.Name = "buttonCancelarDetalle";
+            this.buttonCancelarDetalle.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelarDetalle.TabIndex = 5;
+            this.buttonCancelarDetalle.Text = "Cancelar";
+            this.buttonCancelarDetalle.UseVisualStyleBackColor = false;
+            this.buttonCancelarDetalle.Click += new System.EventHandler(this.buttonCancelarDetalle_Click);
             // 
             // FrmDetalleArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1328, 450);
+            this.ClientSize = new System.Drawing.Size(980, 374);
+            this.Controls.Add(this.buttonCancelarDetalle);
             this.Controls.Add(this.Limpiarbutton);
             this.Controls.Add(this.VercodigoslistBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Vercodigosbutton);
-            this.Controls.Add(this.Atrasbutton);
             this.Controls.Add(this.Buscarbutton);
             this.Controls.Add(this.imagenpictureBox);
             this.Controls.Add(this.dataGridViewdetalle);
@@ -177,10 +179,10 @@
         private System.Windows.Forms.DataGridView dataGridViewdetalle;
         private System.Windows.Forms.PictureBox imagenpictureBox;
         private System.Windows.Forms.Button Buscarbutton;
-        private System.Windows.Forms.Button Atrasbutton;
         private System.Windows.Forms.Button Vercodigosbutton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox VercodigoslistBox;
         private System.Windows.Forms.Button Limpiarbutton;
+        private System.Windows.Forms.Button buttonCancelarDetalle;
     }
 }

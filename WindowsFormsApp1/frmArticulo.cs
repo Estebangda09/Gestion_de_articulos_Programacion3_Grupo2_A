@@ -96,6 +96,7 @@ namespace WindowsFormsApp1
             }
 
         }
+
         private void cargarImagen(string imagen)
         {
             try
@@ -107,7 +108,6 @@ namespace WindowsFormsApp1
                 pictureBoxVistaPrevia.Load("https://w7.pngwing.com/pngs/285/84/png-transparent-computer-icons-error-super-8-film-angle-triangle-computer-icons-thumbnail.png");
             }
         }
-
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
@@ -168,13 +168,6 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show(ex.ToString());
             }
-
-        }
-
-
-        private void txtImagenUrl_Leave(object sender, EventArgs e)
-        {
-
 
         }
 

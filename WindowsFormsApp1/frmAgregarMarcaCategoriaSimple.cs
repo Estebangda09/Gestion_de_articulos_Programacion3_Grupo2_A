@@ -12,7 +12,6 @@ using negocio;
 
 namespace WindowsFormsApp1
 {
-
     public partial class frmAgregarMarcaCategoriaSimple : Form
     {   
 

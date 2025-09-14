@@ -85,10 +85,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void pbxArticulo_Click(object sender, EventArgs e)
-        {
-        }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -96,21 +92,6 @@ namespace WindowsFormsApp1
             this.Close();
             frmMenu.ShowDialog();
         }
-
-
-        private void dgvArchivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
@@ -122,11 +103,7 @@ namespace WindowsFormsApp1
             dgvArchivos.DataSource = listaFiltrada;
             AjustarTabla();
         }
-
-
-
       
-
         private void btnReload_Click(object sender, EventArgs e)
         {
             Cargar();

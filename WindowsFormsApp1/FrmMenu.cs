@@ -56,6 +56,7 @@ namespace WindowsFormsApp1
         {
             frmArticulo frmArticulo = new frmArticulo();
             frmArticulo.ShowDialog();
+            _listado.Cargar();
         }
 
         private void modificarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
@@ -64,6 +65,7 @@ namespace WindowsFormsApp1
             seleccionado = _listado.GetSeleccionado();
             frmArticulo frmArticulo = new frmArticulo(seleccionado);
             frmArticulo.ShowDialog();
+            _listado.Cargar();
         }
 
         private void eliminarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
@@ -81,7 +83,7 @@ namespace WindowsFormsApp1
                 if (DialogResult == DialogResult.No) return;
                 seleccionado = (Articulo)_listado.GetSeleccionado();
                 negocio.Eliminar(seleccionado.Codigo);
-                _listado.cargar();
+                _listado.Cargar();
 
 
             }

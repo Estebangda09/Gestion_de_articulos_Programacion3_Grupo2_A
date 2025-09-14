@@ -32,7 +32,7 @@ namespace WindowsFormsApp1
 
         private void frmListarArticulos_Load(object sender, EventArgs e)
         {
-            cargar();
+            Cargar();
         }
 
 
@@ -47,7 +47,7 @@ namespace WindowsFormsApp1
 
         }
 
-        public void cargar()
+        public void Cargar()
         {
             ArchivoNegocio negocio = new ArchivoNegocio();
             try
@@ -65,6 +65,7 @@ namespace WindowsFormsApp1
         private void ocultarColumnas()
         {
             dgvArchivos.Columns["ImagenUrl"].Visible = false;
+            dgvArchivos.Columns["ID"].Visible = false;
         }
 
         private void cargarImagen(string imagen)
@@ -111,7 +112,7 @@ namespace WindowsFormsApp1
             List<Articulo> listaFiltrada;
             string filtro = txtFiltro.Text;
 
-            listaFiltrada = listaArticulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Descricpcion.ToUpper().Contains(filtro.ToUpper()) || x.Codigo.ToUpper().Contains(filtro.ToUpper()));
+            listaFiltrada = listaArticulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Codigo.ToUpper().Contains(filtro.ToUpper()));
             dgvArchivos.DataSource = null;
             dgvArchivos.DataSource = listaFiltrada;
             ocultarColumnas();
@@ -127,14 +128,18 @@ namespace WindowsFormsApp1
                 Articulo seleccionado = (Articulo)dgvArchivos.CurrentRow.DataBoundItem;
                 frmArticulo formularioEdicion = new frmArticulo(seleccionado);
                 formularioEdicion.ShowDialog();
-
-                cargar();
+                Cargar();
             }
             else
             {
                 MessageBox.Show("Seleccioná un artículo para modificar.");
             }
 
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            Cargar();
         }
     }
 }

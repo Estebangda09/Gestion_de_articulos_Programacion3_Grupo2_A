@@ -38,7 +38,7 @@ namespace negocio
                 ////esteban
                 //comando.CommandText = "select Codigo, Nombre, Descripcion, Precio, ImagenUrl FROM ARTICULOS A, IMAGENES I WHERE A.Id = I.IdArticulo";
                 /// ////matias
-                comando.CommandText = "SELECT A.Codigo, A.Nombre, A.Descripcion, A.Precio, " +
+                comando.CommandText = "SELECT A.Codigo, A.Nombre, A.Descripcion, A.Precio, A.Id, " +
                    "       ISNULL(I1.ImagenUrl, '') AS ImagenUrl, " +
                    "       ISNULL(C.Id, 0) AS IdCategoria, ISNULL(C.Descripcion, '') AS Categoria, " +
                    "       ISNULL(M.Id, 0) AS IdMarca,    ISNULL(M.Descripcion, '') AS Marca " +
@@ -63,9 +63,10 @@ namespace negocio
                 {
 
                     Articulo aux = new Articulo();
+                    aux.Id = (int)lector["ID"];
                     aux.Codigo = (string)lector["Codigo"];
                     aux.Nombre = (string)lector["Nombre"];
-                    aux.Descricpcion = (string)lector["Descripcion"];
+                    aux.Descripcion = (string)lector["Descripcion"];
                     aux.Precio = (decimal)lector["Precio"];
                     aux.ImagenUrl = new Imagen();
                     aux.ImagenUrl.ImagenUrl = (string)lector["ImagenUrl"];
@@ -104,37 +105,37 @@ namespace negocio
             try
             {
                 // Inserto el artículo
-                datos.SetearConsulta(
-                    "INSERT INTO Articulos (Codigo, Nombre, Descripcion, Precio, IdCategoria, IdMarca) " +
-                    "VALUES (@Codigo, @Nombre, @Descripcion, @Precio, @IdCategoria, @IdMarca); " +
-                    "SELECT SCOPE_IDENTITY();"
-                );
-
-                datos.SetearParametros("@Codigo", articulo.Codigo);
-                datos.SetearParametros("@Nombre", articulo.Nombre);
-                datos.SetearParametros("@Descripcion", articulo.Descricpcion);
-                datos.SetearParametros("@Precio", articulo.Precio);
-                datos.SetearParametros("@IdCategoria", articulo.Categoria.Id);
-                datos.SetearParametros("@IdMarca", articulo.Marca.Id);
-
-
-                int idArticulo = Convert.ToInt32(datos.EjecutarEscalar());
-
-
-                if (!string.IsNullOrEmpty(articulo.ImagenUrl.ImagenUrl))
-                {
-                    AccesoDatos datosImg = new AccesoDatos();
-                    datosImg.SetearConsulta(
-                        "INSERT INTO Imagenes (IdArticulo, ImagenUrl) VALUES (@IdArticulo, @ImagenUrl)"
+                    datos.SetearConsulta(
+                        "INSERT INTO Articulos (Codigo, Nombre, Descripcion, Precio, IdCategoria, IdMarca) " +
+                        "VALUES (@Codigo, @Nombre, @Descripcion, @Precio, @IdCategoria, @IdMarca); " +
+                        "SELECT SCOPE_IDENTITY();"
                     );
-                    datosImg.SetearParametros("@IdArticulo", idArticulo);
-                    datosImg.SetearParametros("@ImagenUrl", articulo.ImagenUrl.ImagenUrl);
-                    datosImg.EjecutarAccion();
-                    datosImg.CerrarConexion();
-                }
 
-                return idArticulo;
-            }
+                    datos.SetearParametros("@Codigo", articulo.Codigo);
+                    datos.SetearParametros("@Nombre", articulo.Nombre);
+                    datos.SetearParametros("@Descripcion", articulo.Descripcion);
+                    datos.SetearParametros("@Precio", articulo.Precio);
+                    datos.SetearParametros("@IdCategoria", articulo.Categoria.Id);
+                    datos.SetearParametros("@IdMarca", articulo.Marca.Id);
+
+
+                    int idArticulo = Convert.ToInt32(datos.EjecutarEscalar());
+
+
+                    if (!string.IsNullOrEmpty(articulo.ImagenUrl.ImagenUrl))
+                    {
+                        AccesoDatos datosImg = new AccesoDatos();
+                        datosImg.SetearConsulta(
+                            "INSERT INTO Imagenes (IdArticulo, ImagenUrl) VALUES (@IdArticulo, @ImagenUrl)"
+                        );
+                        datosImg.SetearParametros("@IdArticulo", idArticulo);
+                        datosImg.SetearParametros("@ImagenUrl", articulo.ImagenUrl.ImagenUrl);
+                        datosImg.EjecutarAccion();
+                        datosImg.CerrarConexion();
+                    }
+
+                    return idArticulo;
+                }
             catch (Exception ex)
             {
                 throw ex;
@@ -144,40 +145,62 @@ namespace negocio
                 datos.CerrarConexion();
             }
         }
-
-        public void Modificar(Articulo articulo)
+        public int Modificar(Articulo articulo)
         {
             AccesoDatos datos = new AccesoDatos();
+            AccesoDatos datosImg = null;
+
             try
             {
+                // Actualizo los campos principales del artículo
                 datos.SetearConsulta(
-                  "INSERT INTO Articulos (Codigo, Nombre, Descripcion, Precio, IdCategoria, IdMarca) " +
-                  "VALUES (@Codigo, @Nombre, @Descripcion, @Precio, @IdCategoria, @IdMarca)"
-              );
+                    "UPDATE Articulos " +
+                    "SET Codigo = @Codigo, " +
+                    "    Nombre = @Nombre, " +
+                    "    Descripcion = @Descripcion, " +
+                    "    Precio = @Precio, " +
+                    "    IdCategoria = @IdCategoria, " +
+                    "    IdMarca = @IdMarca " +
+                    "WHERE Id = @Id;"
+                );
 
+                datos.SetearParametros("@Id", articulo.Id);
                 datos.SetearParametros("@Codigo", articulo.Codigo);
                 datos.SetearParametros("@Nombre", articulo.Nombre);
-                datos.SetearParametros("@Descripcion", articulo.Descricpcion);
+                datos.SetearParametros("@Descripcion", articulo.Descripcion);
                 datos.SetearParametros("@Precio", articulo.Precio);
                 datos.SetearParametros("@IdCategoria", articulo.Categoria.Id);
                 datos.SetearParametros("@IdMarca", articulo.Marca.Id);
 
                 datos.EjecutarAccion();
 
+                
+                if (!string.IsNullOrEmpty(articulo.ImagenUrl?.ImagenUrl))
+                {
+                    datosImg = new AccesoDatos();
+                    datosImg.SetearConsulta(
+                        "IF EXISTS (SELECT 1 FROM Imagenes WHERE IdArticulo = @IdArticulo) " +
+                        "   UPDATE Imagenes SET ImagenUrl = @ImagenUrl WHERE IdArticulo = @IdArticulo; " +
+                        "ELSE " +
+                        "   INSERT INTO Imagenes (IdArticulo, ImagenUrl) VALUES (@IdArticulo, @ImagenUrl);"
+                    );
+                    datosImg.SetearParametros("@IdArticulo", articulo.Id);
+                    datosImg.SetearParametros("@ImagenUrl", articulo.ImagenUrl.ImagenUrl);
+                    datosImg.EjecutarAccion();
+                    datosImg.CerrarConexion();
+                }
+
+                return articulo.Id;
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
-
             finally
             {
-                datos.CerrarConexion();
-
+                datos.CerrarConexion();                    
             }
         }
-
         public void Eliminar(string Codigo)
         {
             try

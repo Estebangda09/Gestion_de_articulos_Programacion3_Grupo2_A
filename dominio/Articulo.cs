@@ -10,12 +10,13 @@ namespace dominio
 {
     public class Articulo
     {
-        [DisplayName("Código")]
+        public int Id { get; set; }
 
+        [DisplayName("Código")]
         public string Codigo { get; set; }
         public string Nombre { get; set; }
         [DisplayName("Descripción")]
-        public string Descricpcion { get; set; }
+        public string Descripcion { get; set; }
         
         public List<Imagen> Imagenes { get; set; } = new List<Imagen>();
         public Categoria    Categoria { get; set; }

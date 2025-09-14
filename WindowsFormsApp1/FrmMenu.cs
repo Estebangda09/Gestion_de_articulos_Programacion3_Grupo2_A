@@ -38,7 +38,6 @@ namespace WindowsFormsApp1
             listar();
 
         }
-
         private void listar()
         {
             if (_listado == null)
@@ -51,16 +50,6 @@ namespace WindowsFormsApp1
             {
                 _listado.Activate();
             }
-        }
-
-        private void EliminarArticulo_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void ModificarArticulo_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void agregarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,6 +92,16 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void agregarMarcaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAgregarMarcaCategoriaSimple frmAgregarMarcaCategoriaSimple = new frmAgregarMarcaCategoriaSimple(true);
+            frmAgregarMarcaCategoriaSimple.ShowDialog();
+        }
 
+        private void agregarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAgregarMarcaCategoriaSimple frmAgregarMarcaCategoriaSimple = new frmAgregarMarcaCategoriaSimple(false);
+            frmAgregarMarcaCategoriaSimple.ShowDialog();
+        }
     }
 }

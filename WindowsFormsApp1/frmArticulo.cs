@@ -1,6 +1,5 @@
 ﻿using dominio;
 using negocio;
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,13 +21,13 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
-        
+
         public frmArticulo(Articulo articulo)
         {
             InitializeComponent();
             this.articulo = articulo;
         }
-        
+
         private void buttonLimpiar_Click(object sender, EventArgs e)
         {
 
@@ -43,7 +42,7 @@ namespace WindowsFormsApp1
             comboCategoria.SelectedIndex = -1;
 
             // Limpiar lista de imágenes
-           txtImagenUrl.Text = "";
+            txtImagenUrl.Text = "";
 
             // Limpiar vista previa
             pictureBoxVistaPrevia.Image = null;
@@ -56,22 +55,19 @@ namespace WindowsFormsApp1
             this.Close();
         }
 
-      
-        
-
         private void frmArticulo_Load(object sender, EventArgs e)
         {
-            
-              CategoriaNegocio negocio = new CategoriaNegocio();
-              MarcaNegocio marcaNegocio = new MarcaNegocio();
-              ImagenNegocio imagenNegocio = new ImagenNegocio();
+
+            CategoriaNegocio negocio = new CategoriaNegocio();
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+            ImagenNegocio imagenNegocio = new ImagenNegocio();
             try
             {
-                comboCategoria.DataSource = negocio.Categorias();
-                comboMarca.DataSource =  marcaNegocio.listamarca();
-               
+                comboCategoria.DataSource = negocio.ListarCategorias();
+                comboMarca.DataSource = marcaNegocio.ListarMarcas();
 
-                comboCategoria.DisplayMember = "Descripcion"; 
+
+                comboCategoria.DisplayMember = "Descripcion";
                 comboCategoria.ValueMember = "Id";
 
 
@@ -79,14 +75,14 @@ namespace WindowsFormsApp1
                 comboMarca.ValueMember = "Id";
 
 
-                if(articulo != null)
+                if (articulo != null)
                 {
                     textCodigo.Text = articulo.Codigo;
                     textNombre.Text = articulo.Nombre;
                     textDescripcion.Text = articulo.Descricpcion;
                     textPrecio.Text = articulo.Precio.ToString();
-                    comboCategoria.SelectedValue = articulo.tipo.Id;
-                    comboMarca.SelectedValue = articulo.marca.Id;
+                    comboCategoria.SelectedValue = articulo.Categoria.Id;
+                    comboMarca.SelectedValue = articulo.Marca.Id;
                     txtImagenUrl.Text = articulo.ImagenUrl.ImagenUrl;
                     cargarImagen(articulo.ImagenUrl.ImagenUrl);
                 }
@@ -97,7 +93,7 @@ namespace WindowsFormsApp1
 
                 throw ex;
             }
-            
+
         }
         private void cargarImagen(string imagen)
         {
@@ -105,7 +101,7 @@ namespace WindowsFormsApp1
             {
                 pictureBoxVistaPrevia.Load(imagen);
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 pictureBoxVistaPrevia.Load("https://w7.pngwing.com/pngs/285/84/png-transparent-computer-icons-error-super-8-film-angle-triangle-computer-icons-thumbnail.png");
             }
@@ -150,8 +146,8 @@ namespace WindowsFormsApp1
                     MessageBox.Show("El precio ingresado no es válido.");
                     return;
                 }
-                articulo.tipo = (Categoria)comboCategoria.SelectedItem;
-                articulo.marca = (Marca)comboMarca.SelectedItem;
+                articulo.Categoria = (Categoria)comboCategoria.SelectedItem;
+                articulo.Marca = (Marca)comboMarca.SelectedItem;
 
 
                 archivoNegocio.Agregar(articulo);
@@ -169,8 +165,8 @@ namespace WindowsFormsApp1
 
         private void txtImagenUrl_Leave(object sender, EventArgs e)
         {
-          
-            
+
+
         }
 
         private void txtImagenUrl_KeyUp(object sender, KeyEventArgs e)
@@ -181,7 +177,7 @@ namespace WindowsFormsApp1
             }
             catch
             {
-                //pictureBoxVistaPrevia.Load("https://w7.pngwing.com/pngs/285/84/png-transparent-computer-icons-error-super-8-film-angle-triangle-computer-icons-thumbnail.png");
+                pictureBoxVistaPrevia.Load("https://w7.pngwing.com/pngs/285/84/png-transparent-computer-icons-error-super-8-film-angle-triangle-computer-icons-thumbnail.png");
             }
         }
     }

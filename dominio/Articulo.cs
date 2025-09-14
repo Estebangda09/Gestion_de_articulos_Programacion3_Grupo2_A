@@ -18,8 +18,8 @@ namespace dominio
         public string Descricpcion { get; set; }
         
         public List<Imagen> Imagenes { get; set; } = new List<Imagen>();
-        public Categoria    tipo { get; set; }
-        public Marca marca { get; set; }
+        public Categoria    Categoria { get; set; }
+        public Marca Marca { get; set; }
 
         public decimal Precio { get; set; }
         public Imagen ImagenUrl { get; set; }

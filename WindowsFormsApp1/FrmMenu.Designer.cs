@@ -38,15 +38,15 @@
             this.eliminarArticuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detallesDeLosArticulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarMarcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarMarcaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarMarcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarCategoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarCategoriaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarCategoriaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detallesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarMarcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarCategoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,6 +135,13 @@
             this.marcaToolStripMenuItem1.Size = new System.Drawing.Size(70, 24);
             this.marcaToolStripMenuItem1.Text = "&Marcas";
             // 
+            // agregarMarcaToolStripMenuItem
+            // 
+            this.agregarMarcaToolStripMenuItem.Name = "agregarMarcaToolStripMenuItem";
+            this.agregarMarcaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.agregarMarcaToolStripMenuItem.Text = "Agregar Marca";
+            this.agregarMarcaToolStripMenuItem.Click += new System.EventHandler(this.agregarMarcaToolStripMenuItem_Click);
+            // 
             // modificarMarcaToolStripMenuItem1
             // 
             this.modificarMarcaToolStripMenuItem1.Name = "modificarMarcaToolStripMenuItem1";
@@ -156,6 +163,13 @@
             this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
             this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(94, 24);
             this.categoriasToolStripMenuItem.Text = "&Categorias";
+            // 
+            // agregarCategoriaToolStripMenuItem
+            // 
+            this.agregarCategoriaToolStripMenuItem.Name = "agregarCategoriaToolStripMenuItem";
+            this.agregarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
+            this.agregarCategoriaToolStripMenuItem.Text = "Agregar Categoria";
+            this.agregarCategoriaToolStripMenuItem.Click += new System.EventHandler(this.agregarCategoriaToolStripMenuItem_Click);
             // 
             // modificarCategoriaToolStripMenuItem2
             // 
@@ -180,20 +194,8 @@
             // detallesToolStripMenuItem
             // 
             this.detallesToolStripMenuItem.Name = "detallesToolStripMenuItem";
-            this.detallesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.detallesToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
             this.detallesToolStripMenuItem.Text = "G&uia";
-            // 
-            // agregarMarcaToolStripMenuItem
-            // 
-            this.agregarMarcaToolStripMenuItem.Name = "agregarMarcaToolStripMenuItem";
-            this.agregarMarcaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.agregarMarcaToolStripMenuItem.Text = "Agregar Marca";
-            // 
-            // agregarCategoriaToolStripMenuItem
-            // 
-            this.agregarCategoriaToolStripMenuItem.Name = "agregarCategoriaToolStripMenuItem";
-            this.agregarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
-            this.agregarCategoriaToolStripMenuItem.Text = "Agregar Categoria";
             // 
             // FrmMenu
             // 

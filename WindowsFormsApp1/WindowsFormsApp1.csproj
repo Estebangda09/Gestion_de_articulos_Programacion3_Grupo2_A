@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAgregarMarcaCategoriaSimple.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarMarcaCategoriaSimple.Designer.cs">
+      <DependentUpon>frmAgregarMarcaCategoriaSimple.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmListarArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAgregarMarcaCategoriaSimple.resx">
+      <DependentUpon>frmAgregarMarcaCategoriaSimple.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmListarArticulos.resx">
       <DependentUpon>frmListarArticulos.cs</DependentUpon>
     </EmbeddedResource>

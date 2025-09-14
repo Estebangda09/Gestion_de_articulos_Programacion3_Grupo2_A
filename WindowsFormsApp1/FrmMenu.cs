@@ -53,25 +53,37 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void EliminarArticulo_Click(object sender, EventArgs e)
+        {
+           
+        }
 
-        private void BuscarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ModificarArticulo_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void artículoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void agregarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmArticulo frmArticulo = new frmArticulo();
             frmArticulo.ShowDialog();
         }
 
-        private void EliminarArticulo_Click(object sender, EventArgs e)
+        private void modificarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = _listado.GetSeleccionado();
+            frmArticulo frmArticulo = new frmArticulo(seleccionado);
+            frmArticulo.ShowDialog();
+        }
+
+        private void eliminarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ArchivoNegocio negocio = new ArchivoNegocio();
             Articulo seleccionado = new Articulo();
             try
             {
-                if (_listado == null )
+                if (_listado == null)
                 {
                     MessageBox.Show("Abrí primero el listado de artículos.");
                     return;
@@ -91,12 +103,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void ModificarArticulo_Click(object sender, EventArgs e)
-        {
-            Articulo seleccionado;
-            seleccionado = _listado.GetSeleccionado();
-            frmArticulo frmArticulo = new frmArticulo(seleccionado);
-            frmArticulo.ShowDialog();
-        }
+
     }
 }

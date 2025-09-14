@@ -55,7 +55,6 @@ namespace WindowsFormsApp1
             this.dgvArchivos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArchivos.Size = new System.Drawing.Size(660, 288);
             this.dgvArchivos.TabIndex = 0;
-            this.dgvArchivos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArchivos_CellContentClick);
             this.dgvArchivos.SelectionChanged += new System.EventHandler(this.dgvArchivos_SelectionChanged);
             // 
             // pbxArticulo
@@ -67,7 +66,6 @@ namespace WindowsFormsApp1
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxArticulo.TabIndex = 1;
             this.pbxArticulo.TabStop = false;
-            this.pbxArticulo.Click += new System.EventHandler(this.pbxArticulo_Click);
             // 
             // button1
             // 
@@ -87,7 +85,6 @@ namespace WindowsFormsApp1
             this.lbeFiltro.Size = new System.Drawing.Size(32, 13);
             this.lbeFiltro.TabIndex = 2;
             this.lbeFiltro.Text = "Filtrar";
-            this.lbeFiltro.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtFiltro
             // 

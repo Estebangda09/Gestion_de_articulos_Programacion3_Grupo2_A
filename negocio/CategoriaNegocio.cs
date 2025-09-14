@@ -9,8 +9,8 @@ using dominio;
 namespace negocio
 {
     public class CategoriaNegocio
-    { 
-        public List<Categoria> Categorias()
+    {
+        public List<Categoria> ListarCategorias()
         {
 
             List<Categoria> lista = new List<Categoria>();
@@ -40,9 +40,31 @@ namespace negocio
             {
                 accesoDatos.CerrarConexion();
             }
-
         }
 
+        public void AgregarCategoria(Categoria categoria)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetearConsulta(
+                       "INSERT INTO CATEGORIAS (Descripcion)" +
+                       "VALUES (@Descripcion); "
+                   );
+                datos.SetearParametro("Descripcion", categoria.Descripcion);
+                datos.EjecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
     }
 }
 

@@ -144,14 +144,10 @@ namespace WindowsFormsApp1
         {
 
 
-            frmListarArticulos ventana = new frmListarArticulos(false);
-            ventana.Show();
+            frmListarArticulos alert = new frmListarArticulos();
+            alert.Show();
 
-        }
-
-
-
-            string msg =
+                string msg =
                 "Instrucciones de uso:" + Environment.NewLine + Environment.NewLine +
                 "• Paso 1: Haz click en el Modulo que quieres utilizar." + Environment.NewLine +
                 "• Paso 2: Haz clic en la accion que quieres realizar" + Environment.NewLine +
@@ -167,7 +163,7 @@ namespace WindowsFormsApp1
             string msg =
                 "Integrantes del Grupo 2 A:" + Environment.NewLine + Environment.NewLine +
                 "Gomez, Matias       Legajo: 27933" + Environment.NewLine +
-                "Gonzales, Esteban   Legajo: 11111" + Environment.NewLine +
+                "Gonzales, Esteban   Legajo: 30378" + Environment.NewLine +
                 "Rojas, Adrian       Legajo: 31912";
 
             MessageBox.Show(this, msg, "Integrantes", MessageBoxButtons.OK, MessageBoxIcon.Information
@@ -186,6 +182,11 @@ namespace WindowsFormsApp1
 
         }
 
-       
+        private void buscarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListarArticulos ventana = new frmListarArticulos(false);
+            ventana.Show();
+
+        }
     }
 }

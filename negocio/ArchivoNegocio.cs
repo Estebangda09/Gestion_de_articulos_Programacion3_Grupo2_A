@@ -72,9 +72,6 @@ namespace negocio
                     aux.ImagenUrl.ImagenUrl = (string)lector["ImagenUrl"];
                     aux.Categoria = new Categoria();
                     aux.Marca = new Marca();
-
-
-
                     aux.Categoria.Id = (int)lector["IdCategoria"];
                     aux.Categoria.Descripcion = (string)lector["Categoria"];
 

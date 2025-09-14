@@ -58,6 +58,7 @@ namespace WindowsFormsApp1
         private void frmArticulo_Load(object sender, EventArgs e)
         {
 
+
             CategoriaNegocio negocio = new CategoriaNegocio();
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             ImagenNegocio imagenNegocio = new ImagenNegocio();

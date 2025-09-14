@@ -14,30 +14,57 @@ namespace WindowsFormsApp1
 {
 
     public partial class frmAgregarMarcaCategoriaSimple : Form
-    {
-        bool isMarca = false;
+    {   
+
+        private bool isMarca = false;
+        private ModoOperacion modo; 
+        private int idSeleccionado =0;
+
         public frmAgregarMarcaCategoriaSimple()
         {
             InitializeComponent();
         }
 
-        public frmAgregarMarcaCategoriaSimple(bool isMarca)
-        {
+        public frmAgregarMarcaCategoriaSimple(bool isMarca, ModoOperacion modo)
+        {   
             this.isMarca = isMarca;
-            InitializeComponent();
+            this.modo = modo;
 
-            if (isMarca)
-            {
-                Text = "Agregando Marca...";
-                labelTipoPorAgregar.Text = "Ingrese la Marca a agregar:";
+            InitializeComponent();
+            ConfigurarFormulario();
+
+        }
+
+        private void ConfigurarFormulario()
+        {
+            if (isMarca) {
                 CargarFormularioMarca();
+             }
+            else {                 
+                CargarFormularioCategoria(); 
             }
-            else
+            switch (modo)
             {
-                Text = "Agregando Categoria...";
-                labelTipoPorAgregar.Text = "Ingrese la Categoria a agregar:";
-                CargarFormularioCategoria();
+                case ModoOperacion.Agregar:
+                    Text = isMarca ? "Agregar Marca" : "Agregar Categoría";
+                    labelTipoPorAgregar.Text = isMarca ? "Ingrese la Marca a agregar:" : "Ingrese la Categoría a agregar:";
+                    textBox1.Enabled = true;
+                    textBox1.Text = "";
+                    break;
+
+                case ModoOperacion.Modificar:
+                    Text = isMarca ? "Modificar Marca" : "Modificar Categoría";
+                    labelTipoPorAgregar.Text = isMarca ? "Seleccione una Marca y modifique:" : "Seleccione una Categoría y modifique:";
+                    textBox1.Enabled = true;
+                    break;
+
+                case ModoOperacion.Eliminar:
+                    Text = isMarca ? "Eliminar Marca" : "Eliminar Categoría";
+                    labelTipoPorAgregar.Text = isMarca ? "Seleccione una Marca para eliminar:" : "Seleccione una Categoría para eliminar:";
+                    textBox1.Enabled = false;
+                    break;
             }
+
         }
 
         private void CargarFormularioMarca()
@@ -52,6 +79,17 @@ namespace WindowsFormsApp1
             dgv.Columns["ID"].Visible = false;
         }
 
+        private void dgv_SelectionChanged(object sender, EventArgs e)
+        {
+            if (modo == ModoOperacion.Agregar)
+                return;
+            if (dgv.CurrentRow != null)
+            {
+                idSeleccionado = (int)dgv.CurrentRow.Cells["ID"].Value;
+                textBox1.Text = dgv.CurrentRow.Cells["Descripcion"].Value.ToString();
+            }
+        }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -61,29 +99,56 @@ namespace WindowsFormsApp1
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(textBox1.Text))
-                {
-                    MessageBox.Show("Por favor llene los campos obligatorios antes de aceptar",
-                        "Error...", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
                 if (isMarca)
                 {
                     MarcaNegocio negocio = new MarcaNegocio();
-                    Marca marca = new Marca();
-                    marca.Descripcion = textBox1.Text.Trim();
-                    negocio.AgregarMarca(marca);
-                    MessageBox.Show("Marca Agregada", "Agregado",MessageBoxButtons.OK);
+
+                    switch (modo)
+                    {
+                        case ModoOperacion.Agregar:
+                            negocio.AgregarMarca(new Marca { Descripcion = textBox1.Text.Trim() });
+                            MessageBox.Show("Marca agregada correctamente");
+                            break;
+
+                        case ModoOperacion.Modificar:
+                            if (idSeleccionado <= 0)
+                            {
+                                MessageBox.Show("Debe seleccionar una marca de la lista.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+                            negocio.ModificarMarca(new Marca { Id = idSeleccionado, Descripcion = textBox1.Text.Trim() });
+                            MessageBox.Show("Marca modificada correctamente");
+                            break;
+
+                        case ModoOperacion.Eliminar:
+                            negocio.EliminarMarca(idSeleccionado);
+                            MessageBox.Show("Marca eliminada correctamente");
+                            break;
+                    }
+
                     CargarFormularioMarca();
                 }
                 else
                 {
                     CategoriaNegocio negocio = new CategoriaNegocio();
-                    Categoria categoria = new Categoria();
-                    categoria.Descripcion = textBox1.Text.Trim();
-                    negocio.AgregarCategoria(categoria);
-                    MessageBox.Show("Categoria Agregada", "Agregado", MessageBoxButtons.OK);
+
+                    switch (modo)
+                    {
+                        case ModoOperacion.Agregar:
+                            negocio.AgregarCategoria(new Categoria { Descripcion = textBox1.Text.Trim() });
+                            MessageBox.Show("Categoría agregada correctamente");
+                            break;
+
+                        case ModoOperacion.Modificar:
+                            negocio.ModificarCategoria(new Categoria { Id = idSeleccionado, Descripcion = textBox1.Text.Trim() });
+                            MessageBox.Show("Categoría modificada correctamente");
+                            break;
+
+                        case ModoOperacion.Eliminar:
+                            negocio.EliminarCategoria(idSeleccionado);
+                            MessageBox.Show("Categoría eliminada correctamente");
+                            break;
+                    }
                     CargarFormularioCategoria();
                 }
             }

@@ -20,7 +20,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
-
+        // Configuracion inicial del formulario
         private void FrmMenu_Load(object sender, EventArgs e)
         {
             this.BackColor = Color.Black;
@@ -37,6 +37,7 @@ namespace WindowsFormsApp1
             listar();
 
         }
+        // Lista Articulos
         private void listar()
         {
             if (_listado == null)
@@ -50,7 +51,7 @@ namespace WindowsFormsApp1
                 _listado.Activate();
             }
         }
-
+        // Agrega Articulo
         private void agregarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmArticulo frmArticulo = new frmArticulo();
@@ -58,6 +59,7 @@ namespace WindowsFormsApp1
             _listado.Cargar();
         }
 
+        // Modifica Articulo
         private void modificarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Articulo seleccionado;
@@ -67,6 +69,7 @@ namespace WindowsFormsApp1
             _listado.Cargar();
         }
 
+        // Elimina Articulo
         private void eliminarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ArchivoNegocio negocio = new ArchivoNegocio();
@@ -81,7 +84,7 @@ namespace WindowsFormsApp1
                 DialogResult = MessageBox.Show("Deseas eliminar definitivamente el elemento?", "Eliminando...", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (DialogResult == DialogResult.No) return;
                 seleccionado = (Articulo)_listado.GetSeleccionado();
-                negocio.Eliminar(seleccionado.Codigo);
+                negocio.Eliminar(seleccionado.Id);
                 _listado.Cargar();
 
 
@@ -93,16 +96,57 @@ namespace WindowsFormsApp1
             }
         }
 
+        //Agregar Marca y Categoria
         private void agregarMarcaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAgregarMarcaCategoriaSimple frmAgregarMarcaCategoriaSimple = new frmAgregarMarcaCategoriaSimple(true);
-            frmAgregarMarcaCategoriaSimple.ShowDialog();
+            frmAgregarMarcaCategoriaSimple frm = new frmAgregarMarcaCategoriaSimple(true, ModoOperacion.Agregar);
+            frm.ShowDialog();
+            _listado.Cargar();
         }
-
         private void agregarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAgregarMarcaCategoriaSimple frmAgregarMarcaCategoriaSimple = new frmAgregarMarcaCategoriaSimple(false);
-            frmAgregarMarcaCategoriaSimple.ShowDialog();
+            frmAgregarMarcaCategoriaSimple frm = new frmAgregarMarcaCategoriaSimple(false, ModoOperacion.Agregar);
+            frm.ShowDialog();
+            _listado.Cargar();
+        }
+
+
+        //Modificar Marca y Categoria
+        private void modificarMarcaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmAgregarMarcaCategoriaSimple frm = new frmAgregarMarcaCategoriaSimple(true, ModoOperacion.Modificar);
+            frm.ShowDialog();
+            _listado.Cargar();
+        }
+        private void modificarCategoriaToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            frmAgregarMarcaCategoriaSimple frm = new frmAgregarMarcaCategoriaSimple(false, ModoOperacion.Modificar);
+            frm.ShowDialog();
+            _listado.Cargar();
+        }
+
+
+        //Eliminar Marca y Categoria
+        private void eliminarMarcaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAgregarMarcaCategoriaSimple frm = new frmAgregarMarcaCategoriaSimple(true, ModoOperacion.Eliminar);
+            frm.ShowDialog();
+            _listado.Cargar();
+
+        }
+
+        private void eliminarCategoriaToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            frmAgregarMarcaCategoriaSimple frm = new frmAgregarMarcaCategoriaSimple(false, ModoOperacion.Eliminar);
+            frm.ShowDialog();
+            _listado.Cargar();
+
+        }
+
+        //Buscar Articulo
+        private void BuscarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

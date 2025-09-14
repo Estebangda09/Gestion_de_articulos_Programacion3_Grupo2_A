@@ -131,6 +131,7 @@
             this.detallesDeLosArticulosToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
             this.detallesDeLosArticulosToolStripMenuItem.Size = new System.Drawing.Size(276, 26);
             this.detallesDeLosArticulosToolStripMenuItem.Text = "Detalles de los Articulos";
+            this.detallesDeLosArticulosToolStripMenuItem.Click += new System.EventHandler(this.detallesDeLosArticulosToolStripMenuItem_Click);
             // 
             // marcaToolStripMenuItem1
             // 
@@ -145,16 +146,24 @@
             // agregarMarcaToolStripMenuItem
             // 
             this.agregarMarcaToolStripMenuItem.Name = "agregarMarcaToolStripMenuItem";
+<<<<<<< HEAD
             this.agregarMarcaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
             this.agregarMarcaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+=======
+            this.agregarMarcaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+>>>>>>> matias
             this.agregarMarcaToolStripMenuItem.Text = "Agregar Marca";
             this.agregarMarcaToolStripMenuItem.Click += new System.EventHandler(this.agregarMarcaToolStripMenuItem_Click);
             // 
             // modificarMarcaToolStripMenuItem1
             // 
             this.modificarMarcaToolStripMenuItem1.Name = "modificarMarcaToolStripMenuItem1";
+<<<<<<< HEAD
             this.modificarMarcaToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F3)));
             this.modificarMarcaToolStripMenuItem1.Size = new System.Drawing.Size(254, 26);
+=======
+            this.modificarMarcaToolStripMenuItem1.Size = new System.Drawing.Size(161, 22);
+>>>>>>> matias
             this.modificarMarcaToolStripMenuItem1.Text = "Modificar Marca";
             this.modificarMarcaToolStripMenuItem1.Click += new System.EventHandler(this.modificarMarcaToolStripMenuItem1_Click);
             // 
@@ -162,8 +171,12 @@
             // 
             this.eliminarMarcaToolStripMenuItem.ForeColor = System.Drawing.Color.Crimson;
             this.eliminarMarcaToolStripMenuItem.Name = "eliminarMarcaToolStripMenuItem";
+<<<<<<< HEAD
             this.eliminarMarcaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F3)));
             this.eliminarMarcaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+=======
+            this.eliminarMarcaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+>>>>>>> matias
             this.eliminarMarcaToolStripMenuItem.Text = "Eliminar Marca";
             this.eliminarMarcaToolStripMenuItem.Click += new System.EventHandler(this.eliminarMarcaToolStripMenuItem_Click);
             // 
@@ -180,16 +193,24 @@
             // agregarCategoriaToolStripMenuItem
             // 
             this.agregarCategoriaToolStripMenuItem.Name = "agregarCategoriaToolStripMenuItem";
+<<<<<<< HEAD
             this.agregarCategoriaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
             this.agregarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(278, 26);
+=======
+            this.agregarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+>>>>>>> matias
             this.agregarCategoriaToolStripMenuItem.Text = "Agregar Categoria";
             this.agregarCategoriaToolStripMenuItem.Click += new System.EventHandler(this.agregarCategoriaToolStripMenuItem_Click);
             // 
             // modificarCategoriaToolStripMenuItem2
             // 
             this.modificarCategoriaToolStripMenuItem2.Name = "modificarCategoriaToolStripMenuItem2";
+<<<<<<< HEAD
             this.modificarCategoriaToolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.modificarCategoriaToolStripMenuItem2.Size = new System.Drawing.Size(278, 26);
+=======
+            this.modificarCategoriaToolStripMenuItem2.Size = new System.Drawing.Size(179, 22);
+>>>>>>> matias
             this.modificarCategoriaToolStripMenuItem2.Text = "Modificar Categoria";
             this.modificarCategoriaToolStripMenuItem2.Click += new System.EventHandler(this.modificarCategoriaToolStripMenuItem2_Click);
             // 
@@ -197,8 +218,12 @@
             // 
             this.eliminarCategoriaToolStripMenuItem2.ForeColor = System.Drawing.Color.Crimson;
             this.eliminarCategoriaToolStripMenuItem2.Name = "eliminarCategoriaToolStripMenuItem2";
+<<<<<<< HEAD
             this.eliminarCategoriaToolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F4)));
             this.eliminarCategoriaToolStripMenuItem2.Size = new System.Drawing.Size(278, 26);
+=======
+            this.eliminarCategoriaToolStripMenuItem2.Size = new System.Drawing.Size(179, 22);
+>>>>>>> matias
             this.eliminarCategoriaToolStripMenuItem2.Text = "Eliminar Categoria";
             this.eliminarCategoriaToolStripMenuItem2.Click += new System.EventHandler(this.eliminarCategoriaToolStripMenuItem2_Click);
             // 

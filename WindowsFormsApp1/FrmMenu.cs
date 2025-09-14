@@ -19,11 +19,13 @@ namespace WindowsFormsApp1
         public FrmMenu()
         {
             InitializeComponent();
+           Text = "Gestion De articulos";
         }
         // Configuracion inicial del formulario
         private void FrmMenu_Load(object sender, EventArgs e)
         {
             this.BackColor = Color.Black;
+            
             listar();
         }
 

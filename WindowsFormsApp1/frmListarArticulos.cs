@@ -120,22 +120,7 @@ namespace WindowsFormsApp1
 
 
 
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-
-            if (dgvArchivos.CurrentRow != null)
-            {
-                Articulo seleccionado = (Articulo)dgvArchivos.CurrentRow.DataBoundItem;
-                frmArticulo formularioEdicion = new frmArticulo(seleccionado);
-                formularioEdicion.ShowDialog();
-                Cargar();
-            }
-            else
-            {
-                MessageBox.Show("Seleccioná un artículo para modificar.");
-            }
-
-        }
+      
 
         private void btnReload_Click(object sender, EventArgs e)
         {

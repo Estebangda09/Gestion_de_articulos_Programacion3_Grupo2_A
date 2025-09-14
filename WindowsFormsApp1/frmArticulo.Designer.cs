@@ -244,7 +244,6 @@
             this.txtImagenUrl.Size = new System.Drawing.Size(326, 20);
             this.txtImagenUrl.TabIndex = 21;
             this.txtImagenUrl.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtImagenUrl_KeyUp);
-            this.txtImagenUrl.Leave += new System.EventHandler(this.txtImagenUrl_Leave);
             // 
             // frmArticulo
             // 

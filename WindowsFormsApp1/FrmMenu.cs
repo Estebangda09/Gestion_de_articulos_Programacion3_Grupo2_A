@@ -19,19 +19,14 @@ namespace WindowsFormsApp1
         public FrmMenu()
         {
             InitializeComponent();
-           Text = "Gestion De articulos";
+            Text = "Gestion De articulos";
         }
         // Configuracion inicial del formulario
         private void FrmMenu_Load(object sender, EventArgs e)
         {
             this.BackColor = Color.Black;
-            
+
             listar();
-        }
-
-        private void toolStripLabel1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void articulosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -145,10 +140,29 @@ namespace WindowsFormsApp1
 
         }
 
-        //Buscar Articulo
-        private void BuscarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void detallesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            string msg =
+                "Instrucciones de uso:" + Environment.NewLine + Environment.NewLine +
+                "• Paso 1: Haz click en el Modulo que quieres utilizar." + Environment.NewLine +
+                "• Paso 2: Haz clic en la accion que quieres realizar" + Environment.NewLine +
+                "• Paso 3: Sigue las instrucciones del formulario mostrado" + Environment.NewLine +
+                "• Consejo: Usa el buscador para filtrar resultados.";
+
+            MessageBox.Show(this,msg, "Instrucciones", MessageBoxButtons.OK, MessageBoxIcon.Information
+            );
+        }
+
+        private void acercaDeNosotrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string msg =
+                "Integrantes del Grupo 2 A:" + Environment.NewLine + Environment.NewLine +
+                "Gomez, Matias       Legajo: 11111" + Environment.NewLine +
+                "Gonzales, Esteban   Legajo: 11111" + Environment.NewLine +
+                "Rojas, Adrian       Legajo: 31912";
+
+            MessageBox.Show(this, msg, "Integrantes", MessageBoxButtons.OK, MessageBoxIcon.Information
+            );
         }
     }
 }

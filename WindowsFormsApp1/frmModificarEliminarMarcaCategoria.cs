@@ -12,7 +12,7 @@ using negocio;
 
 namespace WindowsFormsApp1
 {
-
+    
     public partial class frmAgregarMarcaCategoriaSimple : Form
     {
         bool isMarca = false;
@@ -29,7 +29,7 @@ namespace WindowsFormsApp1
             if (isMarca)
             {
                 Text = "Agregando Marca...";
-                labelTipoPorAgregar.Text = "Ingrese la Marca a agregar:";
+                labelTipoPorAgregar.Text = "Ingrese el nombre de la Marca a agregar:";
                 CargarFormularioMarca();
             }
             else

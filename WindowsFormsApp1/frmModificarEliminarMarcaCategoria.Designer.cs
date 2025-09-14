@@ -74,21 +74,17 @@
             // 
             // dgv
             // 
-            this.dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgv.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgv.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgv.GridColor = System.Drawing.SystemColors.AppWorkspace;
-            this.dgv.Location = new System.Drawing.Point(340, 12);
+            this.dgv.GridColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dgv.Location = new System.Drawing.Point(356, 12);
             this.dgv.Name = "dgv";
             this.dgv.RowHeadersWidth = 51;
             this.dgv.RowTemplate.Height = 24;
-            this.dgv.Size = new System.Drawing.Size(200, 237);
-            this.dgv.TabIndex = 5;
+            this.dgv.Size = new System.Drawing.Size(184, 237);
+            this.dgv.TabIndex = 6;
             // 
             // frmAgregarMarcaCategoriaSimple
             // 

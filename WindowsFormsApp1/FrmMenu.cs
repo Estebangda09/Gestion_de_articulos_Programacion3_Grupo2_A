@@ -25,7 +25,6 @@ namespace WindowsFormsApp1
         {
             this.BackColor = Color.Black;
             listar();
-
         }
 
         private void toolStripLabel1_Click(object sender, EventArgs e)

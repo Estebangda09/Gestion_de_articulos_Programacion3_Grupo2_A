@@ -150,18 +150,16 @@ namespace WindowsFormsApp1
         private void detallesToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+            string msg =
+            "Instrucciones de uso:" + Environment.NewLine + Environment.NewLine +
+            "• Paso 1: Haz click en el Modulo que quieres utilizar." + Environment.NewLine +
+            "• Paso 2: Haz clic en la accion que quieres realizar" + Environment.NewLine +
+            "• Paso 3: Sigue las instrucciones del formulario mostrado" + Environment.NewLine +
+            "• Consejo: Usa el buscador para filtrar resultados." + Environment.NewLine + Environment.NewLine +
+            "• Eliminar Articulo:" + Environment.NewLine +
+            " Seleccione el articulo que desea eliminar y presione Ctrl+F2 ";
 
-            frmListarArticulos alert = new frmListarArticulos();
-            alert.Show();
-
-                string msg =
-                "Instrucciones de uso:" + Environment.NewLine + Environment.NewLine +
-                "• Paso 1: Haz click en el Modulo que quieres utilizar." + Environment.NewLine +
-                "• Paso 2: Haz clic en la accion que quieres realizar" + Environment.NewLine +
-                "• Paso 3: Sigue las instrucciones del formulario mostrado" + Environment.NewLine +
-                "• Consejo: Usa el buscador para filtrar resultados.";
-
-            MessageBox.Show(this,msg, "Instrucciones", MessageBoxButtons.OK, MessageBoxIcon.Information
+        MessageBox.Show(this,msg, "Instrucciones", MessageBoxButtons.OK, MessageBoxIcon.Information
             );
         }
         // Integrantes
@@ -169,9 +167,9 @@ namespace WindowsFormsApp1
         {
             string msg =
                 "Integrantes del Grupo 2 A:" + Environment.NewLine + Environment.NewLine +
-                "Gomez, Matias       Legajo: 27933" + Environment.NewLine +
-                "Gonzales, Esteban   Legajo: 30378" + Environment.NewLine +
-                "Rojas, Adrian       Legajo: 31912";
+                "Gomez, Matias          Legajo: 27933" + Environment.NewLine +
+                "Gonzalez, Esteban    Legajo: 30378" + Environment.NewLine +
+                "Rojas, Adrian            Legajo: 31912";
 
             MessageBox.Show(this, msg, "Integrantes", MessageBoxButtons.OK, MessageBoxIcon.Information
             );

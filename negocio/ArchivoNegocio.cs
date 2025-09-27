@@ -12,79 +12,70 @@ namespace negocio
 {
     public class ArchivoNegocio
     {
-        //metodo para listar articulos
-        public List<Articulo> Listar()
+       public List<Articulo> Listar()
         {
-            
             List<Articulo> lista = new List<Articulo>();
-            SqlConnection conexion = new SqlConnection();
-            SqlCommand comando = new SqlCommand();
-            SqlDataReader lector;
+            
+            AccesoDatos datos = new AccesoDatos();
 
             try
-            {   //Comentar la que no usen 
-                ///Esteban conexion a base 
-                  conexion.ConnectionString = "Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=Esteban94*;";
-                //Adrian
-                //conexion = new SqlConnection("Server=localhost,1433; Database=CATALOGO_P3_DB; Integrated Security=False; User ID=sa; Password=BaseDeDatos#2;";
-                // matias
-                //conexion.ConnectionString = "server = .\\SQLEXPRESS02; database = CATALOGO_P3_DB; integrated security =true ;";
+            {
+                    datos.SetearConsulta(
+                    "SELECT A.Codigo, A.Nombre, A.Descripcion, A.Precio, A.Id, " +
+                    "ISNULL(I1.ImagenUrl, '') AS ImagenUrl, " +
+                    "ISNULL(C.Id, 0) AS IdCategoria, ISNULL(C.Descripcion, '') AS Categoria, " +
+                    "ISNULL(M.Id, 0) AS IdMarca, ISNULL(M.Descripcion, '') AS Marca " +
+                    "FROM Articulos A " +
+                    "OUTER APPLY ( " +
+                    "    SELECT TOP 1 ImagenUrl " +
+                    "    FROM Imagenes I " +
+                    "    WHERE I.IdArticulo = A.Id " +
+                    "    ORDER BY I.Id " +
+                    ") I1 " +
+                    "LEFT JOIN Categorias C ON A.IdCategoria = C.Id " +
+                    "LEFT JOIN Marcas M ON A.IdMarca = M.Id"
+                );
 
-                comando.CommandType = System.Data.CommandType.Text;
                 
-                comando.CommandText = "SELECT A.Codigo, A.Nombre, A.Descripcion, A.Precio, A.Id, " +
-                   "       ISNULL(I1.ImagenUrl, '') AS ImagenUrl, " +
-                   "       ISNULL(C.Id, 0) AS IdCategoria, ISNULL(C.Descripcion, '') AS Categoria, " +
-                   "       ISNULL(M.Id, 0) AS IdMarca,    ISNULL(M.Descripcion, '') AS Marca " +
-                   "       FROM Articulos A " +
-                   "       OUTER APPLY ( " +
-                   "        SELECT TOP 1 ImagenUrl " +
-                   "        FROM Imagenes I " +
-                   "       WHERE I.IdArticulo = A.Id " +
-                   "       ORDER BY I.Id " +
-                   ") I1 " +
-                   "LEFT JOIN Categorias C ON A.IdCategoria = C.Id " +
-                   "LEFT JOIN Marcas     M ON A.IdMarca     = M.Id";
-
-
-
-                comando.Connection = conexion;
-                conexion.Open();
-
-                lector = comando.ExecuteReader();
-
-                while (lector.Read())
+                datos.EjecutarLectura();
+                while (datos.Lector.Read())
                 {
-
                     Articulo aux = new Articulo();
-                    aux.Id = (int)lector["ID"];
-                    aux.Codigo = (string)lector["Codigo"];
-                    aux.Nombre = (string)lector["Nombre"];
-                    aux.Descripcion = (string)lector["Descripcion"];
-                    aux.Precio = (decimal)lector["Precio"];
-                    aux.ImagenUrl = new Imagen();
-                    aux.ImagenUrl.ImagenUrl = (string)lector["ImagenUrl"];
-                    aux.Categoria = new Categoria();
-                    aux.Marca = new Marca();
-                    aux.Categoria.Id = (int)lector["IdCategoria"];
-                    aux.Categoria.Descripcion = (string)lector["Categoria"];
-
-                    aux.Marca.Id = (int)lector["IdMarca"];
-                    aux.Marca.Descripcion = (string)lector["Marca"];
+                    aux.Id = (int)datos.Lector["ID"];
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                                        
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+                                        
+                    aux.ImagenUrl = new dominio.Imagen { ImagenUrl = (string)datos.Lector["ImagenUrl"] };
+                                        
+                    aux.Categoria = new dominio.Categoria
+                    {
+                        Id = (int)datos.Lector["IdCategoria"],
+                        Descripcion = (string)datos.Lector["Categoria"]
+                    };
+                                        
+                    aux.Marca = new dominio.Marca
+                    {
+                        Id = (int)datos.Lector["IdMarca"],
+                        Descripcion = (string)datos.Lector["Marca"]
+                    };
 
                     lista.Add(aux);
-
                 }
-                conexion.Close();
 
                 return lista;
-
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-
+            finally
+            {
+                
+                datos.CerrarConexion();
+            }
         }
         //metodo para agregar articulos
         public int Agregar(Articulo articulo)
@@ -92,8 +83,19 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
+                AccesoDatos datosVerif = new AccesoDatos();
+                datosVerif.SetearConsulta("SELECT COUNT(*) FROM Articulos WHERE Codigo = @Codigo");
+                datosVerif.SetearParametros("@Codigo", articulo.Codigo);
+                int count = Convert.ToInt32(datosVerif.EjecutarEscalar());
+                datosVerif.CerrarConexion();
+
+                if (count > 0)
+                {
+                    throw new Exception("Ya existe un artículo con el código: " + articulo.Codigo);
+                }
+
                 // Inserto el artículo
-                    datos.SetearConsulta(
+                datos.SetearConsulta(
                         "INSERT INTO Articulos (Codigo, Nombre, Descripcion, Precio, IdCategoria, IdMarca) " +
                         "VALUES (@Codigo, @Nombre, @Descripcion, @Precio, @IdCategoria, @IdMarca); " +
                         "SELECT SCOPE_IDENTITY();"

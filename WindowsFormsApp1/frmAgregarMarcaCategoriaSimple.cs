@@ -104,8 +104,16 @@ namespace WindowsFormsApp1
                     switch (modo)
                     {
                         case ModoOperacion.Agregar:
-                            negocio.AgregarMarca(new Marca { Descripcion = textBox1.Text.Trim() });
-                            MessageBox.Show("Marca agregada correctamente");
+                            try
+                            {
+                                negocio.AgregarMarca(new Marca { Descripcion = textBox1.Text.Trim() });
+                                MessageBox.Show("Marca agregada correctamente", "Éxito",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Close();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message, "Error al Guardar Marca",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
                             break;
 
                         case ModoOperacion.Modificar:
@@ -135,8 +143,16 @@ namespace WindowsFormsApp1
                     switch (modo)
                     {
                         case ModoOperacion.Agregar:
-                            negocio.AgregarCategoria(new Categoria { Descripcion = textBox1.Text.Trim() });
-                            MessageBox.Show("Categoría agregada correctamente");
+                            try
+                            {
+                                negocio.AgregarCategoria(new Categoria { Descripcion = textBox1.Text.Trim() });
+                                MessageBox.Show("Categoría agregada correctamente", "Éxito",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Close();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message, "Error al Guardar Categoría",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
                             break;
 
                         case ModoOperacion.Modificar:

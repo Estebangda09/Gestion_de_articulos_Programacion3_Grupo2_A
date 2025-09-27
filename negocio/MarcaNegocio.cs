@@ -44,6 +44,11 @@ namespace negocio
         public void AgregarMarca(Marca marca)
         {
             //metodo para agregar marcas
+            if (string.IsNullOrWhiteSpace(marca.Descripcion))
+            {
+                
+                throw new ArgumentException("La descripción de la marca no puede estar vacía o contener solo espacios en blanco.");
+            }
             AccesoDatos datos = new AccesoDatos();
             try
             {

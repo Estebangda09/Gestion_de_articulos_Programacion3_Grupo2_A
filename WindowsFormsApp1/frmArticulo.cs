@@ -123,7 +123,7 @@ namespace WindowsFormsApp1
                     comboCategoria.SelectedIndex == -1 ||
                     comboMarca.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Por favor, complete todos los campos obligatorios.");
+                    MessageBox.Show("Por favor, complete todos los campos obligatorios. Codigo - Nombre - Descripcion");
                     return;
                 }
 
@@ -142,11 +142,19 @@ namespace WindowsFormsApp1
                 decimal precio;
                 if (decimal.TryParse(textPrecio.Text, out precio))
                 {
-                    _articulo.Precio = precio;
+                    if (precio >= 0)
+                    {
+                        _articulo.Precio = precio;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El precio no puede ser un valor negativo (menor a 0).", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("El precio ingresado no es válido.");
+                    MessageBox.Show("El precio ingresado no es válido. Asegúrese de usar solo numeros.", "Error de Formato", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 _articulo.Categoria = (Categoria)comboCategoria.SelectedItem;
@@ -160,8 +168,24 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    archivoNegocio.Agregar(_articulo);
-                    MessageBox.Show("Agregado satisfactoriamente");
+
+                    try
+                    {
+                        // 1. Intenta agregar el artículo
+                        archivoNegocio.Agregar(_articulo);
+                        MessageBox.Show("Artículo agregado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+
+
+                    }
+                    catch (Exception ex)
+                    {
+
+
+                        MessageBox.Show(ex.Message, "Ya existe un artículo con el código: " + _articulo.Codigo, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+
+                    }
                 }
 
             }

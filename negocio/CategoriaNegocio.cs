@@ -1,10 +1,11 @@
-﻿using System;
+﻿using dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using dominio;
 
 namespace negocio
 {
@@ -44,6 +45,11 @@ namespace negocio
 
         public void AgregarCategoria(Categoria categoria)
         {
+            if (string.IsNullOrWhiteSpace(categoria.Descripcion))
+            {
+
+                throw new ArgumentException("La descripción no puede estar vacía o contener solo espacios en blanco.");
+            }
             AccesoDatos datos = new AccesoDatos();
             try
             {

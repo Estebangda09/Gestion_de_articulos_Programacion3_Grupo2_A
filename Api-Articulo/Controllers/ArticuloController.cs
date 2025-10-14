@@ -25,7 +25,7 @@ namespace Api_Articulo.Controllers
         // GET: api/Articulo/N
         public HttpResponseMessage Get(int id)
         {
-            var lista = new ArchivoNegocio().Listar();
+            List<Articulo> lista = new ArchivoNegocio().Listar();
 
             if (id <= 0)
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "El id debe ser mayor a 0.");
@@ -114,8 +114,32 @@ namespace Api_Articulo.Controllers
         }
 
         // DELETE: api/Articulo/5
-        public void Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
+            ArchivoNegocio negocio = new ArchivoNegocio();
+            List<Articulo> lista = new List<Articulo>();
+            lista = negocio.Listar();
+
+            if (id <= 0)
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "El id debe ser mayor a 0.");
+
+            Articulo articulo = null;
+            foreach (var x in lista)
+            {
+                if (x.Id == id)
+                {
+                    articulo = x;
+                    break;
+                }
+            }
+
+            if (articulo == null)
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, $"No existe el artículo con id {id}.");
+
+            string nombre = articulo.Nombre;
+            negocio.Eliminar(id);
+
+            return Request.CreateResponse(HttpStatusCode.OK, $"Articulo {id} - '{nombre}' ha sido eliminado con exito de la base de datos.");
         }
     }
 }

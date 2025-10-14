@@ -9,9 +9,6 @@ namespace Api_Articulo.Models
 {
     public class ArticuloDto
     {
-        
-
-        
         public string Codigo { get; set; }
         public string Nombre { get; set; }
         
@@ -23,13 +20,7 @@ namespace Api_Articulo.Models
 
         public int IDMarca { get; set; }
         
-
         public decimal Precio { get; set; }
         public string ImagenUrl { get; set; }
-
-
-
-
-
     }
 }

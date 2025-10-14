@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using dominio;
 using negocio;
+using Api_Articulo.Models;
 
 namespace Api_Articulo.Controllers
 {
@@ -30,8 +31,12 @@ namespace Api_Articulo.Controllers
         }
 
         // POST: api/Articulo
-        public void Post([FromBody]string value)
+        public void Post([FromBody]ArticuloDto articulo)
         {
+
+
+
+
         }
 
         // PUT: api/Articulo/5

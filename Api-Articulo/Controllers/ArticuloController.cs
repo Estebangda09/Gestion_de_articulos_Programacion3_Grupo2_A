@@ -22,13 +22,28 @@ namespace Api_Articulo.Controllers
 
         }
 
-        // GET: api/Articulo/5
-        public Articulo Get(int id)
+        // GET: api/Articulo/N
+        public HttpResponseMessage Get(int id)
         {
-            ArchivoNegocio negocio = new ArchivoNegocio();
-            List <Articulo> lista = negocio.Listar();
+            var lista = new ArchivoNegocio().Listar();
 
-            return lista.Find(x=> x.Id == id);
+            if (id <= 0)
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "El id debe ser mayor a 0.");
+
+            Articulo articulo = null;
+            foreach (var x in lista)
+            {
+                if (x.Id == id)
+                {
+                    articulo = x;
+                    break;
+                }
+            }
+
+            if (articulo == null)
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, $"No existe el artículo con id {id}.");
+
+            return Request.CreateResponse(HttpStatusCode.OK, articulo);
         }
 
         // POST: api/Articulo

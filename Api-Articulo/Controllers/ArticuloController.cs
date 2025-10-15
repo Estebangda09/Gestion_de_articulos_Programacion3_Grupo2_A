@@ -141,5 +141,32 @@ namespace Api_Articulo.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, $"Articulo {id} - '{nombre}' ha sido eliminado con exito de la base de datos.");
         }
+
+        //Modificar api/Articulo/{id}
+        
+        public IHttpActionResult ModificarProducto(int id, [FromBody] Articulo articulo)
+        {
+            if (id != articulo.Id)
+            {
+                return BadRequest("El ID de la URL no coincide con el ID del producto enviado.");
+            }
+
+            try
+            {
+                ArchivoNegocio archivoNegocio = new ArchivoNegocio();
+                if (!archivoNegocio.existe(id))
+                {
+                    return NotFound(); 
+                }
+
+                archivoNegocio.Modificar(articulo);
+
+                return Ok("Producto modificado correctamente.");
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
     }
 }

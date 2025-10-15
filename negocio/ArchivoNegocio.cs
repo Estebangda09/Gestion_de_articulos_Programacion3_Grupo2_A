@@ -208,6 +208,29 @@ namespace negocio
             }
 
         }
+       
+        public bool existe(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                // Usamos COUNT(1) que es ligeramente más óptimo para solo verificar existencia.
+                datos.SetearConsulta("SELECT COUNT(1) FROM Articulos WHERE Id = @Id");
+                datos.SetearParametros("@Id", id);
+                // EjecutarEscalar es perfecto para obtener un único valor (como una cuenta).
+                int count = Convert.ToInt32(datos.EjecutarEscalar());
+
+                return count > 0;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
     }
 
 }

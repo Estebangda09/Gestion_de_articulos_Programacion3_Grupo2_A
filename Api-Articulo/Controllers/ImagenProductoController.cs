@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Web.Http;
 using negocio;
@@ -51,4 +51,4 @@ public class ImagenProductoController : ApiController
             return InternalServerError(ex);
         }
     }
-}
+}*/
